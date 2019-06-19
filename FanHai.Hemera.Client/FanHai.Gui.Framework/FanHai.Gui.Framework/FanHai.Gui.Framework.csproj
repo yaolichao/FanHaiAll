@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76952B53-9112-4A68-A271-94C9EE83AA99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Gui.Framework</RootNamespace>
+    <AssemblyName>FanHai.Gui.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.BonusSkins.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\FanHai.Gui.Framework.StartUp\Properties\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Commands\AutostartCommands.cs" />
+    <Compile Include="Commands\ReLoginCommand.cs" />
+    <Compile Include="Commands\WindowCommands.cs" />
+    <Compile Include="Commands\MenuItemBuilders.cs" />
+    <Compile Include="Commands\ToolsCommands.cs" />
+    <Compile Include="Commands\HelpCommands.cs" />
+    <Compile Include="Commands\FileCommands.cs" />
+    <Compile Include="Commands\HidePadCommand.cs" />
+    <Compile Include="Gui\BrowserDisplayBinding\BrowserCommands.cs" />
+    <Compile Include="Gui\BrowserDisplayBinding\SchemeExtension.cs" />
+    <Compile Include="Gui\BrowserDisplayBinding\HtmlViewPane.cs" />
+    <Compile Include="Gui\AbstractViewContent.cs" />
+    <Compile Include="Gui\BrowserDisplayBinding\ExtendedWebBrowser.cs" />
+    <Compile Include="Gui\Components\StatusBar\SdStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gui\ContentInterfaces\IClipboardHandler.cs" />
+    <Compile Include="Gui\ContentInterfaces\ICanBeDirty.cs" />
+    <Compile Include="Gui\Dialogs\AbstractOptionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\LoginDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\LoginDialog.Designer.cs">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Dialogs\OptionPanels\FrameworkOptions\SelectCulturePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\TreeViewOptions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\OptionPanels\FrameworkOptions\FullscreenPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\FanHaiFrameworkAboutPanels.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\CommonAboutDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\IViewContent.cs" />
+    <Compile Include="Gui\IWorkbenchWindow.cs" />
+    <Compile Include="Gui\IWorkbenchLayout.cs" />
+    <Compile Include="Gui\IWorkbench.cs" />
+    <Compile Include="Gui\Pads\FileScout.cs" />
+    <Compile Include="Gui\Pads\ErrorList\ErrorListToolbarCommands.cs" />
+    <Compile Include="Gui\Pads\ErrorList\ErrorListPad.cs" />
+    <Compile Include="Gui\WorkbenchSingleton.cs" />
+    <Compile Include="Gui\Workbench\Layouts\LayoutConfiguration.cs" />
+    <Compile Include="Gui\Workbench\Layouts\MyMent.cs" />
+    <Compile Include="Gui\Workbench\Layouts\SdiWorkbenchLayout.cs" />
+    <Compile Include="Gui\Workbench\SingleInstanceHelper.cs" />
+    <Compile Include="Gui\Workbench\DefaultWorkbench.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Workbench\Layouts\SdiWorkspaceWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Workbench\Layouts\SimpleWorkbenchLayout.cs" />
+    <Compile Include="Gui\Workbench\ViewContentEventHandler.cs" />
+    <Compile Include="Gui\AbstractPadContent.cs" />
+    <Compile Include="Gui\XmlForms\BaseFanHaiFrameworkUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\XmlForms\BaseFanHaiFrameworkpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XmlForms\Lib\XmlUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\XmlForms\FanHaiFrameworkStringValueFilter.cs" />
+    <Compile Include="Gui\IProgressMonitor.cs" />
+    <Compile Include="Gui\IPadContent.cs" />
+    <Compile Include="Gui\XmlForms\FanHaiFrameworkPropertyValueCreator.cs" />
+    <Compile Include="Gui\XmlForms\Lib\StringWrapper.cs" />
+    <Compile Include="Gui\XmlForms\Lib\DefaultObjectCreator.cs" />
+    <Compile Include="Gui\XmlForms\Lib\IPropertyValueCreator.cs" />
+    <Compile Include="Gui\XmlForms\Lib\IObjectCreator.cs" />
+    <Compile Include="Gui\XmlForms\Lib\IStringValueFilter.cs" />
+    <Compile Include="Gui\XmlForms\Lib\XmlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XmlForms\Lib\XmlLoader.cs" />
+    <Compile Include="Internal\ConditionEvaluators\ActiveWindowStateConditionEvaluator.cs" />
+    <Compile Include="Internal\ConditionEvaluators\WindowActiveConditionEvaluator.cs" />
+    <Compile Include="Internal\Doozers\DefaultDialogPanelDescriptor.cs" />
+    <Compile Include="Internal\Doozers\DialogPanelDoozer.cs" />
+    <Compile Include="Internal\Doozers\IDialogPanelDescriptor.cs" />
+    <Compile Include="Internal\Doozers\IDialogPanel.cs" />
+    <Compile Include="Internal\Doozers\PadDoozer.cs" />
+    <Compile Include="Internal\Doozers\PadDescriptor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Gui\Workbench\DefaultWorkbench.resx">
+      <DependentUpon>DefaultWorkbench.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CommonAboutDialog.xfrm" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IconService.cs" />
+    <Compile Include="Services\DisplayBinding\DisplayBindingDescriptor.cs" />
+    <Compile Include="Services\DisplayBinding\DisplayBindingDoozer.cs" />
+    <Compile Include="Services\DisplayBinding\DisplayBindingService.cs" />
+    <Compile Include="Services\DisplayBinding\ExternalProcessDisplayBinding.cs" />
+    <Compile Include="Services\DisplayBinding\IDisplayBinding.cs" />
+    <Compile Include="Services\DisplayBinding\ISecondaryDisplayBinding.cs" />
+    <Compile Include="Services\DisplayBinding\ShellExecuteDisplayBinding.cs" />
+    <Compile Include="Services\Language\Language.cs" />
+    <Compile Include="Services\Language\LanguageService.cs" />
+    <Compile Include="Services\NavigationService\NavigationService.cs" />
+    <Compile Include="Services\NavigationService\INavigationPoint.cs" />
+    <Compile Include="Services\ParserService\ParserService.cs" />
+    <Compile Include="Services\StatusBar\StatusBarService.cs" />
+    <Compile Include="Uc\WOListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Uc\WOListView.Designer.cs">
+      <DependentUpon>WOListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uc\WorkOrderBuild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uc\WorkOrderBuild.Designer.cs">
+      <DependentUpon>WorkOrderBuild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uc\WorkOrderItemSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uc\WorkOrderItemSetting.Designer.cs">
+      <DependentUpon>WorkOrderItemSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\NativeMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.UDA\FanHai.Hemera.Utils.UDA.csproj">
+      <Project>{E8BEC5DC-6B84-49BF-9E47-A9DC96633E5F}</Project>
+      <Name>FanHai.Hemera.Utils.UDA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Gui.Core.WinForms\FanHai.Gui.Core.WinForms.csproj">
+      <Project>{311C6BE4-E4CD-4D59-AB54-72E5F90B2C28}</Project>
+      <Name>FanHai.Gui.Core.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Gui.Framework.Widgets\FanHai.Gui.Framework.Widgets.csproj">
+      <Project>{C847F093-DA8C-41F4-B1C1-A6419631BDA6}</Project>
+      <Name>FanHai.Gui.Framework.Widgets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\Dialogs\LoginDialog.resx">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FullscreenPanel.xfrm" />
+    <EmbeddedResource Include="Resources\TreeViewOptionsDialog.xfrm" />
+    <EmbeddedResource Include="Uc\WOListView.resx">
+      <DependentUpon>WOListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uc\WorkOrderBuild.resx">
+      <DependentUpon>WorkOrderBuild.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uc\WorkOrderItemSetting.resx">
+      <DependentUpon>WorkOrderItemSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bin\FanHai.Gui.Framework.dll" />
+    <Content Include="Bin\FanHai.Gui.Framework.pdb" />
+    <EmbeddedResource Include="Resources\home.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo ------Data
+echo ------Libs
+echo ------Settings
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Data"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Data"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Settings"  mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Settings"
+
+
+echo --Copy compiled dll And debug pdb file
+xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

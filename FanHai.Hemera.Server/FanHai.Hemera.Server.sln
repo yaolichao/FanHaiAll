@@ -1,0 +1,218 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FanHai.Hemera.Servers", "FanHai.Hemera.Servers", "{40F3FD6C-663A-426F-B15E-00ADFE9B1084}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FanHai.Hemera.Services", "FanHai.Hemera.Services", "{572DE8D3-E3D0-4C7E-AC5F-5EBAE00697D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FanHai.Hemera.Modules", "FanHai.Hemera.Modules", "{B74CDB74-8532-4176-B65A-8824BA8DD6AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FanHai.Hemera.Common", "FanHai.Hemera.Common", "{E71F48DF-2B63-4F64-8A44-94E88829252E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FanHai.Hemera.Share", "FanHai.Hemera.Share", "{15B3CEA4-7802-426F-A76A-F2A425F58945}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{A3D4D047-A2F2-4D81-9A2A-731D88908415}"
+	ProjectSection(SolutionItems) = preProject
+		FanHai.Hemera.Common\Libs\Autofac License.txt = FanHai.Hemera.Common\Libs\Autofac License.txt
+		FanHai.Hemera.Common\Libs\Autofac.Configuration.dll = FanHai.Hemera.Common\Libs\Autofac.Configuration.dll
+		FanHai.Hemera.Common\Libs\Autofac.dll = FanHai.Hemera.Common\Libs\Autofac.dll
+		FanHai.Hemera.Common\Libs\Autofac.XML = FanHai.Hemera.Common\Libs\Autofac.XML
+		FanHai.Hemera.Common\Libs\Interop.Domino.dll = FanHai.Hemera.Common\Libs\Interop.Domino.dll
+		FanHai.Hemera.Common\Libs\Interop.LabelManager2.dll = FanHai.Hemera.Common\Libs\Interop.LabelManager2.dll
+		FanHai.Hemera.Common\Libs\log4net.dll = FanHai.Hemera.Common\Libs\log4net.dll
+		FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Common.dll = FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Common.dll
+		FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Common.xml = FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Common.xml
+		FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Data.dll = FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Data.dll
+		FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Data.xml = FanHai.Hemera.Common\Libs\Microsoft.Practices.EnterpriseLibrary.Data.xml
+		FanHai.Hemera.Common\Libs\rscp4n.dll = FanHai.Hemera.Common\Libs\rscp4n.dll
+		FanHai.Hemera.Common\Libs\sapnco.dll = FanHai.Hemera.Common\Libs\sapnco.dll
+		FanHai.Hemera.Common\Libs\sapnco_utils.dll = FanHai.Hemera.Common\Libs\sapnco_utils.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Servers.Main", "FanHai.Hemera.Servers\FanHai.Hemera.Servers.Main\FanHai.Hemera.Servers.Main.csproj", "{DF0705DD-8D58-43FC-ACD9-BE32D0E2A0FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Servers.WipJobAutoTrack", "FanHai.Hemera.Servers\FanHai.Hemera.Servers.WipJobAutoTrack\FanHai.Hemera.Servers.WipJobAutoTrack.csproj", "{79898F36-38DE-4A43-9C1B-F848C2836BC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Services.Main", "FanHai.Hemera.Services\FanHai.Hemera.Services.Main\FanHai.Hemera.Services.Main.csproj", "{D86E14FF-DDA3-4E9B-90B5-23DF67540B75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Services.WipJobAutoTrack", "FanHai.Hemera.Services\FanHai.Hemera.Services.WipJobAutoTrack\FanHai.Hemera.Services.WipJobAutoTrack.csproj", "{595B79C0-0A0E-4418-BDA2-989666DDB0B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.EDC", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.EDC\FanHai.Hemera.Modules.EDC.csproj", "{3602CD5D-AC2D-4E45-83D9-6736C446A5E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.EMS", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.EMS\FanHai.Hemera.Modules.EMS.csproj", "{95E3D612-F53F-439B-88B7-24C291DA2B9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.RBAC", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.RBAC\FanHai.Hemera.Modules.RBAC.csproj", "{DE55A743-7860-45A4-AC22-B1C818533D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.FMM", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.FMM\FanHai.Hemera.Modules.FMM.csproj", "{578BCCF1-4BAD-44AB-BE34-E868E8DFA8A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.SPC", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.SPC\FanHai.Hemera.Modules.SPC.csproj", "{E90331A7-8980-4B26-95B6-B6B98CD243CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.MM", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.MM\FanHai.Hemera.Modules.MM.csproj", "{352906D9-45BD-4B42-9C02-76781D8F6F1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.Wip", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.Wip\FanHai.Hemera.Modules.Wip.csproj", "{6E3DD9BF-2867-4A63-8CAC-2039F79150EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.WipJob", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.WipJob\FanHai.Hemera.Modules.WipJob.csproj", "{43D8776B-BFA9-4A3C-9407-F44A099EC7D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.UDA", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.UDA\FanHai.Hemera.Modules.UDA.csproj", "{BA2CF486-88B2-4C35-BDA9-1EA77FDB5E46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Share.Common", "..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj", "{59FF5D3C-261A-490A-83F0-E1C84DB40433}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Share.Constants", "..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj", "{8205E3EE-074B-4867-AA64-52CC42C4AC01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Share.Interface", "..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj", "{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.Common", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.Common\FanHai.Hemera.Modules.Common.csproj", "{E35A1FA2-B31D-4301-BA6B-C75086B4C7CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules", "FanHai.Hemera.Modules\FanHai.Hemera.Modules\FanHai.Hemera.Modules.csproj", "{510B8DBA-00C0-4B23-B9FD-28A0BDDE17BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Utils", "FanHai.Hemera.Common\FanHai.Hemera.Utils\FanHai.Hemera.Utils.csproj", "{C5769BCE-2DDE-4EEB-AC66-5B9F994638E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.SAP", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.SAP\FanHai.Hemera.Modules.SAP.csproj", "{9FBD4A36-FF08-42F0-81F5-52F1081F0BE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.WMS", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.WMS\FanHai.Hemera.Modules.WMS.csproj", "{A22E223C-4C08-4CA4-A3F3-2FC55FD58558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.IVTest", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.IVTest\FanHai.Hemera.Modules.IVTest.csproj", "{6F76706C-A3BD-4F59-A771-1921813AE0D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanHai.Hemera.Modules.WARK", "FanHai.Hemera.Modules\FanHai.Hemera.Modules.WARK\FanHai.Hemera.Modules.WARK.csproj", "{FF2B99FF-E1DD-42F5-8A85-2DCD21960903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astronergy.Modules.WMS", "FanHai.Hemera.Modules\Astronergy.Modules.WMS\Astronergy.Modules.WMS.csproj", "{77F10A96-C1C6-4E74-ABDC-FF6F844D19EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF0705DD-8D58-43FC-ACD9-BE32D0E2A0FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0705DD-8D58-43FC-ACD9-BE32D0E2A0FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0705DD-8D58-43FC-ACD9-BE32D0E2A0FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0705DD-8D58-43FC-ACD9-BE32D0E2A0FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79898F36-38DE-4A43-9C1B-F848C2836BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79898F36-38DE-4A43-9C1B-F848C2836BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79898F36-38DE-4A43-9C1B-F848C2836BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79898F36-38DE-4A43-9C1B-F848C2836BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86E14FF-DDA3-4E9B-90B5-23DF67540B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86E14FF-DDA3-4E9B-90B5-23DF67540B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86E14FF-DDA3-4E9B-90B5-23DF67540B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86E14FF-DDA3-4E9B-90B5-23DF67540B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{595B79C0-0A0E-4418-BDA2-989666DDB0B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595B79C0-0A0E-4418-BDA2-989666DDB0B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595B79C0-0A0E-4418-BDA2-989666DDB0B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595B79C0-0A0E-4418-BDA2-989666DDB0B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3602CD5D-AC2D-4E45-83D9-6736C446A5E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3602CD5D-AC2D-4E45-83D9-6736C446A5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3602CD5D-AC2D-4E45-83D9-6736C446A5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3602CD5D-AC2D-4E45-83D9-6736C446A5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E3D612-F53F-439B-88B7-24C291DA2B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E3D612-F53F-439B-88B7-24C291DA2B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E3D612-F53F-439B-88B7-24C291DA2B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E3D612-F53F-439B-88B7-24C291DA2B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE55A743-7860-45A4-AC22-B1C818533D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE55A743-7860-45A4-AC22-B1C818533D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE55A743-7860-45A4-AC22-B1C818533D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE55A743-7860-45A4-AC22-B1C818533D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{578BCCF1-4BAD-44AB-BE34-E868E8DFA8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{578BCCF1-4BAD-44AB-BE34-E868E8DFA8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{578BCCF1-4BAD-44AB-BE34-E868E8DFA8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{578BCCF1-4BAD-44AB-BE34-E868E8DFA8A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90331A7-8980-4B26-95B6-B6B98CD243CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90331A7-8980-4B26-95B6-B6B98CD243CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90331A7-8980-4B26-95B6-B6B98CD243CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90331A7-8980-4B26-95B6-B6B98CD243CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352906D9-45BD-4B42-9C02-76781D8F6F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352906D9-45BD-4B42-9C02-76781D8F6F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352906D9-45BD-4B42-9C02-76781D8F6F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352906D9-45BD-4B42-9C02-76781D8F6F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3DD9BF-2867-4A63-8CAC-2039F79150EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3DD9BF-2867-4A63-8CAC-2039F79150EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3DD9BF-2867-4A63-8CAC-2039F79150EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3DD9BF-2867-4A63-8CAC-2039F79150EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D8776B-BFA9-4A3C-9407-F44A099EC7D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D8776B-BFA9-4A3C-9407-F44A099EC7D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D8776B-BFA9-4A3C-9407-F44A099EC7D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D8776B-BFA9-4A3C-9407-F44A099EC7D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA2CF486-88B2-4C35-BDA9-1EA77FDB5E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA2CF486-88B2-4C35-BDA9-1EA77FDB5E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA2CF486-88B2-4C35-BDA9-1EA77FDB5E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA2CF486-88B2-4C35-BDA9-1EA77FDB5E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59FF5D3C-261A-490A-83F0-E1C84DB40433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59FF5D3C-261A-490A-83F0-E1C84DB40433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59FF5D3C-261A-490A-83F0-E1C84DB40433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59FF5D3C-261A-490A-83F0-E1C84DB40433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8205E3EE-074B-4867-AA64-52CC42C4AC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8205E3EE-074B-4867-AA64-52CC42C4AC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8205E3EE-074B-4867-AA64-52CC42C4AC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8205E3EE-074B-4867-AA64-52CC42C4AC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E35A1FA2-B31D-4301-BA6B-C75086B4C7CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E35A1FA2-B31D-4301-BA6B-C75086B4C7CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E35A1FA2-B31D-4301-BA6B-C75086B4C7CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E35A1FA2-B31D-4301-BA6B-C75086B4C7CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{510B8DBA-00C0-4B23-B9FD-28A0BDDE17BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{510B8DBA-00C0-4B23-B9FD-28A0BDDE17BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{510B8DBA-00C0-4B23-B9FD-28A0BDDE17BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{510B8DBA-00C0-4B23-B9FD-28A0BDDE17BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5769BCE-2DDE-4EEB-AC66-5B9F994638E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5769BCE-2DDE-4EEB-AC66-5B9F994638E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5769BCE-2DDE-4EEB-AC66-5B9F994638E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5769BCE-2DDE-4EEB-AC66-5B9F994638E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FBD4A36-FF08-42F0-81F5-52F1081F0BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBD4A36-FF08-42F0-81F5-52F1081F0BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FBD4A36-FF08-42F0-81F5-52F1081F0BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FBD4A36-FF08-42F0-81F5-52F1081F0BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22E223C-4C08-4CA4-A3F3-2FC55FD58558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22E223C-4C08-4CA4-A3F3-2FC55FD58558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22E223C-4C08-4CA4-A3F3-2FC55FD58558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22E223C-4C08-4CA4-A3F3-2FC55FD58558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F76706C-A3BD-4F59-A771-1921813AE0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F76706C-A3BD-4F59-A771-1921813AE0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F76706C-A3BD-4F59-A771-1921813AE0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F76706C-A3BD-4F59-A771-1921813AE0D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF2B99FF-E1DD-42F5-8A85-2DCD21960903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF2B99FF-E1DD-42F5-8A85-2DCD21960903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF2B99FF-E1DD-42F5-8A85-2DCD21960903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF2B99FF-E1DD-42F5-8A85-2DCD21960903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F10A96-C1C6-4E74-ABDC-FF6F844D19EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F10A96-C1C6-4E74-ABDC-FF6F844D19EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F10A96-C1C6-4E74-ABDC-FF6F844D19EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F10A96-C1C6-4E74-ABDC-FF6F844D19EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3D4D047-A2F2-4D81-9A2A-731D88908415} = {E71F48DF-2B63-4F64-8A44-94E88829252E}
+		{DF0705DD-8D58-43FC-ACD9-BE32D0E2A0FD} = {40F3FD6C-663A-426F-B15E-00ADFE9B1084}
+		{79898F36-38DE-4A43-9C1B-F848C2836BC5} = {40F3FD6C-663A-426F-B15E-00ADFE9B1084}
+		{D86E14FF-DDA3-4E9B-90B5-23DF67540B75} = {572DE8D3-E3D0-4C7E-AC5F-5EBAE00697D0}
+		{595B79C0-0A0E-4418-BDA2-989666DDB0B0} = {572DE8D3-E3D0-4C7E-AC5F-5EBAE00697D0}
+		{3602CD5D-AC2D-4E45-83D9-6736C446A5E1} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{95E3D612-F53F-439B-88B7-24C291DA2B9A} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{DE55A743-7860-45A4-AC22-B1C818533D98} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{578BCCF1-4BAD-44AB-BE34-E868E8DFA8A3} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{E90331A7-8980-4B26-95B6-B6B98CD243CB} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{352906D9-45BD-4B42-9C02-76781D8F6F1D} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{6E3DD9BF-2867-4A63-8CAC-2039F79150EB} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{43D8776B-BFA9-4A3C-9407-F44A099EC7D3} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{BA2CF486-88B2-4C35-BDA9-1EA77FDB5E46} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{59FF5D3C-261A-490A-83F0-E1C84DB40433} = {15B3CEA4-7802-426F-A76A-F2A425F58945}
+		{8205E3EE-074B-4867-AA64-52CC42C4AC01} = {15B3CEA4-7802-426F-A76A-F2A425F58945}
+		{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254} = {15B3CEA4-7802-426F-A76A-F2A425F58945}
+		{E35A1FA2-B31D-4301-BA6B-C75086B4C7CA} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{510B8DBA-00C0-4B23-B9FD-28A0BDDE17BA} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{C5769BCE-2DDE-4EEB-AC66-5B9F994638E2} = {E71F48DF-2B63-4F64-8A44-94E88829252E}
+		{9FBD4A36-FF08-42F0-81F5-52F1081F0BE9} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{A22E223C-4C08-4CA4-A3F3-2FC55FD58558} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{6F76706C-A3BD-4F59-A771-1921813AE0D1} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{FF2B99FF-E1DD-42F5-8A85-2DCD21960903} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+		{77F10A96-C1C6-4E74-ABDC-FF6F844D19EB} = {B74CDB74-8532-4176-B65A-8824BA8DD6AB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC54D764-8113-45C9-8D7D-A9FE6FE5FB11}
+	EndGlobalSection
+EndGlobal

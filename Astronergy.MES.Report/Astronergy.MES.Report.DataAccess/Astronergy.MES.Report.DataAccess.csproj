@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0124613-BF2F-4491-AA99-18E02459C5AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Astronergy.MES.Report.DataAccess</RootNamespace>
+    <AssemblyName>Astronergy.MES.Report.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="org.in2bits.MyXls, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\org.in2bits.MyXls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDBAccess.cs" />
+    <Compile Include="Customer\SEReportDataAccess.cs" />
+    <Compile Include="DateTimeHelper.cs" />
+    <Compile Include="EQ\EQLotHistory.cs" />
+    <Compile Include="EQ\EQRunHistory.cs" />
+    <Compile Include="EQ\EQStatus.cs" />
+    <Compile Include="EQ\EquipmentAndOEE.cs" />
+    <Compile Include="Export.cs" />
+    <Compile Include="CommonFunction.cs" />
+    <Compile Include="CTMFunction.cs" />
+    <Compile Include="FlashDataExport\ConergyFlashDataExportDataAccess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quality\DefectDisplayDataAccess.cs" />
+    <Compile Include="Quality\QualityProductDataAccess.cs" />
+    <Compile Include="Quality\PassYieldDataAccess.cs" />
+    <Compile Include="Quality\ELDefectYieldDataAccess.cs" />
+    <Compile Include="WareHouse\WareHouseRptData.cs" />
+    <Compile Include="WareHouse\WareHouseDate.cs" />
+    <Compile Include="WIP\CTMReportFunction.cs" />
+    <Compile Include="WIP\DailyReportEntity.cs" />
+    <Compile Include="WIP\FragmentationRateData.cs" />
+    <Compile Include="WIP\LotData4LYGAccess.cs" />
+    <Compile Include="WIP\PevlDataAccess.cs" />
+    <Compile Include="WIP\WipDisplayDataAccess.cs" />
+    <Compile Include="WIP\WipElDownLoadDataAccess.cs" />
+    <Compile Include="WIP\WipMoveDataAccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WIP\WipOutputDataAccess.cs" />
+    <Compile Include="WIP\LotDataAccess.cs" />
+    <Compile Include="WIP\PalletDataAccess.cs" />
+    <Compile Include="WIP\IVTestDataAccess.cs" />
+    <Compile Include="WIP\DailyReportDataAccess.cs" />
+    <Compile Include="WIP\FragmentationLineRateData.cs" />
+    <Compile Include="WIP\WipDisplayDataAccess_Line.cs" />
+    <Compile Include="WIP\OEMLotDataAccess.cs" />
+    <Compile Include="WIP\CorpTestDataAccess.cs" />
+    <Compile Include="WIP\OEMLotData4ZNCXAccess.cs" />
+    <Compile Include="WIP\OEMLotData4SkyPowerAccess.cs" />
+    <Compile Include="WIP\OEMLotData4AHBBXHccess.cs" />
+    <Compile Include="WIP\OEMLotData4ConergyAccess.cs" />
+    <Compile Include="WIP\OEMLotData4AzureAccess.cs" />
+    <Compile Include="WIP\OEMLotData4_20170721Access.cs" />
+    <Compile Include="WIP\OEMLotDataForAllAccess.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

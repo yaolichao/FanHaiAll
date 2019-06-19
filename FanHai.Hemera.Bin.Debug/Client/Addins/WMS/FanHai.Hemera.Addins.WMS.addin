@@ -1,0 +1,123 @@
+﻿<AddIn name        = "FanHai.Hemera.WMS"
+       author      = "FanHai"
+       copyright   = "Copyright 2019"
+       url         = "http://www.baidu.com"
+       description = "FanHai Hemera MES System, WMS"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.Addins.WMS" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.WMS.dll">
+    </Import >
+  </Runtime>
+
+  <!-- 入库单管理 -->
+  <Path name="/FanHaiFramework/Workbench/MainMenu/idStoreHouse/idInboundManagementMenu">
+    <!-- 入库单作业 -->
+    <MenuItem id		   = "idWarehouseWarrantManage"
+				label		   = "入库单管理"
+				icon		   = ""
+				shortcut     = ""
+				insertafter  = "idWarehouse"
+				insertbefore = ""
+				class		   = "FanHai.Hemera.Addins.WMS.WarehouseWarrantCommand"
+				privilegeId  = "8002000"/>
+    <!-- 入库单查询 -->
+    <MenuItem id		   = "idWarehouseWarrantQuery"
+				label		   = "入库单查询"
+				icon		   = ""
+				shortcut     = ""
+				insertafter  = "idWarehouseWarrantManage"
+				insertbefore = ""
+				class		   = "FanHai.Hemera.Addins.WMS.WarehouseWarrantQueryCommand"
+				privilegeId  = "8003000"/>
+    <!-- 入库单过账 -->
+    <MenuItem id		   = "idWarehouseWarrantSyn"
+				label		   = "入库单过账"
+				icon		   = ""
+				shortcut     = ""
+				insertafter  = "idWarehouseWarrantQuery"
+				insertbefore = ""
+				class		   = "FanHai.Hemera.Addins.WMS.WarehouseWarrantSynCommand"
+				privilegeId  = "8004000"/>
+    <!--待确定单据-->
+    <MenuItem id      = "idToBeSet"
+         label        = "待确定单据"
+         icon         = ""
+         shortcut     = ""
+         insertafter  = ""
+         insertbefore = ""
+         class        = "FanHai.Hemera.Addins.WMS.ToBeSetCommand"
+         privilegeId  = "8008000"/>
+  </Path>
+
+  <!-- 出货管理 -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idStoreHouse/idOutboundManagementMenu">
+    <!-- 出货作业 -->
+    <MenuItem id           = "idPalletShipment"
+                label        = "出货作业"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = ""
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.WMS.PalletShipmentCommand"
+                privilegeId  = "8005000"/>
+    <!-- 出货查询 -->
+    <MenuItem id           = "idPalletShipmentQuery"
+              label        = "出货查询"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idPalletShipment"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WMS.PalletShipmentQueryCommand"
+              privilegeId  = "8006000"/>
+    <!-- 货柜信息添加 -->
+    <MenuItem id           = "idUpdateContainerNo"
+              label        = "出货管理"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idPalletShipment"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WMS.UpdateContainerNoCommand"
+              privilegeId  = "8017000"/>
+    <!-- 外向交货单拣配 -->
+    <MenuItem id           = "idPickorderMan"
+              label        = "外向交货单拣配"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idPalletShipment"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WMS.PickOrderCommand"
+              privilegeId  = "8014000"/>
+    <!-- 外向交货查询 -->
+    <MenuItem id           = "idOutDeliveryQuerry"
+              label        = "外向交货查询"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idPickorderMan"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WMS.OutDeliveryQuerryCommand"
+              privilegeId  = "8015000"/>
+    <!-- 外向交货单修改 -->
+    <MenuItem id           = "idPickorderModify"
+              label        = "外向交货单修改"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idUpdateContainerNo"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WMS.PickModifyCommand"
+              privilegeId  = "8016000"/>
+    <!-- 出货冲销 -->
+    <MenuItem id		   = "idSterilisation"
+				label		   = "出货冲销"
+				icon		   = ""
+				shortcut     = ""
+				insertafter  = "idWarehouseWarrantSyn"
+				insertbefore = ""
+				class		   = "FanHai.Hemera.Addins.WMS.PalletShipmentsSterilisationCommand"
+				privilegeId  = "8007000"/>
+  </Path>
+</AddIn>

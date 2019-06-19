@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4844748-136C-452A-9D51-1B55F87DF526}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Astronergy.Addins.WMS</RootNamespace>
+    <AssemblyName>Astronergy.Addins.WMS</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\DevExpress.Data.v9.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\DevExpress.Utils.v9.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\OutBoundManagementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\OutBoundManagementControl.Designer.cs">
+      <DependentUpon>OutBoundManagementControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\OutboundQCControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\OutboundQCControl.Designer.cs">
+      <DependentUpon>OutboundQCControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ShowBillNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ShowBillNo.Designer.cs">
+      <DependentUpon>ShowBillNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\OutBoundManagementCommand.cs" />
+    <Compile Include="Menu\OutboundQCCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Src\OutBoundManagementVeiwContent.cs" />
+    <Compile Include="Src\OutboundQCViewContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Conf\Astronergy.Addins.WMS.addin" />
+    <None Include="Resources\status.png" />
+    <None Include="Resources\list-remove2.png" />
+    <None Include="Resources\document_go.png" />
+    <None Include="Resources\toolstrip-bk.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\system_search.png" />
+    <None Include="Resources\save_accept.png" />
+    <None Include="Resources\document-delete.png" />
+    <None Include="Resources\document-add.png" />
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\OutBoundManagementControl.resx">
+      <DependentUpon>OutBoundManagementControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OutboundQCControl.resx">
+      <DependentUpon>OutboundQCControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ShowBillNo.resx">
+      <DependentUpon>ShowBillNo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"          mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\AWMS"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\AWMS"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                       "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\AWMS" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                    "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\AWMS" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                         "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\AWMS" /R /Y /Q /D</PostBuildEvent>
+  </PropertyGroup>
+</Project>

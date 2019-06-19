@@ -1,0 +1,1531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A0J_QTY" xml:space="preserve">
+    <value>A0J_QTY</value>
+  </data>
+  <data name="A0J_QTY_D" xml:space="preserve">
+    <value>"终检"工序A0级量统计</value>
+  </data>
+  <data name="A0J_QTY_F" xml:space="preserve">
+    <value>A0级产出数量 块</value>
+  </data>
+  <data name="AJ_QTY" xml:space="preserve">
+    <value>AJ_QTY</value>
+  </data>
+  <data name="AJ_QTY_D" xml:space="preserve">
+    <value>"终检"工序A级量统计</value>
+  </data>
+  <data name="AJ_QTY_F" xml:space="preserve">
+    <value>A级产出数量 块</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>(C) 浙江正泰太阳能科技有限公司 版权所有</value>
+  </data>
+  <data name="CurrentPath" xml:space="preserve">
+    <value>浙江正泰太阳能科技有限公司</value>
+  </data>
+  <data name="ERJ_QTY" xml:space="preserve">
+    <value>ERJ_QTY</value>
+  </data>
+  <data name="ERJ_QTY_D" xml:space="preserve">
+    <value>"终检"工序二级品量统计</value>
+  </data>
+  <data name="ERJ_QTY_F" xml:space="preserve">
+    <value>二级品产出数量 块</value>
+  </data>
+  <data name="KJ_QTY" xml:space="preserve">
+    <value>KJ_QTY</value>
+  </data>
+  <data name="KJ_QTY_D" xml:space="preserve">
+    <value>"终检"工序客级量统计</value>
+  </data>
+  <data name="KJ_QTY_F" xml:space="preserve">
+    <value>客级产出数量 块</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>MES报表平台</value>
+  </data>
+  <data name="PER_CELL_CRUSH" xml:space="preserve">
+    <value>PER_CELL_CRUSH</value>
+  </data>
+  <data name="PER_CELL_CRUSH_D" xml:space="preserve">
+    <value>碎片数量/(电池片总投入量+总的碎片量)</value>
+  </data>
+  <data name="PER_CELL_CRUSH_F" xml:space="preserve">
+    <value>电池片碎片率（合计）</value>
+  </data>
+  <data name="PER_GR_A0J" xml:space="preserve">
+    <value>PER_GR_A0J</value>
+  </data>
+  <data name="PER_GR_A0J_D" xml:space="preserve">
+    <value>A0(入库A0等级)/（"入库"工序组件总块数）</value>
+  </data>
+  <data name="PER_GR_A0J_F" xml:space="preserve">
+    <value>入库：优品率（A0级以上）%</value>
+  </data>
+  <data name="PER_GR_AJ" xml:space="preserve">
+    <value>PER_GR_AJ</value>
+  </data>
+  <data name="PER_GR_AJ_D" xml:space="preserve">
+    <value>A(入库A等级)/（"入库"工序组件总块数）</value>
+  </data>
+  <data name="PER_GR_AJ_F" xml:space="preserve">
+    <value>入库：优品率（A级以上）%</value>
+  </data>
+  <data name="PER_GR_KJ" xml:space="preserve">
+    <value>PER_GR_KJ</value>
+  </data>
+  <data name="PER_GR_KJ_D" xml:space="preserve">
+    <value>客级(入库客级等级)/（"入库"工序组件总块数）</value>
+  </data>
+  <data name="PER_GR_KJ_F" xml:space="preserve">
+    <value>入库：优品率（客级以上）%</value>
+  </data>
+  <data name="PLAN_INPUT" xml:space="preserve">
+    <value>PLAN_INPUT</value>
+  </data>
+  <data name="PLAN_INPUT_D" xml:space="preserve">
+    <value>计划输入数据</value>
+  </data>
+  <data name="PLAN_INPUT_F" xml:space="preserve">
+    <value>投入计划 块</value>
+  </data>
+  <data name="PLAN_TOSTORE" xml:space="preserve">
+    <value>PLAN_TOSTORE</value>
+  </data>
+  <data name="PLAN_TOSTORE_D" xml:space="preserve">
+    <value>根据投入计划+1天（天数可以设置调整）（按天设，按周设，按月设）。天=月/月天数，天=周/周天数</value>
+  </data>
+  <data name="PLAN_TOSTORE_F" xml:space="preserve">
+    <value>入库计划（块）</value>
+  </data>
+  <data name="REL_EXCHG_IN_QTY" xml:space="preserve">
+    <value>REL_EXCHG_IN_QTY</value>
+  </data>
+  <data name="REL_EXCHG_IN_QTY_D" xml:space="preserve">
+    <value>从其他PROID转到当前查询PROID的量统计</value>
+  </data>
+  <data name="REL_EXCHG_IN_QTY_F" xml:space="preserve">
+    <value>实际转入组件（块）</value>
+  </data>
+  <data name="REL_EXCHG_OUT_QTY" xml:space="preserve">
+    <value>REL_EXCHG_OUT_QTY</value>
+  </data>
+  <data name="REL_EXCHG_OUT_QTY_D" xml:space="preserve">
+    <value>从当前PROID转到其他PROID的量统计</value>
+  </data>
+  <data name="REL_EXCHG_OUT_QTY_F" xml:space="preserve">
+    <value>实际转出组件（块）</value>
+  </data>
+  <data name="REL_INPUT" xml:space="preserve">
+    <value>REL_INPUT</value>
+  </data>
+  <data name="REL_INPUT_D" xml:space="preserve">
+    <value>"单串焊"工序MOVE OUT量统计</value>
+  </data>
+  <data name="REL_INPUT_F" xml:space="preserve">
+    <value>实际投入组件（块）</value>
+  </data>
+  <data name="REL_IQC_CELL_CRUSH" xml:space="preserve">
+    <value>REL_IQC_CELL_CRUSH</value>
+  </data>
+  <data name="REL_IQC_CELL_CRUSH_D" xml:space="preserve">
+    <value>(焊前)碎片量/(电池片总投入量+总的碎片量)</value>
+  </data>
+  <data name="REL_IQC_CELL_CRUSH_F" xml:space="preserve">
+    <value>电池片来料碎片率</value>
+  </data>
+  <data name="REL_OUT" xml:space="preserve">
+    <value>REL_OUT</value>
+  </data>
+  <data name="REL_OUT_D" xml:space="preserve">
+    <value>合计产出组件=实际投入+实际转入-实际转出</value>
+  </data>
+  <data name="REL_OUT_F" xml:space="preserve">
+    <value>合计产出组件 （块）</value>
+  </data>
+  <data name="REL_PRESS" xml:space="preserve">
+    <value>REL_PRESS</value>
+  </data>
+  <data name="REL_PRESS_CELL_CRUSH" xml:space="preserve">
+    <value>REL_PRESS_CELL_CRUSH</value>
+  </data>
+  <data name="REL_PRESS_CELL_CRUSH_D" xml:space="preserve">
+    <value>(焊后)碎片量/(电池片总投入量+总的碎片量)</value>
+  </data>
+  <data name="REL_PRESS_CELL_CRUSH_F" xml:space="preserve">
+    <value>电池片制程碎片率</value>
+  </data>
+  <data name="REL_PRESS_D" xml:space="preserve">
+    <value>"层压"工序的MOVE OUT量统计</value>
+  </data>
+  <data name="REL_PRESS_F" xml:space="preserve">
+    <value>实际层压产量（块）</value>
+  </data>
+  <data name="REL_TOSTORE_POWER" xml:space="preserve">
+    <value>REL_TOSTORE_POWER</value>
+  </data>
+  <data name="REL_TOSTORE_POWER_D" xml:space="preserve">
+    <value>"入库"工序的MOVE IN瓦数统计</value>
+  </data>
+  <data name="REL_TOSTORE_POWER_F" xml:space="preserve">
+    <value>实际入库组件 （兆瓦）</value>
+  </data>
+  <data name="REL_TOSTORE_QTY" xml:space="preserve">
+    <value>REL_TOSTORE_QTY</value>
+  </data>
+  <data name="REL_TOSTORE_QTY_D" xml:space="preserve">
+    <value>"入库"工序的MOVE IN量统计</value>
+  </data>
+  <data name="REL_TOSTORE_QTY_F" xml:space="preserve">
+    <value>实际入库组件（块）</value>
+  </data>
+  <data name="SANJ_QTY" xml:space="preserve">
+    <value>SANJ_QTY</value>
+  </data>
+  <data name="SANJ_QTY_D" xml:space="preserve">
+    <value>"终检"工序三级品量统计</value>
+  </data>
+  <data name="SANJ_QTY_F" xml:space="preserve">
+    <value>三级品产出数量 块</value>
+  </data>
+  <data name="SCRAP_QTY" xml:space="preserve">
+    <value>SCRAP_QTY</value>
+  </data>
+  <data name="SCRAP_QTY_D" xml:space="preserve">
+    <value>各工序报废量统计</value>
+  </data>
+  <data name="SCRAP_QTY_F" xml:space="preserve">
+    <value>报废品产出数量 块</value>
+  </data>
+  <data name="SITE_ALL_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_ALL_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_ALL_MOVEIN_QTY_D" xml:space="preserve">
+    <value>各工序在制片数量（各站统计）</value>
+  </data>
+  <data name="SITE_ALL_MOVEIN_QTY_F" xml:space="preserve">
+    <value>各站在制品数量</value>
+  </data>
+  <data name="SITE_ALL_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_ALL_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_ALL_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>各站产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_ALL_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>各站产出数量</value>
+  </data>
+  <data name="SITE_CHK_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_CHK_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_CHK_MOVEIN_QTY_D" xml:space="preserve">
+    <value>终检在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_CHK_MOVEIN_QTY_F" xml:space="preserve">
+    <value>终检在制片数量</value>
+  </data>
+  <data name="SITE_CHK_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_CHK_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_CHK_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>终检产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_CHK_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>终检产出数量</value>
+  </data>
+  <data name="SITE_CLEAN_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_CLEAN_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_CLEAN_MOVEIN_QTY_D" xml:space="preserve">
+    <value>清洁在制片数量（分站统计</value>
+  </data>
+  <data name="SITE_CLEAN_MOVEIN_QTY_F" xml:space="preserve">
+    <value>清洁在制片数量</value>
+  </data>
+  <data name="SITE_CLEAN_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_CLEAN_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_CLEAN_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>清洁产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_CLEAN_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>清洁产出数量</value>
+  </data>
+  <data name="SITE_CSTHK_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_CSTHK_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_CSTHK_MOVEIN_QTY_D" xml:space="preserve">
+    <value>客检在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_CSTHK_MOVEIN_QTY_F" xml:space="preserve">
+    <value>客检在制片数量</value>
+  </data>
+  <data name="SITE_CSTHK_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_CSTHK_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_CSTHK_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>客检产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_CSTHK_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>客检产出数量</value>
+  </data>
+  <data name="SITE_CY_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_CY_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_CY_MOVEIN_QTY_D" xml:space="preserve">
+    <value>层压在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_CY_MOVEIN_QTY_F" xml:space="preserve">
+    <value>层压在制片数量</value>
+  </data>
+  <data name="SITE_CY_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_CY_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_CY_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>层压产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_CY_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>层压产出数量</value>
+  </data>
+  <data name="SITE_ET_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_ET_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_ET_MOVEIN_QTY_D" xml:space="preserve">
+    <value>终测在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_ET_MOVEIN_QTY_F" xml:space="preserve">
+    <value>终测在制片数量</value>
+  </data>
+  <data name="SITE_ET_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_ET_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_ET_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>终测产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_ET_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>终测产出数量</value>
+  </data>
+  <data name="SITE_FS_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_FS_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_FS_MOVEIN_QTY_D" xml:space="preserve">
+    <value>敷设在制品数量（分站统计）</value>
+  </data>
+  <data name="SITE_FS_MOVEIN_QTY_F" xml:space="preserve">
+    <value>敷设在制品数量</value>
+  </data>
+  <data name="SITE_FS_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_FS_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_FS_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>敷设产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_FS_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>敷设产出数量</value>
+  </data>
+  <data name="SITE_PK_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_PK_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_PK_MOVEIN_QTY_D" xml:space="preserve">
+    <value>包装在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_PK_MOVEIN_QTY_F" xml:space="preserve">
+    <value>包装在制片数量</value>
+  </data>
+  <data name="SITE_PK_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_PK_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_PK_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>包装产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_PK_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>包装产出数量</value>
+  </data>
+  <data name="SITE_RED_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_RED_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_RED_MOVEIN_QTY_D" xml:space="preserve">
+    <value>红外在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_RED_MOVEIN_QTY_F" xml:space="preserve">
+    <value>红外在制片数量</value>
+  </data>
+  <data name="SITE_RED_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_RED_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_RED_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>红外产出数量（分站统计</value>
+  </data>
+  <data name="SITE_RED_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>红外产出数量</value>
+  </data>
+  <data name="SITE_REPAIR_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_REPAIR_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_REPAIR_MOVEIN_QTY_D" xml:space="preserve">
+    <value>返修在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_REPAIR_MOVEIN_QTY_F" xml:space="preserve">
+    <value>返修在制片数量</value>
+  </data>
+  <data name="SITE_REPAIR_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_REPAIR_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_REPAIR_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>返修在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_REPAIR_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>返修在制片数量</value>
+  </data>
+  <data name="SITE_STCHK_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_STCHK_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_STCHK_MOVEIN_QTY_D" xml:space="preserve">
+    <value>入库检验在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_STCHK_MOVEIN_QTY_F" xml:space="preserve">
+    <value>入库检验在制片数量</value>
+  </data>
+  <data name="SITE_STCHK_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_STCHK_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_STCHK_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>入库检验产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_STCHK_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>入库检验产出数量</value>
+  </data>
+  <data name="SITE_ST_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_ST_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_ST_MOVEIN_QTY_D" xml:space="preserve">
+    <value>入库在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_ST_MOVEIN_QTY_F" xml:space="preserve">
+    <value>入库在制片数量</value>
+  </data>
+  <data name="SITE_ST_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_ST_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_ST_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>入库产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_ST_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>入库产出数量</value>
+  </data>
+  <data name="SITE_WELD1_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_WELD1_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_WELD1_MOVEIN_QTY_D" xml:space="preserve">
+    <value>单焊在制品数量（分站统计）</value>
+  </data>
+  <data name="SITE_WELD1_MOVEIN_QTY_F" xml:space="preserve">
+    <value>单焊在制品数量</value>
+  </data>
+  <data name="SITE_WELD1_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_WELD1_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_WELD1_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>单焊产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_WELD1_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>单焊产出数量</value>
+  </data>
+  <data name="SITE_WELD2_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_WELD2_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_WELD2_MOVEIN_QTY_D" xml:space="preserve">
+    <value>串焊在制品数量（分站统计）</value>
+  </data>
+  <data name="SITE_WELD2_MOVEIN_QTY_F" xml:space="preserve">
+    <value>串焊在制品数量</value>
+  </data>
+  <data name="SITE_WELD2_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_WELD2_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_WELD2_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>串焊产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_WELD2_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>串焊产出数量</value>
+  </data>
+  <data name="SITE_ZK_MOVEIN_QTY" xml:space="preserve">
+    <value>SITE_ZK_MOVEIN_QTY</value>
+  </data>
+  <data name="SITE_ZK_MOVEIN_QTY_D" xml:space="preserve">
+    <value>装框在制片数量（分站统计）</value>
+  </data>
+  <data name="SITE_ZK_MOVEIN_QTY_F" xml:space="preserve">
+    <value>装框在制片数量</value>
+  </data>
+  <data name="SITE_ZK_MOVEOUT_QTY" xml:space="preserve">
+    <value>SITE_ZK_MOVEOUT_QTY</value>
+  </data>
+  <data name="SITE_ZK_MOVEOUT_QTY_D" xml:space="preserve">
+    <value>装框产出数量（分站统计）</value>
+  </data>
+  <data name="SITE_ZK_MOVEOUT_QTY_F" xml:space="preserve">
+    <value>装框产出数量</value>
+  </data>
+  <data name="WEIGHTING_CTM" xml:space="preserve">
+    <value>WEIGHTING_CTM</value>
+  </data>
+  <data name="WEIGHTING_CTM_D" xml:space="preserve">
+    <value>加权--组件CTM</value>
+  </data>
+  <data name="WEIGHTING_CTM_F" xml:space="preserve">
+    <value>加权--组件CTM</value>
+  </data>
+  <data name="WEIGHTING_EFFI" xml:space="preserve">
+    <value>WEIGHTING_EFFI</value>
+  </data>
+  <data name="WEIGHTING_EFFI_D" xml:space="preserve">
+    <value>例如效率为17,16（加权 16.5)</value>
+  </data>
+  <data name="WEIGHTING_EFFI_F" xml:space="preserve">
+    <value>加权--投片转换效率</value>
+  </data>
+  <data name="DAILYREPORTPROJECT" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="FORMULADESCRIPTION" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="D100" xml:space="preserve">
+    <value>D100</value>
+  </data>
+  <data name="D100_D" xml:space="preserve">
+    <value>单焊在制品数量（分站统计）</value>
+  </data>
+  <data name="D100_F" xml:space="preserve">
+    <value>单串焊在制品数量</value>
+  </data>
+  <data name="D101" xml:space="preserve">
+    <value>D101</value>
+  </data>
+  <data name="D101_D" xml:space="preserve">
+    <value>敷设在制品数量（分站统计）</value>
+  </data>
+  <data name="D101_F" xml:space="preserve">
+    <value>敷设在制品数量</value>
+  </data>
+  <data name="D102" xml:space="preserve">
+    <value>D102</value>
+  </data>
+  <data name="D102_D" xml:space="preserve">
+    <value>红外在制品数量（分站统计）</value>
+  </data>
+  <data name="D102_F" xml:space="preserve">
+    <value>红外在制品数量</value>
+  </data>
+  <data name="D103" xml:space="preserve">
+    <value>D103</value>
+  </data>
+  <data name="D103_D" xml:space="preserve">
+    <value>层压在制品数量（分站统计）</value>
+  </data>
+  <data name="D103_F" xml:space="preserve">
+    <value>层压在制品数量</value>
+  </data>
+  <data name="D104" xml:space="preserve">
+    <value>D104</value>
+  </data>
+  <data name="D104_D" xml:space="preserve">
+    <value>装框在制品数量（分站统计）</value>
+  </data>
+  <data name="D104_F" xml:space="preserve">
+    <value>装框在制品数量</value>
+  </data>
+  <data name="D105" xml:space="preserve">
+    <value>D105</value>
+  </data>
+  <data name="D105_D" xml:space="preserve">
+    <value>清洁在制品数量（分站统计）</value>
+  </data>
+  <data name="D105_F" xml:space="preserve">
+    <value>清洁在制品数量</value>
+  </data>
+  <data name="D106" xml:space="preserve">
+    <value>D106</value>
+  </data>
+  <data name="D106_D" xml:space="preserve">
+    <value>终测在制品数量（分站统计）</value>
+  </data>
+  <data name="D106_F" xml:space="preserve">
+    <value>终测在制品数量</value>
+  </data>
+  <data name="D107" xml:space="preserve">
+    <value>D107</value>
+  </data>
+  <data name="D107_D" xml:space="preserve">
+    <value>终检在制品数量（分站统计）</value>
+  </data>
+  <data name="D107_F" xml:space="preserve">
+    <value>终检在制品数量</value>
+  </data>
+  <data name="D108" xml:space="preserve">
+    <value>D108</value>
+  </data>
+  <data name="D108_D" xml:space="preserve">
+    <value>包装在制品数量（分站统计）</value>
+  </data>
+  <data name="D108_F" xml:space="preserve">
+    <value>包装在制品数量</value>
+  </data>
+  <data name="D109" xml:space="preserve">
+    <value>D109</value>
+  </data>
+  <data name="D109_D" xml:space="preserve">
+    <value>入库检验在制品数量（分站统计）</value>
+  </data>
+  <data name="D109_F" xml:space="preserve">
+    <value>入库检验在制品数量</value>
+  </data>
+  <data name="D110" xml:space="preserve">
+    <value>D110</value>
+  </data>
+  <data name="D110_D" xml:space="preserve">
+    <value>入库在制品数量（分站统计）</value>
+  </data>
+  <data name="D110_F" xml:space="preserve">
+    <value>入库在制品数量</value>
+  </data>
+  <data name="D111" xml:space="preserve">
+    <value>D111</value>
+  </data>
+  <data name="D111_D" xml:space="preserve">
+    <value>IPQC在制品数量（分站统计）</value>
+  </data>
+  <data name="D111_F" xml:space="preserve">
+    <value>IPQC在制品数量</value>
+  </data>
+  <data name="D112" xml:space="preserve">
+    <value>D112</value>
+  </data>
+  <data name="D112_D" xml:space="preserve">
+    <value>返修在制品数量（分站统计）</value>
+  </data>
+  <data name="D112_F" xml:space="preserve">
+    <value>返修在制品数量</value>
+  </data>
+  <data name="D113" xml:space="preserve">
+    <value>D113</value>
+  </data>
+  <data name="D113_D" xml:space="preserve">
+    <value>物料在制品数量（分站统计）</value>
+  </data>
+  <data name="D113_F" xml:space="preserve">
+    <value>物料在制品数量</value>
+  </data>
+  <data name="E100" xml:space="preserve">
+    <value>E100</value>
+  </data>
+  <data name="E100_D" xml:space="preserve">
+    <value>单焊产出数量（分站统计）</value>
+  </data>
+  <data name="E100_F" xml:space="preserve">
+    <value>单串焊产出数量</value>
+  </data>
+  <data name="E101" xml:space="preserve">
+    <value>E101</value>
+  </data>
+  <data name="E101_D" xml:space="preserve">
+    <value>敷设产出数量（分站统计）</value>
+  </data>
+  <data name="E101_F" xml:space="preserve">
+    <value>敷设产出数量</value>
+  </data>
+  <data name="E102" xml:space="preserve">
+    <value>E102</value>
+  </data>
+  <data name="E102_D" xml:space="preserve">
+    <value>红外产出数量（分站统计）</value>
+  </data>
+  <data name="E102_F" xml:space="preserve">
+    <value>红外产出数量</value>
+  </data>
+  <data name="E103" xml:space="preserve">
+    <value>E103</value>
+  </data>
+  <data name="E103_D" xml:space="preserve">
+    <value>层压产出数量（分站统计）</value>
+  </data>
+  <data name="E103_F" xml:space="preserve">
+    <value>层压产出数量</value>
+  </data>
+  <data name="E104" xml:space="preserve">
+    <value>E104</value>
+  </data>
+  <data name="E104_D" xml:space="preserve">
+    <value>装框产出数量（分站统计）</value>
+  </data>
+  <data name="E104_F" xml:space="preserve">
+    <value>装框产出数量</value>
+  </data>
+  <data name="E105" xml:space="preserve">
+    <value>E105</value>
+  </data>
+  <data name="E105_D" xml:space="preserve">
+    <value>清洁产出数量（分站统计）</value>
+  </data>
+  <data name="E105_F" xml:space="preserve">
+    <value>清洁产出数量</value>
+  </data>
+  <data name="E106" xml:space="preserve">
+    <value>E106</value>
+  </data>
+  <data name="E106_D" xml:space="preserve">
+    <value>终测产出数量（分站统计）</value>
+  </data>
+  <data name="E106_F" xml:space="preserve">
+    <value>终测产出数量</value>
+  </data>
+  <data name="E107" xml:space="preserve">
+    <value>E107</value>
+  </data>
+  <data name="E107_D" xml:space="preserve">
+    <value>终检产出数量（分站统计）</value>
+  </data>
+  <data name="E107_F" xml:space="preserve">
+    <value>终检产出数量</value>
+  </data>
+  <data name="E108" xml:space="preserve">
+    <value>E108</value>
+  </data>
+  <data name="E108_D" xml:space="preserve">
+    <value>包装产出数量（分站统计）</value>
+  </data>
+  <data name="E108_F" xml:space="preserve">
+    <value>包装产出数量
+</value>
+  </data>
+  <data name="E109" xml:space="preserve">
+    <value>E109</value>
+  </data>
+  <data name="E109_D" xml:space="preserve">
+    <value>入库检验产出数量（分站统计）</value>
+  </data>
+  <data name="E109_F" xml:space="preserve">
+    <value>入库检验产出数量</value>
+  </data>
+  <data name="E110" xml:space="preserve">
+    <value>E110</value>
+  </data>
+  <data name="E110_D" xml:space="preserve">
+    <value>入库产出数量（分站统计）</value>
+  </data>
+  <data name="E110_F" xml:space="preserve">
+    <value>入库产出数量</value>
+  </data>
+  <data name="E111" xml:space="preserve">
+    <value>E111</value>
+  </data>
+  <data name="E111_D" xml:space="preserve">
+    <value>IPQC产出数量（分站统计）</value>
+  </data>
+  <data name="E111_F" xml:space="preserve">
+    <value>IPQC产出数量</value>
+  </data>
+  <data name="E112" xml:space="preserve">
+    <value>E112</value>
+  </data>
+  <data name="E112_D" xml:space="preserve">
+    <value>返修产出数量（分站统计）</value>
+  </data>
+  <data name="E112_F" xml:space="preserve">
+    <value>返修产出数量</value>
+  </data>
+  <data name="E113" xml:space="preserve">
+    <value>E113</value>
+  </data>
+  <data name="E113_D" xml:space="preserve">
+    <value>物料产出数量（分站统计）</value>
+  </data>
+  <data name="E113_F" xml:space="preserve">
+    <value>物料产出数量</value>
+  </data>
+  <data name="B_TITLE" xml:space="preserve">
+    <value>B_TITLE</value>
+  </data>
+  <data name="B_TITLE_F" xml:space="preserve">
+    <value>入库统计</value>
+  </data>
+  <data name="C_TITLE" xml:space="preserve">
+    <value>C_TITLE</value>
+  </data>
+  <data name="C_TITLE_F" xml:space="preserve">
+    <value>电池片碎片统计</value>
+  </data>
+  <data name="D_TITLE" xml:space="preserve">
+    <value>D_TITLE</value>
+  </data>
+  <data name="D_TITLE_F" xml:space="preserve">
+    <value>在制品数量统计</value>
+  </data>
+  <data name="E_TITLE" xml:space="preserve">
+    <value>E_TITLE</value>
+  </data>
+  <data name="E_TITLE_F" xml:space="preserve">
+    <value>产出数量统计</value>
+  </data>
+  <data name="F_TITLE" xml:space="preserve">
+    <value>F_TITLE</value>
+  </data>
+  <data name="F_TITLE_F" xml:space="preserve">
+    <value>加权计算统计</value>
+  </data>
+  <data name="A0J_QTY_B1503" xml:space="preserve">
+    <value>A0J_QTY_B1503</value>
+  </data>
+  <data name="A0J_QTY_B1503_D" xml:space="preserve">
+    <value>"入库"工序A0级数量统计</value>
+  </data>
+  <data name="A0J_QTY_B1503_F" xml:space="preserve">
+    <value>入库：A0级产出数量 块</value>
+  </data>
+  <data name="AJ_QTY_B1502" xml:space="preserve">
+    <value>AJ_QTY_B1502</value>
+  </data>
+  <data name="AJ_QTY_B1502_D" xml:space="preserve">
+    <value>"入库"工序A级数量统计</value>
+  </data>
+  <data name="AJ_QTY_B1502_F" xml:space="preserve">
+    <value>入库：A级产出数量 块</value>
+  </data>
+  <data name="ERJ_QTY_B1504" xml:space="preserve">
+    <value>ERJ_QTY_B1504</value>
+  </data>
+  <data name="ERJ_QTY_B1504_D" xml:space="preserve">
+    <value>"入库"工序二级品数量统计</value>
+  </data>
+  <data name="ERJ_QTY_B1504_F" xml:space="preserve">
+    <value>入库：二级产出数量 块</value>
+  </data>
+  <data name="KJ_QTY_B1501" xml:space="preserve">
+    <value>KJ_QTY_B1501</value>
+  </data>
+  <data name="KJ_QTY_B1501_D" xml:space="preserve">
+    <value>"入库"工序客级数量统计</value>
+  </data>
+  <data name="KJ_QTY_B1501_F" xml:space="preserve">
+    <value>入库：客级产出数量 块</value>
+  </data>
+  <data name="PER_GR_A0J_B1511" xml:space="preserve">
+    <value>PER_GR_A0J_B1511</value>
+  </data>
+  <data name="PER_GR_A0J_B1511_D" xml:space="preserve">
+    <value>1-[(二三级+报废）/（入库数+报废数）]*100%</value>
+  </data>
+  <data name="PER_GR_A0J_B1511_F" xml:space="preserve">
+    <value>终检：优品率（A0级以上）%</value>
+  </data>
+  <data name="PER_GR_AJ_B1512" xml:space="preserve">
+    <value>PER_GR_AJ_B1512</value>
+  </data>
+  <data name="PER_GR_AJ_B1512_D" xml:space="preserve">
+    <value>1-[(直判A0+预判A0+二三级&lt;非层压返修&gt;+报废&lt;非层压返修&gt;）/（入库数+报废数）］*100%</value>
+  </data>
+  <data name="PER_GR_AJ_B1512_F" xml:space="preserve">
+    <value>终检：优品率（A级以上）%</value>
+  </data>
+  <data name="PER_GR_KJ_B1513" xml:space="preserve">
+    <value>PER_GR_KJ_B1513</value>
+  </data>
+  <data name="PER_GR_KJ_B1513_D" xml:space="preserve">
+    <value>客级工单客级品数/客级工单的（入库数+报废数）;备注：“客级工单客级品数”就是Conergy 与Schueco的工单的客级品数</value>
+  </data>
+  <data name="PER_GR_KJ_B1513_F" xml:space="preserve">
+    <value>终检：优品率（客级以上）%</value>
+  </data>
+  <data name="SANJ_QTY_B1505" xml:space="preserve">
+    <value>SANJ_QTY_B1505</value>
+  </data>
+  <data name="SANJ_QTY_B1505_D" xml:space="preserve">
+    <value>"入库"工序三级品数量统计</value>
+  </data>
+  <data name="SANJ_QTY_B1505_F" xml:space="preserve">
+    <value>入库：三级产出数量 块</value>
+  </data>
+  <data name="SCRAP_QTY_B1506" xml:space="preserve">
+    <value>SCRAP_QTY_B1506</value>
+  </data>
+  <data name="SCRAP_QTY_B1506_D" xml:space="preserve">
+    <value>"入库"工序报废品数量统计</value>
+  </data>
+  <data name="SCRAP_QTY_B1506_F" xml:space="preserve">
+    <value>报废品产出数量 块</value>
+  </data>
+  <data name="TO_STORE_A0J" xml:space="preserve">
+    <value>TO_STORE_A0J</value>
+  </data>
+  <data name="TO_STORE_A0J_D" xml:space="preserve">
+    <value>“入库”工序A0级数量统计</value>
+  </data>
+  <data name="TO_STORE_A0J_F" xml:space="preserve">
+    <value>入库：A0级产出数量</value>
+  </data>
+  <data name="TO_STORE_AJ" xml:space="preserve">
+    <value>TO_STORE_AJ</value>
+  </data>
+  <data name="TO_STORE_AJ_D" xml:space="preserve">
+    <value>“入库”工序A级数量统计</value>
+  </data>
+  <data name="TO_STORE_AJ_F" xml:space="preserve">
+    <value>入库：A级产出数量</value>
+  </data>
+  <data name="TO_STORE_ERJ" xml:space="preserve">
+    <value>TO_STORE_ERJ</value>
+  </data>
+  <data name="TO_STORE_ERJ_D" xml:space="preserve">
+    <value>“入库”工序二级数量统计</value>
+  </data>
+  <data name="TO_STORE_ERJ_F" xml:space="preserve">
+    <value>入库：二级产出数量</value>
+  </data>
+  <data name="TO_STORE_KJ" xml:space="preserve">
+    <value>TO_STORE_KJ</value>
+  </data>
+  <data name="TO_STORE_KJ_D" xml:space="preserve">
+    <value>“入库”工序客级数量统计</value>
+  </data>
+  <data name="TO_STORE_KJ_F" xml:space="preserve">
+    <value>入库：客级产出数量</value>
+  </data>
+  <data name="TO_STORE_SANJ" xml:space="preserve">
+    <value>TO_STORE_SANJ</value>
+  </data>
+  <data name="TO_STORE_SANJ_D" xml:space="preserve">
+    <value>“入库”工序三级数量统计</value>
+  </data>
+  <data name="TO_STORE_SANJ_F" xml:space="preserve">
+    <value>入库：三级产出数量</value>
+  </data>
+  <data name="TO_STORE_SCRAP" xml:space="preserve">
+    <value>TO_STORE_SCRAP</value>
+  </data>
+  <data name="TO_STORE_SCRAP_D" xml:space="preserve">
+    <value>“入库”工序报废品数量统计</value>
+  </data>
+  <data name="TO_STORE_SCRAP_F" xml:space="preserve">
+    <value>入库：报废品数量</value>
+  </data>
+  <data name="B1_TITLE" xml:space="preserve">
+    <value>B1_TITLE</value>
+  </data>
+  <data name="B1_TITLE_F" xml:space="preserve">
+    <value>终检统计</value>
+  </data>
+  <data name="Grade_A0J" xml:space="preserve">
+    <value>Grade_A0J</value>
+  </data>
+  <data name="Grade_AJ" xml:space="preserve">
+    <value>Grade_AJ</value>
+  </data>
+  <data name="Grade_ERJ_WG" xml:space="preserve">
+    <value>Grade_ERJ_WG</value>
+  </data>
+  <data name="Grade_ERJ_XN" xml:space="preserve">
+    <value>Grade_ERJ_XN</value>
+  </data>
+  <data name="Grade_KJ" xml:space="preserve">
+    <value>Grade_KJ</value>
+  </data>
+  <data name="Grade_SANJ_WG" xml:space="preserve">
+    <value>Grade_SANJ_WG</value>
+  </data>
+  <data name="Grade_SANJ_XN" xml:space="preserve">
+    <value>Grade_SANJ_XN</value>
+  </data>
+  <data name="Grade_ERJ" xml:space="preserve">
+    <value>Grade_ERJ</value>
+  </data>
+  <data name="Grade_SANJ" xml:space="preserve">
+    <value>Grade_SANJ</value>
+  </data>
+  <data name="Grade_Scrap" xml:space="preserve">
+    <value>Grade_Scrap</value>
+  </data>
+  <data name="OPT_CUSTCHECK" xml:space="preserve">
+    <value>终检</value>
+  </data>
+  <data name="OPT_WAREHOUSE" xml:space="preserve">
+    <value>入库</value>
+  </data>
+  <data name="AVG_POWER" xml:space="preserve">
+    <value>AVG_POWER</value>
+  </data>
+  <data name="AVG_POWER_CAPTION" xml:space="preserve">
+    <value>平均功率</value>
+  </data>
+  <data name="CHECK_POWER" xml:space="preserve">
+    <value>CHECK_POWER</value>
+  </data>
+  <data name="CHECK_POWER_CAPTION" xml:space="preserve">
+    <value>检验功率</value>
+  </data>
+  <data name="EQUIPMENT_NAME" xml:space="preserve">
+    <value>EQUIPMENT_NAME</value>
+  </data>
+  <data name="EQUIPMENT_NAME_CAPTION" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="LOT_COLOR" xml:space="preserve">
+    <value>LOT_COLOR</value>
+  </data>
+  <data name="LOT_COLOR_CAPTION" xml:space="preserve">
+    <value>花色</value>
+  </data>
+  <data name="LOT_CUSTOMERCODE" xml:space="preserve">
+    <value>LOT_CUSTOMERCODE</value>
+  </data>
+  <data name="LOT_CUSTOMERCODE_CAPTION" xml:space="preserve">
+    <value>客户编码</value>
+  </data>
+  <data name="LOT_NUMBER" xml:space="preserve">
+    <value>LOT_NUMBER</value>
+  </data>
+  <data name="LOT_NUMBER_CAPTION" xml:space="preserve">
+    <value>批次号</value>
+  </data>
+  <data name="LOT_SIDECODE" xml:space="preserve">
+    <value>LOT_SIDECODE</value>
+  </data>
+  <data name="LOT_SIDECODE_CAPTION" xml:space="preserve">
+    <value>侧板编码</value>
+  </data>
+  <data name="OPERATERS" xml:space="preserve">
+    <value>OPERATERS</value>
+  </data>
+  <data name="OPERATERS_CAPTION" xml:space="preserve">
+    <value>终检作业员</value>
+  </data>
+  <data name="PALLET_NO" xml:space="preserve">
+    <value>PALLET_NO</value>
+  </data>
+  <data name="PALLET_NO_CAPTION" xml:space="preserve">
+    <value>托盘号</value>
+  </data>
+  <data name="PALLET_TIME" xml:space="preserve">
+    <value>PALLET_TIME</value>
+  </data>
+  <data name="PALLET_TIME_CAPTION" xml:space="preserve">
+    <value>包装时间</value>
+  </data>
+  <data name="PRO_ID" xml:space="preserve">
+    <value>PRO_ID</value>
+  </data>
+  <data name="PRO_ID_CAPTION" xml:space="preserve">
+    <value>产品ID号</value>
+  </data>
+  <data name="PRO_LEVEL" xml:space="preserve">
+    <value>PRO_LEVEL</value>
+  </data>
+  <data name="PRO_LEVEL_CAPTION" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="SAP_NO" xml:space="preserve">
+    <value>SAP_NO</value>
+  </data>
+  <data name="SAP_NO_CAPTION" xml:space="preserve">
+    <value>SAP料号</value>
+  </data>
+  <data name="TOTLE_POWER" xml:space="preserve">
+    <value>TOTLE_POWER</value>
+  </data>
+  <data name="TOTLE_POWER_CAPTION" xml:space="preserve">
+    <value>总功率</value>
+  </data>
+  <data name="TO_WH" xml:space="preserve">
+    <value>TO_WH</value>
+  </data>
+  <data name="TO_WH_CAPTION" xml:space="preserve">
+    <value>入库员</value>
+  </data>
+  <data name="TO_WH_TIME" xml:space="preserve">
+    <value>TO_WH_TIME</value>
+  </data>
+  <data name="TO_WH_TIME_CAPTION" xml:space="preserve">
+    <value>入库时间</value>
+  </data>
+  <data name="WORK_ORDER_NO" xml:space="preserve">
+    <value>WORK_ORDER_NO</value>
+  </data>
+  <data name="WORK_ORDER_NO_CAPTION" xml:space="preserve">
+    <value>工单号</value>
+  </data>
+  <data name="CUSTOMER" xml:space="preserve">
+    <value>CUSTOMER</value>
+  </data>
+  <data name="CUSTOMER_CAPTION" xml:space="preserve">
+    <value>客户</value>
+  </data>
+  <data name="CUSTOMER_TYPE" xml:space="preserve">
+    <value>CUSTOMER_TYPE</value>
+  </data>
+  <data name="CUSTOMER_TYPE_CAPTION" xml:space="preserve">
+    <value>客户类别</value>
+  </data>
+  <data name="DEFECT_NAME" xml:space="preserve">
+    <value>DEFECT_NAME</value>
+  </data>
+  <data name="DEFECT_NAME_CAPTION" xml:space="preserve">
+    <value>不良现象</value>
+  </data>
+  <data name="DESCRIPTION" xml:space="preserve">
+    <value>DESCRIPTION</value>
+  </data>
+  <data name="DESCRIPTION_CAPTION" xml:space="preserve">
+    <value>不良描述</value>
+  </data>
+  <data name="LOT_NUMBER_DEFECT" xml:space="preserve">
+    <value>LOT_NUMBER_DEFECT</value>
+  </data>
+  <data name="LOT_NUMBER_DEFECT_CAPTION" xml:space="preserve">
+    <value>不良组件序列号</value>
+  </data>
+  <data name="PROMODEL_NAME" xml:space="preserve">
+    <value>PROMODEL_NAME</value>
+  </data>
+  <data name="PROMODEL_NAME_CAPTION" xml:space="preserve">
+    <value>产品型号</value>
+  </data>
+  <data name="REASON_CODE_NAME" xml:space="preserve">
+    <value>REASON_CODE_NAME</value>
+  </data>
+  <data name="REASON_CODE_NAME_CAPTION" xml:space="preserve">
+    <value>不良分类</value>
+  </data>
+  <data name="SHIFT_NAME" xml:space="preserve">
+    <value>SHIFT_NAME</value>
+  </data>
+  <data name="SHIFT_NAME_CAPTION" xml:space="preserve">
+    <value>班别</value>
+  </data>
+  <data name="STEP_NAME" xml:space="preserve">
+    <value>STEP_NAME</value>
+  </data>
+  <data name="STEP_NAME_CAPTION" xml:space="preserve">
+    <value>发现工序</value>
+  </data>
+  <data name="TIME_STAMP" xml:space="preserve">
+    <value>TIME_STAMP</value>
+  </data>
+  <data name="TIME_STAMP_CAPTION" xml:space="preserve">
+    <value>发现日期/时间</value>
+  </data>
+  <data name="USERNAME" xml:space="preserve">
+    <value>USERNAME</value>
+  </data>
+  <data name="USERNAME_CAPTION" xml:space="preserve">
+    <value>发现人</value>
+  </data>
+  <data name="MAITRIAL01" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MAITRIAL01_CAPTION" xml:space="preserve">
+    <value>EVA</value>
+  </data>
+  <data name="MAITRIAL03" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="MAITRIAL03_CAPTION" xml:space="preserve">
+    <value>背板</value>
+  </data>
+  <data name="MAITRIAL05" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="MAITRIAL05_CAPTION" xml:space="preserve">
+    <value>边框</value>
+  </data>
+  <data name="MAITRIAL07" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="MAITRIAL07_CAPTION" xml:space="preserve">
+    <value>汇流条</value>
+  </data>
+  <data name="MAITRIAL09" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="MAITRIAL09_CAPTION" xml:space="preserve">
+    <value>铭牌</value>
+  </data>
+  <data name="MAITRIAL11" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="MAITRIAL11_CAPTION" xml:space="preserve">
+    <value>接线盒</value>
+  </data>
+  <data name="MAITRIAL13" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="MAITRIAL13_CAPTION" xml:space="preserve">
+    <value>玻璃</value>
+  </data>
+  <data name="MAITRIAL15" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="MAITRIAL15_CAPTION" xml:space="preserve">
+    <value>红外</value>
+  </data>
+  <data name="MAITRIAL17" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="MAITRIAL17_CAPTION" xml:space="preserve">
+    <value>电池片</value>
+  </data>
+  <data name="MAITRIAL19" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="MAITRIAL19_CAPTION" xml:space="preserve">
+    <value>电池片-焊前</value>
+  </data>
+  <data name="MAITRIAL21" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="MAITRIAL21_CAPTION" xml:space="preserve">
+    <value>电池片-焊后</value>
+  </data>
+  <data name="MAITRIAL23" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="MAITRIAL23_CAPTION" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="MAITRIAL25" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="MAITRIAL25_CAPTION" xml:space="preserve">
+    <value>异物</value>
+  </data>
+  <data name="SEQ" xml:space="preserve">
+    <value>SEQ</value>
+  </data>
+  <data name="SEQ_CAPTION" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="B222" xml:space="preserve">
+    <value>B222</value>
+  </data>
+  <data name="B233" xml:space="preserve">
+    <value>B233</value>
+  </data>
+  <data name="B2_TITLE" xml:space="preserve">
+    <value>B2_TITLE</value>
+  </data>
+  <data name="B2_TITLE_F" xml:space="preserve">
+    <value>入库档位分布</value>
+  </data>
+  <data name="B3_TITLE" xml:space="preserve">
+    <value>B3_TITLE</value>
+  </data>
+  <data name="B3_TITLE_F" xml:space="preserve">
+    <value>测试档位分布</value>
+  </data>
+  <data name="TOCUSTCHECKLEVELDISPLAY" xml:space="preserve">
+    <value>测试档位分布情况：产品ID号(档位名称)</value>
+  </data>
+  <data name="TOWAREHOUSELEVELDISPLAY" xml:space="preserve">
+    <value>入库档位分布情况：产品ID号(档位名称)</value>
+  </data>
+  <data name="PATCH_QUANTITY" xml:space="preserve">
+    <value>PATCH_QUANTITY</value>
+  </data>
+  <data name="PATCH_QUANTITY_CAPTION" xml:space="preserve">
+    <value>不良数量</value>
+  </data>
+  <data name="PressCells" xml:space="preserve">
+    <value>PressCells</value>
+  </data>
+  <data name="PressCells_CAPTION" xml:space="preserve">
+    <value>不良比例</value>
+  </data>
+  <data name="CUSTCHECK_TIME" xml:space="preserve">
+    <value>CUSTCHECK_TIME</value>
+  </data>
+  <data name="CUSTCHECK_TIME_CAPTION" xml:space="preserve">
+    <value>终检时间</value>
+  </data>
+  <data name="PRO_ID2" xml:space="preserve">
+    <value>PRO_ID2</value>
+  </data>
+  <data name="PRO_ID2_CAPTION" xml:space="preserve">
+    <value>旧ID号</value>
+  </data>
+  <data name="WORK_ORDER_NO2" xml:space="preserve">
+    <value>WORK_ORDER_NO2</value>
+  </data>
+  <data name="WORK_ORDER_NO2_CAPTION" xml:space="preserve">
+    <value>旧工单号</value>
+  </data>
+  <data name="TIME_STAMP2" xml:space="preserve">
+    <value>TIME_STAMP2</value>
+  </data>
+  <data name="TIME_STAMP2_CAPTION" xml:space="preserve">
+    <value>操作日期/时间</value>
+  </data>
+  <data name="USERNAME2" xml:space="preserve">
+    <value>USERNAME2</value>
+  </data>
+  <data name="USERNAME2_CAPTION" xml:space="preserve">
+    <value>操作人</value>
+  </data>
+  <data name="COEF_PMAX" xml:space="preserve">
+    <value>COEF_PMAX</value>
+  </data>
+  <data name="COEF_PMAX_CAPTION" xml:space="preserve">
+    <value>衰减功率</value>
+  </data>
+  <data name="PM" xml:space="preserve">
+    <value>PM</value>
+  </data>
+  <data name="PM_CAPTION" xml:space="preserve">
+    <value>实测功率</value>
+  </data>
+  <data name="TTIME" xml:space="preserve">
+    <value>TTIME</value>
+  </data>
+  <data name="TTIME_CAPTION" xml:space="preserve">
+    <value>测试日期/时间</value>
+  </data>
+  <data name="AVTIME_TARGET" xml:space="preserve">
+    <value>AVTIME_TARGET2</value>
+  </data>
+  <data name="AVTIME_TARGET2" xml:space="preserve">
+    <value>AVTIME_TARGET2</value>
+  </data>
+  <data name="AVTIME_TARGET2_CAPTION" xml:space="preserve">
+    <value>AvTime目标%</value>
+  </data>
+  <data name="AVTIME_TARGET_CAPTION" xml:space="preserve">
+    <value>AvTime目标%</value>
+  </data>
+  <data name="EQUIPMENT_AVTIME_TARGET" xml:space="preserve">
+    <value>EQUIPMENT_AVTIME_TARGET</value>
+  </data>
+  <data name="EQUIPMENT_AVTIME_TARGET_CAPTION" xml:space="preserve">
+    <value>设备uptime</value>
+  </data>
+  <data name="EQUIPMENT_NAME1" xml:space="preserve">
+    <value>EQUIPMENT_NAME</value>
+  </data>
+  <data name="EQUIPMENT_NAME_CAPTION1" xml:space="preserve">
+    <value>设备名称</value>
+  </data>
+  <data name="FORMULADESCRIPTION1" xml:space="preserve">
+    <value>公式说明</value>
+  </data>
+  <data name="MTBF" xml:space="preserve">
+    <value>MTBF</value>
+  </data>
+  <data name="MTBFHR" xml:space="preserve">
+    <value>MTBF Hr</value>
+  </data>
+  <data name="MTRASH" xml:space="preserve">
+    <value>MTRASH</value>
+  </data>
+  <data name="MTTR" xml:space="preserve">
+    <value>MTTR</value>
+  </data>
+  <data name="MTTRMIN" xml:space="preserve">
+    <value>MTTR Min</value>
+  </data>
+  <data name="PER_DOWN" xml:space="preserve">
+    <value>DOWN%</value>
+  </data>
+  <data name="PER_LOST" xml:space="preserve">
+    <value>LOST%</value>
+  </data>
+  <data name="PER_MON" xml:space="preserve">
+    <value>MON%</value>
+  </data>
+  <data name="PER_OTHER" xml:space="preserve">
+    <value>OTHER%</value>
+  </data>
+  <data name="PER_PM" xml:space="preserve">
+    <value>PM%</value>
+  </data>
+  <data name="PER_RUN" xml:space="preserve">
+    <value>RUN%</value>
+  </data>
+  <data name="PER_TEST" xml:space="preserve">
+    <value>TEST%</value>
+  </data>
+  <data name="PER_T_DOWN" xml:space="preserve">
+    <value>T_DOWN%</value>
+  </data>
+  <data name="P_DOWN" xml:space="preserve">
+    <value>P_DOWN</value>
+  </data>
+  <data name="P_LOST" xml:space="preserve">
+    <value>P_LOST</value>
+  </data>
+  <data name="P_MON" xml:space="preserve">
+    <value>P_MON</value>
+  </data>
+  <data name="P_OTHER" xml:space="preserve">
+    <value>P_OTHER</value>
+  </data>
+  <data name="P_PM" xml:space="preserve">
+    <value>P_PM</value>
+  </data>
+  <data name="P_RUN" xml:space="preserve">
+    <value>P_RUN</value>
+  </data>
+  <data name="P_TEST" xml:space="preserve">
+    <value>P_TEST</value>
+  </data>
+  <data name="P_T_DOWN" xml:space="preserve">
+    <value>P_T_DOWN</value>
+  </data>
+  <data name="ROWNUM" xml:space="preserve">
+    <value>ROWNUM</value>
+  </data>
+  <data name="ROWNUM_CAPTION" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="WPH_REL" xml:space="preserve">
+    <value>WPH_REL</value>
+  </data>
+  <data name="WPH_REL_CAPTION" xml:space="preserve">
+    <value>WPH目标(片)</value>
+  </data>
+  <data name="WPH_TARGET" xml:space="preserve">
+    <value>WPH_TARGET</value>
+  </data>
+  <data name="WPH_TARGET_CAPTION" xml:space="preserve">
+    <value>WPH实际(片)</value>
+  </data>
+  <data name="WRKALLCELLS" xml:space="preserve">
+    <value>WRKALLCELLS</value>
+  </data>
+  <data name="WRKALLCELLS_CAPTION" xml:space="preserve">
+    <value>加工量</value>
+  </data>
+  <data name="WRK_OEE" xml:space="preserve">
+    <value>WRK_OEE</value>
+  </data>
+  <data name="WRK_OEE_CAPTION" xml:space="preserve">
+    <value>生产OEE</value>
+  </data>
+  <data name="CellGrade" xml:space="preserve">
+    <value>质量等级</value>
+  </data>
+</root>

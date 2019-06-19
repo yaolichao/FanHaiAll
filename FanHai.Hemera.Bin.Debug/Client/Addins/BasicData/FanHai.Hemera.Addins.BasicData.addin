@@ -1,0 +1,264 @@
+﻿<AddIn name        = "FanHai.Hemera.BasicData"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Basic Data such as UDA"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.BasicData" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.BasicData.dll"/>
+  </Runtime>
+
+  <!--<Path name="/FanHaiFramework/Workbench/MainMenu/idPlantManagement/idProDepartmentSettingMenu">
+    --><!--生产排班维护--><!--
+    <MenuItem id           = "idFactoryShiftSet"
+              label        = "生产排班"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idProductionSchedules"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.BasicData.BasicFactoryShiftSetCommand"
+              privilegeId  = "2065000"/>
+  </Path>-->
+  <!--工艺参数设置-->
+  <Path name ="/FanHaiFramework/Workbench/MainMenu/idBasis/idProModelMenu">
+    <!--<MenuItem id       = "idProModel"
+          type         = "Menu"
+          label        = "工艺参数设置"
+          icon         = ""
+          shortcut     = ""
+          insertafter  = "idCommonData"
+          insertbefore = "idWorkOrderManagementMenu"
+          privilegeId  = "2000000">-->
+      <!--产品型号设置-->
+      <MenuItem id           = "idProModelSetting"
+            label        = "组件型号"
+            icon         = ""
+            shortcut     = ""
+            insertafter  = "idPart"
+            insertbefore = "idProductSetting"
+            class        = "FanHai.Hemera.Addins.BasicData.ProducModelCommand"
+            privilegeId  = "2002000"/>
+      <!--产品设置-->
+      <MenuItem id           = "idProductSetting"
+            label        = "组件设置"
+            icon         = ""
+            shortcut     = ""
+            insertafter  = "idProModelSetting"
+            insertbefore = "idByProduct"
+            class        = "FanHai.Hemera.Addins.BasicData.ProductSettingsCommand"
+            privilegeId  = "2003000"/>
+      <!--主副产品管理维护-->
+      <MenuItem id           = "idByProduct"
+            label        = "连副产品"
+            icon         = ""
+            shortcut     = ""
+            insertafter  = "idProductSetting"
+            insertbefore = "idDecayCoeffiSetting"
+            class        = "FanHai.Hemera.Addins.BasicData.ByProductPartCtrlCommand"
+            privilegeId  = "2004000"/>
+      <!--衰减系数设置-->
+      <MenuItem id           = "idDecayCoeffiSetting"
+            label        = "衰减率"
+            icon         = ""
+            shortcut     = ""
+            insertafter  = "idByProduct"
+            insertbefore = "idPowerSetting"
+            class        = "FanHai.Hemera.Addins.BasicData.DecayCoeffiCommand"
+            privilegeId  = "2005000"/>
+      <!--工单属性设置-->
+      <!--分档设置-->
+      <MenuItem id           = "idPowerSetting"
+            label        = "档位管理"
+            icon         = ""
+            shortcut     = ""
+            insertafter  = "idDecayCoeffiSetting"
+            insertbefore = "idTestRule"
+            class        = "FanHai.Hemera.Addins.BasicData.PowerSetCommand"
+            privilegeId  = "2006000"/>
+      <!--测试规则设置-->
+      <MenuItem id           = "idTestRule"
+            label        = "效率管理"
+            icon         = ""
+            shortcut     = ""
+            insertafter  = "idPowerSetting"
+            class        = "FanHai.Hemera.Addins.BasicData.BasicTestRuleCommand"
+            privilegeId  = "2007000"/>
+  </Path>
+
+  <!--工单管理/相关属性设置-->
+  <Path name="/FanHaiFramework/Workbench/MainMenu/idBasis/idWorkOrderManagementMenu">
+    <!--工单产品设置-->
+    <MenuItem id           = "idWorkOrderProSetting"
+          label        = "工单产品属性设置"
+          icon         = ""
+          shortcut     = ""
+          insertafter  = "idWorkOrderManage"
+          class        = "FanHai.Hemera.Addins.BasicData.WorkOrderProSettingCommond"
+          privilegeId  = "2010000"/>
+			<MenuItem id           = "idProModelSetting"
+					  label        = "工单属性设置"
+					  icon         = ""
+					  shortcut     = ""
+            insertafter  = "idWorkOrderProSetting"
+					  class        = "FanHai.Hemera.Addins.BasicData.WorkOrderSettingCommond"
+					  privilegeId  = "2011000"/>
+  </Path>
+
+  <!--配置管理/参数配置-->
+  <Path name="/FanHaiFramework/Workbench/MainMenu/idBasis/idSettingManagementMenu">
+    <!--基础数据-->
+    <MenuItem id      = "idCommonData"
+				  label        = "参数配置"
+				  icon         = ""
+				  shortcut     = "Control|B"
+				  insertafter  = "idComputerSettings"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.BasicSettingsCommond"
+				  privilegeId  = "2016000"/>
+  </Path>
+
+  <!--物料管理-->
+  <Path name="/FanHaiFramework/Workbench/MainMenu/idMaterial/idMaterialMenu">
+    <!--供应商管理维护-->
+    <MenuItem id           = "idSupplier"
+				  label        = "供应商管理"
+				  icon         = ""
+				  shortcut     = ""
+				  insertafter  = "idStoreManagement"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.SupplierCommand"
+				  privilegeId  = "3002000"/>
+    <!--物料维护-->
+    <MenuItem id           = "idBomMaterialBand"
+				  label        = "组件BOM"
+				  icon         = ""
+				  shortcut     = ""
+				  insertafter  = "idSupplier"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.BomMaterialBandCommand"
+				  privilegeId  = "3003000"/>
+    <MenuItem id           = "idMaterialBuckControl"
+				  label        = "物料用量管理"
+				  icon         = ""
+				  shortcut     = ""
+				  insertafter  = "idBomMaterialBand"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.MaterialBuckleControlCommand"
+				  privilegeId  = "3004000"/>
+    <!--特殊物料管控-->
+    <!-- <MenuItem id           = "idSpecialMat"
+				  label        = "特殊物料管控"
+				  icon         = ""
+				  shortcut     = ""
+				  insertafter  = "idMaterialBuckControl"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.SpecialMatTeamCommand"
+				  privilegeId  = "2072000"/>-->
+  </Path>
+
+  <!--打印管理/标签铭牌设置-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idPrint/idPrintMenu">
+    <!--标签铭牌设置-->
+    <MenuItem id           = "idPrintLabelSet"
+              label        = "标签铭牌设置"
+              icon         = ""
+              shortcut     = ""
+              class        = "FanHai.Hemera.Addins.BasicData.PrintLabelCommand"
+              privilegeId  = "6001000"/>
+    <!--标签铭牌管理-->
+    <!--<MenuItem id           = "idPrintLabelManage"
+              label        = "标签铭牌管理"
+              icon         = ""
+              shortcut     = ""
+              class        = "FanHai.Hemera.Addins.BasicData.PrintLabelManageCommand"
+              privilegeId  = "2068000"/>-->
+  </Path>
+
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idBasis/idBasisadditionMenu">
+    <!--CodeSoft标签设置-->
+    <MenuItem id           = "idProductSetting"
+				    label        = "CodeSoft标签设置"
+				    icon         = ""
+				    shortcut     = ""
+					  class        = "FanHai.Hemera.Addins.BasicData.BasicCodeSoftLabelCommand"
+            privilegeId  = "2066000"/>
+
+    <!--线别维护-->
+    <MenuItem id           = "idLineSetting"
+              label        = "线别维护"
+              icon         = ""
+              shortcut     = ""
+              class        = "FanHai.Hemera.Addins.BasicData.LineSettingCommand"
+              privilegeId  = "2070000"/>
+
+    <!--计划输入数据前的分隔符--><!--
+    <MenuItem id           = "idSeparatorPlanAimSettings"
+				 type         = "Separator"
+				 insertafter  = "idComputerSettings"
+				 insertbefore = "idPlanAimSetting"/>-->
+
+    <!--计划目标值数据-->
+    <MenuItem id           = "idPlanAimSetting"
+				  label        = "计划目标值数据"
+				  icon         = ""
+				  shortcut     = ""
+				  insertafter  = "idSeparatorPlanAimSettings"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.BasicPlanInputAimCommand"
+				  privilegeId  = "2062000"/>
+    <!--工序班别维护-->
+    <MenuItem id           = "idOptShiftSetting"
+				  label        = "工序班别维护"
+				  icon         = ""
+				  shortcut     = ""
+				  insertafter  = "idPlanAimSetting"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.BasicOptShiftCommand"
+				  privilegeId  = "2063000"/>
+
+  </Path>
+
+  <!-- Main Menu 7: 视图 -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idViews">
+    <!--<MenuItem id           = "idSeparatorStandardReport"
+				  type         = "Separator"
+				  insertafter  = "idStandardReport"
+				  insertbefore = "idErrorMessage"/>-->
+    <!--信息提示-->
+    <MenuItem id           = "idErrorMessage"
+				  label        = "信息提示"
+				  icon         = ""
+				  shortcut     = "Control|I"
+				  insertafter  = "idSeparatorStandardReport"
+				  insertbefore = ""
+				  class        = "FanHai.Hemera.Addins.BasicData.ErrorMessageCommand"
+				  privilegeId  = "8002000"/>
+  </Path>
+
+  <!--
+  <Path name = "/Workspace/AutostartNothingLoaded">
+    <Class id = "ErrorMessageCommand"
+		       class = "FanHai.Hemera.Addins.BasicData.ErrorMessageCommand"/>
+  </Path>
+  -->
+
+  <Path name = "/FanHaiFramework/Workbench/Pads">
+    <Pad id       = "BasicDataTree"
+				 category = "Main"
+				 title    = "${res:FanHai.Hemera.Addins.BasicData.PadName}"
+				 icon     = "PadIcons.ProjectBrowser"
+				 shortcut = "Control|Alt|B"
+				 class    = "FanHai.Hemera.Addins.BasicData.BasicDataTreePad"/>
+    <Pad id       = "ErrorMessageInformation"
+				 category = "Main"
+				 title    = "信息提示"
+				 icon     = "PadIcons.ProjectBrowser"
+				 shortcut = "Control|Alt|B"
+				 class    = "FanHai.Hemera.Addins.BasicData.ErrorMessagePad"/>
+  </Path>
+</AddIn>

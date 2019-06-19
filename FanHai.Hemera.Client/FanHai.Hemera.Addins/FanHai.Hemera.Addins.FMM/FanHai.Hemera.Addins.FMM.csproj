@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80543A5F-3200-4D87-937D-6D37CA63084D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Addins.FMM</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Addins.FMM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraTreeList.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\ComputerConfCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ComputerConfCtrl.Designer.cs">
+      <DependentUpon>ComputerConfCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ComputerSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ComputerSearchDialog.Designer.cs">
+      <DependentUpon>ComputerSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EnterpriseCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EnterpriseCtrl.Designer.cs">
+      <DependentUpon>EnterpriseCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EnterpriseSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\EnterpriseSearchDialog.Designer.cs">
+      <DependentUpon>EnterpriseSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LocationCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LocationCtrl.Designer.cs">
+      <DependentUpon>LocationCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LocationLineToAreaDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LocationLineToAreaDialog.Designer.cs">
+      <DependentUpon>LocationLineToAreaDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LocationSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LocationSearchDialog.Designer.cs">
+      <DependentUpon>LocationSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\OperationHelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\OperationHelpDialog.Designer.cs">
+      <DependentUpon>OperationHelpDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeCategoryQueryHelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeCategoryQueryHelpDialog.Designer.cs">
+      <DependentUpon>ReasonCodeCategoryQueryHelpDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LineConfCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LineConfCtrl.designer.cs">
+      <DependentUpon>LineConfCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LineSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LineSearchDialog.designer.cs">
+      <DependentUpon>LineSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\OperationCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\OperationCtrl.Designer.cs">
+      <DependentUpon>OperationCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\OperationSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\OperationSearchDialog.Designer.cs">
+      <DependentUpon>OperationSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PartEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PartEditor.Designer.cs">
+      <DependentUpon>PartEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PartSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\PartSearch.Designer.cs">
+      <DependentUpon>PartSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeCategoryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeCategoryCtrl.Designer.cs">
+      <DependentUpon>ReasonCodeCategoryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeCtrl.Designer.cs">
+      <DependentUpon>ReasonCodeCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ReasonCodeDialog.Designer.cs">
+      <DependentUpon>ReasonCodeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\RouteCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\RouteCtrl.Designer.cs">
+      <DependentUpon>RouteCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\RouteLineSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\RouteLineSearchDialog.Designer.cs">
+      <DependentUpon>RouteLineSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\RouteSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\RouteSearchDialog.Designer.cs">
+      <DependentUpon>RouteSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ScheduleCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ScheduleCtrl.Designer.cs">
+      <DependentUpon>ScheduleCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SearchScheduleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\SearchScheduleDialog.Designer.cs">
+      <DependentUpon>SearchScheduleDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ShiftCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ShiftCtrl.Designer.cs">
+      <DependentUpon>ShiftCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ShiftEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ShiftEditDialog.designer.cs">
+      <DependentUpon>ShiftEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\StepDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\StepDialog.Designer.cs">
+      <DependentUpon>StepDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\StoreCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\StoreCtrl.Designer.cs">
+      <DependentUpon>StoreCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\EnterpriseCommand.cs" />
+    <Compile Include="Menu\LocationCommand.cs" />
+    <Compile Include="Menu\OperationCommand.cs" />
+    <Compile Include="Menu\PartCommand.cs" />
+    <Compile Include="Menu\ReasonCodeCommand.cs" />
+    <Compile Include="Menu\RouteCommand.cs" />
+    <Compile Include="Menu\StoreCommand.cs" />
+    <Compile Include="Menu\ComputerConfCtrlCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Src\ComputerViewContext.cs" />
+    <Compile Include="Src\EnterpriseViewContent.cs" />
+    <Compile Include="Src\LineConfViewContent.cs" />
+    <Compile Include="Src\LocationViewContent.cs" />
+    <Compile Include="Src\OperationViewContent.cs" />
+    <Compile Include="Src\PartViewContent.cs" />
+    <Compile Include="Src\ReasonCodeCategoryCrtlViewContent.cs" />
+    <Compile Include="Src\ReasonCodeCrtlViewContent.cs" />
+    <Compile Include="Src\RouteViewContent.cs" />
+    <Compile Include="Src\ScheduleViewContent.cs" />
+    <Compile Include="Src\ShiftViewContent.cs" />
+    <Compile Include="Src\StoreViewContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\FanHai.Hemera.Addins.FMM.dll" />
+    <Content Include="bin\Debug\FanHai.Hemera.Addins.FMM.pdb" />
+    <Content Include="Conf\FanHai.Hemera.Addins.FMM.addin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+    <None Include="Resources\list-remove2.png" />
+    <None Include="Resources\list_add2.png" />
+    <None Include="Resources\document-delete.png" />
+    <None Include="Resources\document-add.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\document_go.png" />
+    <None Include="Resources\submit.png" />
+    <None Include="Resources\system_search.png" />
+    <None Include="Resources\setting.png" />
+    <None Include="Resources\save_accept.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\edit-save.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\toolstrip-bk.png" />
+    <None Include="Resources\00748.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.StaticFuncs\FanHai.Hemera.Utils.StaticFuncs.csproj">
+      <Project>{54894B8F-B87B-4365-8E80-B8449EB63C89}</Project>
+      <Name>FanHai.Hemera.Utils.StaticFuncs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.UDA\FanHai.Hemera.Utils.UDA.csproj">
+      <Project>{E8BEC5DC-6B84-49BF-9E47-A9DC96633E5F}</Project>
+      <Name>FanHai.Hemera.Utils.UDA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Hemera.Addins.EDC\FanHai.Hemera.Addins.EDC.csproj">
+      <Project>{57549290-BD84-4DDD-9BBC-4084A49227CA}</Project>
+      <Name>FanHai.Hemera.Addins.EDC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\ComputerConfCtrl.resx">
+      <DependentUpon>ComputerConfCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ComputerSearchDialog.resx">
+      <DependentUpon>ComputerSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EnterpriseCtrl.resx">
+      <DependentUpon>EnterpriseCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EnterpriseSearchDialog.resx">
+      <DependentUpon>EnterpriseSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LocationCtrl.resx">
+      <DependentUpon>LocationCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LocationLineToAreaDialog.resx">
+      <DependentUpon>LocationLineToAreaDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LocationSearchDialog.resx">
+      <DependentUpon>LocationSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OperationHelpDialog.resx">
+      <DependentUpon>OperationHelpDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReasonCodeCategoryQueryHelpDialog.resx">
+      <DependentUpon>ReasonCodeCategoryQueryHelpDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LineConfCtrl.resx">
+      <DependentUpon>LineConfCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LineSearchDialog.resx">
+      <DependentUpon>LineSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OperationCtrl.resx">
+      <DependentUpon>OperationCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OperationSearchDialog.resx">
+      <DependentUpon>OperationSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PartEditor.resx">
+      <DependentUpon>PartEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PartSearch.resx">
+      <DependentUpon>PartSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReasonCodeCategoryCtrl.resx">
+      <DependentUpon>ReasonCodeCategoryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReasonCodeCtrl.resx">
+      <DependentUpon>ReasonCodeCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReasonCodeDialog.resx">
+      <DependentUpon>ReasonCodeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\RouteCtrl.resx">
+      <DependentUpon>RouteCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\RouteLineSearchDialog.resx">
+      <DependentUpon>RouteLineSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\RouteSearchDialog.resx">
+      <DependentUpon>RouteSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ScheduleCtrl.resx">
+      <DependentUpon>ScheduleCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SearchScheduleDialog.resx">
+      <DependentUpon>SearchScheduleDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ShiftCtrl.resx">
+      <DependentUpon>ShiftCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ShiftEditDialog.resx">
+      <DependentUpon>ShiftEditDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\StepDialog.resx">
+      <DependentUpon>StepDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\StoreCtrl.resx">
+      <DependentUpon>StoreCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo --------FMM
+
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"            mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\FMM"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\FMM"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                                 "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\FMM" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                              "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\FMM" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                                   "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\FMM" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

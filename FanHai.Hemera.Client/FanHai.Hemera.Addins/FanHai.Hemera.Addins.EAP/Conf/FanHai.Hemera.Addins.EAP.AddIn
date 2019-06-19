@@ -1,0 +1,43 @@
+﻿<AddIn name        = "FanHai.Hemera.EAP"
+       author      = "FanHai"
+       copyright   = "Copyright 2019"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, EAP"
+       addInManagerHidden = "true">
+  <Manifest>
+    <Identity name = "FanHai.Hemera.EAP" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.EAP.dll">
+    </Import >
+  </Runtime>
+
+  <!-- 质量管理/SPC-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idQuantity/idMenuProcessadditionMenu">
+    <!--设备数据采集-->
+    <MenuItem id           = "idEAP"
+              label        = "数据采集"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = "idEAPQuery"
+              class        = "FanHai.Hemera.Addins.EAP.EDCMainCommand"
+              privilegeId  = "5012000"/>
+    <!--设备数据采集查询-->
+    <MenuItem id           = "idEAPQuery"
+              label        = "数据采集查询"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idEAP"
+              insertbefore = "idSeparatorEAP"
+              class        = "FanHai.Hemera.Addins.EAP.EDCQueryCommand"
+              privilegeId  = "5013000"/>
+    <!--数据采集后分隔符-->
+    <!--<MenuItem   id            = "idSeparatorEAP"
+                type          = "Separator"
+                insertafter   = "idEAP"
+                insertbefore  = "idSpcControlPlan"
+                privilegeId  ="7005000"/>-->
+  </Path>
+</AddIn>

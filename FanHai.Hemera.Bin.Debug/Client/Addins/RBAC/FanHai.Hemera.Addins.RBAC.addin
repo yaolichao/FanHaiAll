@@ -1,0 +1,73 @@
+﻿<AddIn name        = "FanHai.Hemera.RBAC"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Role Based Access Control"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.RBAC" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.RBAC.dll">
+    </Import >
+  </Runtime>
+
+  <Path name ="/FanHaiFramework/Workbench/MainMenu/idPlantManagement/idUserInfoMenu">
+    <!--修改密码-->
+    <MenuItem id           = "idChangePassword"
+              label        = "密码变更"
+              icon         = ""
+              insertbefore = "idReLogin"
+              class        = "FanHai.Hemera.Addins.RBAC.ChangePasswordCommand"
+              privilegeId  = "9999999"/>
+  </Path>
+
+  <!-- Main Menu 1: 系统管理 -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idPlantManagement/idSystemManagementMenu">
+    <!--用户管理-->
+    <MenuItem id           = "idUser"
+              label        = "人员信息"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idSeparatorChangePassword"
+              insertbefore = "idRole"
+              class        = "FanHai.Hemera.Addins.RBAC.UserManageCommand"
+              privilegeId  = "1001000"/>
+    <!--角色管理-->
+    <MenuItem id           = "idRole"
+              label        = "人员群组"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idUser"
+              insertbefore = "idResource"
+              class        = "FanHai.Hemera.Addins.RBAC.RoleManageCommand"
+              privilegeId  = "1002000"/>
+    <!--资源管理前的分隔符-->
+    <!--<MenuItem id           = "idSeparatorRole"
+              type         = "Separator"
+              insertafter  = "idRole"
+              insertbefore = "idResource"
+              privilegeId  = "1002000"
+              />-->
+    <!--资源管理-->
+    <MenuItem id           = "idResource"
+              label        = "功能分类"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idRole"
+              insertbefore = "idRBACOperation"
+              class        = "FanHai.Hemera.Addins.RBAC.ResourceManageCommand"
+              privilegeId  = "1003000"/>
+    <!--操作管理-->
+    <MenuItem id           = "idRBACOperation"
+              label        = "功能权限"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idResource"
+              insertbefore = "idSeparatorRBACOperation"
+              class        = "FanHai.Hemera.Addins.RBAC.OperationManageCommand"
+              privilegeId  = "1004000"/>
+  </Path>
+</AddIn>

@@ -1,0 +1,578 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using DevExpress.Web;
+using Astronergy.MES.Report.DataAccess;
+using DevExpress.XtraCharts;
+using DevExpress.XtraCharts.Web;
+using System.Collections.Generic;
+using System.Drawing;
+
+/// <summary>
+/// 工序产量报表
+/// </summary>
+public partial class WipReport_WipOperationOutput_Line : BasePage
+{
+    private WipOutputDataAccess wipOutput = new WipOutputDataAccess();
+    DataTable _dtSource = null;
+    private const string START_TIME = "08:00:00";
+    private const string END_TIME = "08:00:00";
+    private string lineName = "";
+    Dictionary<string, string> dic = new Dictionary<string, string>()
+    {
+        {"IN_QTY",                      "送入数（块数）"},
+        {"OUT_QTY",                     "送出数（块数）"},
+        {"SCRAP_QTY",                   "组件报废数（块数）"},
+        {"DEFECT_QTY",                  "组件不良数（块数）"},
+        {"REWORK_QTY",                  "组件返修数（块数）"}
+    };
+    /// <summary>
+    /// 页面载入事件。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            BindRoomData();
+            //BindProId();
+            //BindPartNumber(string.Empty);
+            BindLine();
+            DateTime dtNow = CommonFunction.GetCurrentDateTime();
+            this.dateStart.Date = dtNow.AddDays(-1);
+            this.dateEnd.Date = dtNow;
+            this.deStartTime.Text = START_TIME;
+            this.deEndTime.Text = END_TIME;
+            chartOutput.Visible = false;
+        }
+    }
+
+    /// <summary>
+    /// 工厂车间。
+    /// </summary>
+    private void BindRoomData()
+    {
+        DataTable dtWorkPlace = CommonFunction.GetFactoryWorkPlace();
+        this.cmbWorkPlace.DataSource = dtWorkPlace;
+        this.cmbWorkPlace.DataBind();
+        this.cmbWorkPlace.SelectedIndex = 0;
+
+        //string roomKey = Convert.ToString(this.cmbWorkPlace.Value);
+        //BindWorkOrderNumber(roomKey);
+    }
+
+
+    private void BindLine()
+    {
+        //DataTable dtLine = CommonFunction.GetLine();
+        //this.cmbLine.DataSource = dtLine;
+        //this.cmbLine.DataBind();
+        //this.cmbLine.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        //this.cmbLine.SelectedIndex = 0;
+        DataTable dtLine = CommonFunction.GetLine();
+        ASPxListBox lstWO = this.ddeWO.FindControl("lstWO") as ASPxListBox;
+        if (lstWO != null)
+        {
+            lstWO.DataSource = dtLine;
+            lstWO.TextField = "LINE_NAME";
+            lstWO.ValueField = "LINE_NAME";
+            lstWO.DataBind();
+            lstWO.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        }
+       
+    }
+
+
+
+    /// <summary>
+    /// 绑定工单
+    /// </summary>
+    public void BindWorkOrderNumber(string roomKey)
+    {
+        DataTable dtEquipmentNo = CommonFunction.GetLotWorkOrderNumber(roomKey);
+        this.cmbWorkOrderNumber.DataSource = dtEquipmentNo;
+        this.cmbWorkOrderNumber.DataBind();
+        this.cmbWorkOrderNumber.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        this.cmbWorkOrderNumber.SelectedIndex = 0;
+    }
+
+
+    /// <summary>
+    /// 产品ID号。
+    /// </summary>
+    private void BindProId()
+    {
+        DataTable dtProduct = CommonFunction.GetProId();
+        this.cmbProduct.DataSource = dtProduct;
+        this.cmbProduct.DataBind();
+        this.cmbProduct.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        this.cmbProduct.SelectedIndex = 0;
+    }
+    /// <summary>
+    /// 绑定产品料号。
+    /// </summary>
+    public void BindPartNumber(string orderNumber)
+    {
+        DataTable dt = null;
+        if (string.IsNullOrEmpty(orderNumber) || orderNumber.ToUpper() == "ALL")
+        {
+            dt = CommonFunction.GetPartNumber();
+        }
+        else
+        {
+            dt = CommonFunction.GetPartNumber(orderNumber);
+        }
+        this.cmbPartNumber.DataSource = dt;
+        this.cmbPartNumber.DataBind();
+        this.cmbPartNumber.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        this.cmbPartNumber.SelectedIndex = 0;
+    }
+    /// <summary>
+    /// 车间值改变时触发。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void cmbWorkPlace_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string roomKey = Convert.ToString(this.cmbWorkPlace.Value);
+        BindWorkOrderNumber(roomKey);
+    }
+
+    /// <summary>
+    /// 查询工序产量数据。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnQuery_Click(object sender, EventArgs e)
+    {
+        BindLine();
+
+        string sLineName = ddeWO.Text.Trim();
+        lineName = "";
+        if (sLineName != "")
+        {
+            string[] lineNames = sLineName.Split('#');
+            for (int w = 0; w < lineNames.Length; w++)
+            {
+                if (lineName == "")
+                {
+                    lineName =lineNames[w].ToString().Trim();
+                }
+                else
+                {
+                    lineName = lineName + "," + lineNames[w].ToString().Trim();
+                }
+            }
+        }
+
+        DataSet ds = null;
+        if (this.rbtHistory.Checked)
+        {
+            ds = QueryDateOutputData();
+        }
+        else
+        {
+            ds = QueryCurrentDateOutputData();
+        }
+        if (ds == null) return;
+        DataTable dtColumns = GetBaseOperation();
+        this._dtSource = ds.Tables[0];
+        DataTable dt = TransferDatatable(ds.Tables[0], dtColumns);
+        if (sender == this.btnXlsExport)
+        {
+            this.gridExport.Columns.Clear();
+            this.gridExport.AutoGenerateColumns = true;
+            this.gridExport.DataSource = dt;
+            this.gridExport.DataBind();
+            this.gridExport.AutoGenerateColumns = false;
+        }
+        else
+        {
+            chartOutput.Series.Clear();
+            chartOutput.Visible = true;
+            this.grid.Columns.Clear();
+            this.grid.AutoGenerateColumns = true;
+            this.grid.DataSource = dt;
+            this.grid.DataBind();
+            this.grid.AutoGenerateColumns = false;
+            DrawChart(ds.Tables[0], dtColumns);
+        }
+    }
+
+    /// <summary>
+    /// 获取工序数据表。
+    /// </summary>
+    /// <returns></returns>
+    public DataTable GetBaseOperation()
+    {
+        string roomName = this.cmbWorkPlace.Text;
+        DataTable dtColumns = CommonFunction.GetOperations(roomName, string.Empty).Tables[0];
+        return dtColumns;
+    }
+    /// <summary>
+    /// 查询指定日期区间的工序产量数据。
+    /// </summary>
+    /// <returns>包含工序产量数据的数据集。</returns>
+    public DataSet QueryDateOutputData()
+    {
+        string roomName = this.cmbWorkPlace.Text;
+        string proId = Convert.ToString(this.cmbProduct.Value);
+        string workOrderNo = Convert.ToString(this.cmbWorkOrderNumber.Text);
+        string oprline = Convert.ToString(lineName);
+        string startTime = this.dateStart.Date.ToString("yyyy-MM-dd");
+        string endTime = this.dateEnd.Date.ToString("yyyy-MM-dd");
+        string partNumber = Convert.ToString(this.cmbPartNumber.Value);
+        if (workOrderNo.ToUpper() == "ALL") workOrderNo = string.Empty;
+        if (proId.ToUpper() == "ALL") proId = string.Empty;
+        if (partNumber.ToUpper() == "ALL") partNumber = string.Empty;
+        if (oprline.ToUpper() == "ALL") oprline = string.Empty;
+        DataSet ds = wipOutput.GetWIPOutputDataLine(1, startTime, endTime, roomName, proId, workOrderNo, string.Empty, partNumber,oprline);
+        return ds;
+    }
+    /// <summary>
+    /// 查询当日工序产量数据。
+    /// </summary>
+    /// <returns>包含工序产量数据的数据集。</returns>
+    public DataSet QueryCurrentDateOutputData()
+    {
+        string roomName = this.cmbWorkPlace.Text;
+        string proId = this.cmbProduct.Text;
+        string workOrderNo = Convert.ToString(this.cmbWorkOrderNumber.Text);
+        string partNumber = Convert.ToString(this.cmbPartNumber.Value);
+        string oprline = Convert.ToString(lineName);
+        string startTime = GetStartTime(this.dateStart.Date);
+        string endTime = GetEndTime(this.dateEnd.Date);
+        if (proId.ToUpper() == "ALL") proId = string.Empty;
+        if (workOrderNo.ToUpper() == "ALL") workOrderNo = string.Empty;
+        if (partNumber.ToUpper() == "ALL") partNumber = string.Empty;
+        if (oprline.ToUpper() == "ALL") oprline = string.Empty;
+
+        DataSet ds = wipOutput.GetWIPOutputDataLine(0, startTime, endTime, roomName, proId, workOrderNo, string.Empty, partNumber,oprline);
+        return ds;
+    }
+
+    /// <summary>
+    /// 获取开始时间。
+    /// </summary>
+    /// <param name="dt">当前日期。</param>
+    /// <returns>返回开始时间字符串。</returns>
+    private string GetStartTime(DateTime dt)
+    {
+        string date = dt.ToString("yyyy-MM-dd");
+        string startTime = this.deStartTime.Text;
+        startTime = date + " " + startTime;
+        return startTime;
+    }
+
+    /// <summary>
+    /// 获取结束时间。
+    /// </summary>
+    /// <param name="dt">当前日期。</param>
+    /// <returns>返回结束时间字符串。</returns>
+    private string GetEndTime(DateTime dt)
+    {
+        string date = dt.ToString("yyyy-MM-dd");
+        string endTime = this.deEndTime.Text;
+        endTime = date + " " + endTime;
+        return endTime;
+    }
+
+    /// <summary>
+    /// 查询当日工序产量之后进行数据的行列转换。
+    /// </summary>
+    /// <param name="dsSource">源数据表。</param>
+    /// <returns>行列转换后的数据表。</returns>
+    private DataTable TransferDatatable(DataTable dtSource, DataTable dtColumns)
+    {
+        DataTable dtBase = dtSource.DefaultView.ToTable(true, new string[] { "CALC_DATE", "SHIFT_NAME" });
+
+        //组织新表数据结构。
+        DataTable dtNew = new DataTable();
+        for (int i = 0; i < dtBase.Columns.Count; i++)
+        {
+            dtNew.Columns.Add(dtBase.Columns[i].ColumnName);
+        }
+        dtNew.Columns.Add("COL_VALUE");
+        for (int i = 0; i < dtColumns.Rows.Count; i++)
+        {
+            DataColumn dc = dtNew.Columns.Add(Convert.ToString(dtColumns.Rows[i]["ROUTE_STEP_NAME"]));
+            dc.DataType = typeof(double);
+        }
+        DataColumn dcSum = dtNew.Columns.Add("SUM_VALUE");
+        dcSum.DataType = typeof(double);
+        //填充数据
+        for (int i = 0; i < dtBase.Rows.Count; i++)
+        {
+            string calcDate = dtBase.Rows[i]["CALC_DATE"].ToString();
+            //string startTime = dtBase.Rows[i]["START_TIME"].ToString();
+            //string endTime = dtBase.Rows[i]["END_TIME"].ToString();
+            //添加数据行
+            foreach (string key in dic.Keys)
+            {
+                if (key == "WIP_QTY" && !this.rbtCurrent.Checked)
+                {
+                    continue;
+                }
+                DataRow dr = dtNew.NewRow();
+                dr["CALC_DATE"] = calcDate;
+                dr["SHIFT_NAME"] = dtBase.Rows[i]["SHIFT_NAME"];
+                //dr["START_TIME"] = startTime;
+                //dr["END_TIME"] = endTime;
+                dr["COL_VALUE"] = key;
+                dtNew.Rows.Add(dr);
+            }
+        }
+
+        for (int i = 0; i < dtNew.Rows.Count; i++)
+        {
+            string calcDate = Convert.ToString(dtNew.Rows[i]["CALC_DATE"]);
+            string shiftName = Convert.ToString(dtNew.Rows[i]["SHIFT_NAME"]);
+            string colValue = Convert.ToString(dtNew.Rows[i]["COL_VALUE"]);
+            decimal sum = 0;
+            for (int j = 0; j < dtColumns.Rows.Count; j++)
+            {
+                string operationName = Convert.ToString(dtColumns.Rows[j]["ROUTE_STEP_NAME"]);
+                string filter = string.Format("OPERATION_NAME='{0}' AND CALC_DATE='{1}' AND SHIFT_NAME='{2}'", operationName, calcDate, shiftName);
+                DataRow[] drs = dtSource.Select(filter);
+                if (drs.Length > 0)
+                {
+                    decimal val = Convert.ToDecimal(drs[0][colValue]);
+                    dtNew.Rows[i][operationName] = val;
+                    sum += val;
+                }
+            }
+            dtNew.Rows[i]["SUM_VALUE"] = sum;
+        }
+        return dtNew;
+    }
+
+    /// <summary>
+    /// 查询当日工序产量之后绘制分析图形。
+    /// </summary>
+    /// <param name="dtSource">源数据表。</param>
+    private void DrawChart(DataTable dtSource, DataTable dtColumns)
+    {
+        chartOutput.Series.Clear();
+
+        Series sInQty = new Series("送入数", ViewType.Bar);
+        Series sOutQty = new Series("送出数", ViewType.Bar);
+
+        var query = from column in dtColumns.AsEnumerable()
+                    join row in dtSource.Select("SEQ_NUMBER=1").AsEnumerable() on column["ROUTE_STEP_NAME"] equals row["OPERATION_NAME"] into grp
+                    from item in grp.DefaultIfEmpty()
+                    select new
+                    {
+                        OperationName = column["ROUTE_STEP_NAME"],
+                        InQty = (item == null ? 0 : Convert.ToInt32(item["IN_QTY"])),
+                        OutQty = (item == null ? 0 : Convert.ToInt32(item["OUT_QTY"]))
+                    };
+        var results = from item in query.AsEnumerable()
+                      group item by item.OperationName into g
+                      select new { g, IN_QTY = g.Sum(p => p.InQty), OUT_QTY = g.Sum(p => p.OutQty) }
+                      ;
+
+        foreach (var obj in results.AsEnumerable())
+        {
+            SeriesPoint spInQty = new SeriesPoint(obj.g.Key, obj.IN_QTY);
+            sInQty.Points.Add(spInQty);
+            sOutQty.Points.Add(new SeriesPoint(obj.g.Key, obj.OUT_QTY));
+        }
+        chartOutput.Series.Add(sInQty);
+        chartOutput.Series.Add(sOutQty);
+    }
+
+    /// <summary>
+    /// 导出EXCEL。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnXlsExport_Click(object sender, EventArgs e)
+    {
+        btnQuery_Click(sender, e);
+        DevExpress.XtraPrinting.XlsExportOptions options = new DevExpress.XtraPrinting.XlsExportOptions();
+        options.ExportHyperlinks = false;
+        this.exporter.WriteXlsToResponse("Output_QTY", true, options);
+    }
+
+    /// <summary>
+    /// 绑定超链接
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void grid_CustomColumnDisplayText(object sender, ASPxGridViewColumnDisplayTextEventArgs e)
+    {
+        ASPxGridView gv = sender as ASPxGridView;
+        DataTable dt = gv.DataSource as DataTable;
+        if (dt != null && e.Column.Index > 2 && e.Value.ToString() != "0")
+        {
+            string date = Convert.ToString(dt.Rows[e.VisibleRowIndex][0]);
+            string shiftName = Convert.ToString(dt.Rows[e.VisibleRowIndex][1]);
+            string trxType = Convert.ToString(dt.Rows[e.VisibleRowIndex][2]);
+            string isHistory = this.rbtHistory.Checked ? "1" : "0";
+            string colHeader = e.Column.FieldName;
+
+            var results = from item in this._dtSource.AsEnumerable()
+                          where Convert.ToString(item["CALC_DATE"]) == date
+                                && Convert.ToString(item["SHIFT_NAME"]) == shiftName
+                                && Convert.ToString(item["OPERATION_NAME"]) == colHeader
+                          select new { StartTime = item["START_TIME"], EndTime = item["END_TIME"] };
+            if (colHeader == "SUM_VALUE")
+            {
+                colHeader = "ALL";
+                results = from item in this._dtSource.AsEnumerable()
+                          where Convert.ToString(item["CALC_DATE"]) == date
+                                && Convert.ToString(item["SHIFT_NAME"]) == shiftName
+                          select new { StartTime = item["START_TIME"], EndTime = item["END_TIME"] };
+            }
+            string startTime = Convert.ToString(results.Min(a => a.StartTime));
+            string endTime = Convert.ToString(results.Max(a => a.EndTime));
+
+            if (!this.rbtHistory.Checked)
+            {
+                string inputStartTime = this.dateStart.Text + " " + this.deStartTime.Text;
+                string inputEndTime = this.dateEnd.Text + " " + this.deEndTime.Text;
+                if (startTime.CompareTo(inputStartTime) < 0)
+                {
+                    startTime = inputStartTime;
+                }
+
+                if (endTime.CompareTo(inputEndTime) > 0)
+                {
+                    endTime = inputEndTime;
+                }
+            }
+
+            if (sender == this.grid && trxType!="CELL_REAL_SCRAP_QTY")
+            {
+                string url = string.Format(@"WipOperationOutputDetail_Line.aspx?date={0}&shiftName={1}&startTime={2}&endTime={3}&trxType={4}&stepName={5}&roomName={6}&proId={7}&workOrderNo={8}&isHistory={9}&partNumber={10}&oprline={11}",
+                    Server.UrlEncode(date),
+                    Server.UrlEncode(shiftName),
+                    Server.UrlEncode(startTime),
+                    Server.UrlEncode(endTime),
+                    Server.UrlEncode(trxType),
+                    Server.UrlEncode(colHeader),
+                    Server.UrlEncode(this.cmbWorkPlace.Text),
+                    Server.UrlEncode(this.cmbProduct.Text),
+                    Server.UrlEncode(this.cmbWorkOrderNumber.Text),
+                    isHistory,
+                    Server.UrlEncode(this.cmbPartNumber.Text),
+                    Server.UrlEncode(lineName)
+                    );
+
+                e.DisplayText = string.Format("<a href=\"javascript:void(0);\" onclick=\"javascript:window.open('{1}')\" class=\"dxgv\" style=\"text-decoration:underline;\">{0}</a>",
+                     e.Value, url);
+            }
+        }
+        if (e.Column.Index == 2)
+        {
+            e.DisplayText = dic[Convert.ToString(e.Value)];
+        }
+        if (e.Column.Index > 2 && string.IsNullOrEmpty(e.Value.ToString()))
+        {
+            e.DisplayText = "0";
+        }
+    }
+
+    string preDate = string.Empty;
+    string preShift = string.Empty;
+    /// <summary>
+    /// 行创建时触发事件，用于合并单元格。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void grid_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
+    {
+        DataTable dt = grid.DataSource as DataTable;
+        if (e.RowType == GridViewRowType.Data && dt!=null)
+        {
+            if (Convert.ToString(e.GetValue("CALC_DATE")) == "总计")
+            {
+                for (int i = 0; i < e.Row.Cells.Count; i++)
+                {
+                    e.Row.Cells[i].Attributes.CssStyle.Add(HtmlTextWriterStyle.BackgroundColor, "lightgray");
+                }
+            }
+            string date = Convert.ToString(dt.Rows[e.VisibleIndex]["CALC_DATE"]);
+            string shift = Convert.ToString(dt.Rows[e.VisibleIndex]["SHIFT_NAME"]);
+            int mergeDateCellCount = dt.Select(string.Format("CALC_DATE='{0}'", date)).Count();
+            int mergeShiftCellCount = dt.Select(string.Format("CALC_DATE='{0}' AND SHIFT_NAME='{1}'", date, shift)).Count();
+            //合并班次单元格。
+            if (preShift != shift)
+            {
+                e.Row.Cells[1].RowSpan = mergeShiftCellCount;
+                preShift = shift;
+            }
+            else
+            {
+                if (preDate != date)
+                {
+                    e.Row.Cells[1].RowSpan = mergeShiftCellCount;
+                }
+                else
+                {
+                    e.Row.Cells[1].Visible = false;
+                }
+            }
+            //合并日期单元格。
+            if (preDate!=date)
+            {
+                e.Row.Cells[0].RowSpan = mergeDateCellCount;
+                preDate = date;
+            }
+            else
+            {
+                e.Row.Cells[0].Visible = false;
+            }
+           
+        }
+    }
+
+    /// <summary>
+    /// 导出数据时重新设置文本值。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void exporter_RenderBrick(object sender, ASPxGridViewExportRenderingEventArgs e)
+    {
+
+    }
+
+    /// <summary>
+    /// 数据绑定时触发事件。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void grid_DataBound(object sender, EventArgs e)
+    {
+        try
+        {
+            ASPxGridView gv = sender as ASPxGridView;
+            gv.Columns["CALC_DATE"].Caption = "日期";
+            gv.Columns["SHIFT_NAME"].Caption = "班次";
+            gv.Columns["COL_VALUE"].Caption = "  ";
+            gv.Columns["SUM_VALUE"].Caption = "总计";
+            gv.Columns["CALC_DATE"].CellStyle.Wrap = DevExpress.Utils.DefaultBoolean.False;
+            gv.Columns["SHIFT_NAME"].CellStyle.Wrap = DevExpress.Utils.DefaultBoolean.False;
+            gv.Columns["COL_VALUE"].CellStyle.Wrap = DevExpress.Utils.DefaultBoolean.False;
+            ////不显示开始时间和结束时间列。
+            //gv.Columns[2].Visible = false;
+            //gv.Columns[3].Visible = false;
+        }
+        catch { }
+    }
+    protected void cmbWorkOrderNumber_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindPartNumber(this.cmbWorkOrderNumber.Text);
+    }
+}
+

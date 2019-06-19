@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0C8E963-13A4-4CB9-879A-E2A0BFAD2702}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Addins.SPC</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Addins.SPC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Charts.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.RichEdit.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.RichEdit.v18.1.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraCharts.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraCharts.v18.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraNavBar.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraReports.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\AbnormalControlPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\AbnormalControlPlan.Designer.cs">
+      <DependentUpon>AbnormalControlPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\AbnormalRules.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\AbnormalRules.designer.cs">
+      <DependentUpon>AbnormalRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Arithmetic.cs" />
+    <Compile Include="Gui\ChartControlExportHelper.cs" />
+    <Compile Include="Gui\DetailInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\DetailInformation.Designer.cs">
+      <DependentUpon>DetailInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EditInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\EditInformation.Designer.cs">
+      <DependentUpon>EditInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EditPointDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\EditPointDialog.Designer.cs">
+      <DependentUpon>EditPointDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\CommControlPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\CommControlPlan.Designer.cs">
+      <DependentUpon>CommControlPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SpcEquipments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\SpcEquipments.Designer.cs">
+      <DependentUpon>SpcEquipments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SPControlPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\SPControlPlan.designer.cs">
+      <DependentUpon>SPControlPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SpcPoints.cs" />
+    <Compile Include="Gui\SPCChartCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\SPCChartCtrl.Designer.cs">
+      <DependentUpon>SPCChartCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\X-MRChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\X-MRChart.Designer.cs">
+      <DependentUpon>X-MRChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Xbar_RChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Xbar_RChart.Designer.cs">
+      <DependentUpon>Xbar_RChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Xbar_SChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Xbar_SChart.Designer.cs">
+      <DependentUpon>Xbar_SChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\XBARChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\XBARChart.Designer.cs">
+      <DependentUpon>XBARChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PointInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\PointInformation.Designer.cs">
+      <DependentUpon>PointInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\DeletePointDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\DeletePointDialog.Designer.cs">
+      <DependentUpon>DeletePointDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\AbnormalCommand.cs" />
+    <Compile Include="Menu\SPCControlPlanCommand.cs" />
+    <Compile Include="Menu\SpcChartCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Gui\AbnormalControlPlan.resx">
+      <DependentUpon>AbnormalControlPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\AbnormalRules.resx">
+      <DependentUpon>AbnormalRules.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\DetailInformation.resx">
+      <DependentUpon>DetailInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EditInformation.resx">
+      <DependentUpon>EditInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EditPointDialog.resx">
+      <DependentUpon>EditPointDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\CommControlPlan.resx">
+      <DependentUpon>CommControlPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SPCChartCtrl.resx">
+      <DependentUpon>SPCChartCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SpcEquipments.resx">
+      <DependentUpon>SpcEquipments.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SPControlPlan.resx">
+      <DependentUpon>SPControlPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\X-MRChart.resx">
+      <DependentUpon>X-MRChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Xbar_RChart.resx">
+      <DependentUpon>Xbar_RChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Xbar_SChart.resx">
+      <DependentUpon>Xbar_SChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\XBARChart.resx">
+      <DependentUpon>XBARChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PointInformation.resx">
+      <DependentUpon>PointInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\DeletePointDialog.resx">
+      <DependentUpon>DeletePointDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Src\AbnormalRulesViewContent.cs" />
+    <Compile Include="Src\SPCControlPlanViewContent.cs" />
+    <Compile Include="Src\SpcChartViewContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Conf\FanHai.Hemera.Addins.SPC.addIn">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+    <None Include="Resources\system_search.png" />
+    <None Include="Resources\document-delete.png" />
+    <None Include="Resources\toolstrip-bk.png" />
+    <None Include="Resources\save_accept.png" />
+    <None Include="Resources\document-add.png" />
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework %28FanHai.Gui.Framework\FanHai.Gui.Framework%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.StaticFuncs\FanHai.Hemera.Utils.StaticFuncs.csproj">
+      <Project>{54894B8F-B87B-4365-8E80-B8449EB63C89}</Project>
+      <Name>FanHai.Hemera.Utils.StaticFuncs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo --------SPC
+
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"            mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SPC"     mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SPC"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                                 "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SPC" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                              "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SPC" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                                   "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SPC" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Servers>
+  <Server ip="127.0.0.1" type="tcp" port="8081" clientIp="" clientPort="0">
+    <Components>
+      <Component>
+        <name>ServerObjFactory</name>
+        <path></path>
+        <assembly>FanHai.Hemera.Share.Interface.dll</assembly>
+        <class>FanHai.Hemera.Modules.Wip2.ServerObjFactory,FanHai.Hemera.Modules.Wip2</class>
+        <interface></interface>
+        <url>FanHai.Hemera.Share.Interface.IServerObjFactory</url>
+        <model>Singleton</model>
+        <active>true</active>
+      </Component>
+    </Components>
+    <Languages>
+      <Language>
+        <name>中文</name>
+        <sign>ZH-CN</sign>
+      </Language>
+      <Language>
+        <name>英文</name>
+        <sign>EN</sign>
+      </Language>
+    </Languages>
+    <Sites>
+      <Site>
+        <name>正式环境</name>
+        <ip>Localhost</ip>
+      </Site>
+      <Site>
+        <name>测试环境</name>
+        <ip>127.0.0.1</ip>
+      </Site>
+    
+    </Sites>
+  </Server>
+</Servers>

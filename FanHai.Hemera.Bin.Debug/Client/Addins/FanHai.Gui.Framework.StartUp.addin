@@ -1,0 +1,356 @@
+﻿<AddIn name        = "FanHai Framework"
+       author      = "FanHai"
+       copyright   = "Copyright 2019"
+       url         = "http://www.baidu.com"
+       description = "FanHai Hemera MES System"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.Main" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <!-- Runtime -->
+  <Runtime>
+    <Import assembly=":FanHai.Gui.Framework">
+      <ConditionEvaluator name="ActiveWindowState" class="FanHai.Gui.Framework.ActiveWindowStateConditionEvaluator"/>
+      <ConditionEvaluator name="WindowActive" class="FanHai.Gui.Framework.WindowActiveConditionEvaluator"/>
+      <Doozer name="DialogPanel" class="FanHai.Gui.Framework.DialogPanelDoozer"/>
+      <Doozer name="DisplayBinding" class="FanHai.Gui.Framework.DisplayBindingDoozer"/>
+      <Doozer name="Pad" class="FanHai.Gui.Framework.PadDoozer"/>
+      <Doozer name="LanguageBinding" class="FanHai.Gui.Framework.LanguageBindingDoozer"/>
+      <Doozer name="Parser" class="FanHai.Gui.Framework.ParserDoozer"/>
+      <Doozer name="ProjectContentRegistry" class="FanHai.Gui.Framework.ProjectContentRegistryDoozer"/>
+      <Doozer name="Debugger" class="FanHai.Gui.Framework.Debugging.DebuggerDoozer"/>
+      <Doozer name="Directory" class="FanHai.Gui.Framework.DirectoryDoozer"/>
+      <Doozer name="BrowserSchemeExtension" class="FanHai.Gui.Framework.BrowserDisplayBinding.SchemeExtensionDoozer"/>
+    </Import>
+  </Runtime>
+  <!-- Main Menu -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu">
+    <!--1.平台管理-->
+    <MenuItem id = "idPlantManagement" label="平台管理" type="Menu" privilegeId="9999999">
+      <MenuItem id="idSystemManagementMenu" label = "系统管理" type="Menu" privilegeId  ="9999999"></MenuItem>
+      <MenuItem id="idProDepartmentSettingMenu" label = "车间配置" type="Menu" privilegeId  ="9999999"></MenuItem>
+      <MenuItem id="idUserInfoMenu" label = "个人信息" type="Menu" privilegeId  ="9999999">
+        <MenuItem id    = "idReLogin"
+          label         = "注销"
+          icon          = ""
+          class         = "FanHai.Gui.Framework.Commands.ReLoginCommand"
+          privilegeId   = "9999999"/>
+      </MenuItem>
+      <MenuItem id="idHomePageMenu" label = "回首页" type="Menu" privilegeId  ="9999999"></MenuItem>
+
+      <!--<MenuItem id="idExportMenu" label = "数据导出" type="Menu" privilegeId  ="9999999">
+      </MenuItem>-->
+    </MenuItem>
+
+    <!--2.基础数据-->
+    <MenuItem id = "idBasis" label="基础数据" type="Menu" privilegeId="9999999">
+      <MenuItem id="idProModelMenu" type="Menu" label="工艺参数设置" privilegeId="9999999"></MenuItem>
+      <MenuItem id="idWorkOrderManagementMenu" type="Menu" label="工单管理" privilegeId="9999999"></MenuItem>
+      <MenuItem id= "idRoutingMenu" type  = "Menu" label = "流程管理" privilegeId = "9999999"> </MenuItem>
+      <MenuItem id="idSettingManagementMenu"  type="Menu" label="配置管理" privilegeId="9999999"></MenuItem>
+      <MenuItem id="idSamplingMenu"  type="Menu" label="抽检管理" privilegeId="9999999"></MenuItem>
+    </MenuItem>
+    <!--3.物料管理-->
+    <MenuItem id = "idMaterial" label="物料管理" type="Menu" privilegeId="9999999">
+      <MenuItem id = "idMaterialMenu" label="物料管理" type="Menu" privilegeId="9999999"></MenuItem>
+      <MenuItem id ="idMaterialStoreMenu" label="线边仓" type="Menu" privilegeId="9999999"></MenuItem>
+    </MenuItem>
+
+    <!--Menu 4: 生产管理-->
+    <MenuItem id = "idMenuProcess" label = "生产管理" type="Menu" privilegeId  = "9999999">
+      <MenuItem id = "idDisPatchManagementMenu" label="过站管理" type="Menu" privilegeId="9999999"></MenuItem>
+      <MenuItem id = "idElementManagementMenu" label="组件管理" type="Menu" privilegeId="9999999"></MenuItem>
+      <MenuItem id = "idLotCellManagementMenu" label="电池片管理" type="Menu" privilegeId="9999999"></MenuItem>
+    </MenuItem>
+
+    <!--Menu 5: 质量管理-->
+    <MenuItem id = "idQuantity" label = "质量管理" type="Menu" privilegeId  = "9999999">
+      <MenuItem id = "idDefectMenu" label="不良品处理" type="Menu" privilegeId="9999999"></MenuItem>
+      <MenuItem id = "idQuantityWorkMenu" label="质量作业" type="Menu" privilegeId="9999999"></MenuItem>
+      <MenuItem id= "idMenuProcessadditionMenu" label="SPC" type="Menu"  privilegeId="9999999"></MenuItem>
+      <MenuItem id= "idReasonCodeMenu" label="代码管理" type="Menu"  privilegeId="9999999"></MenuItem>
+    </MenuItem>
+    <!--Menu 6: 打印管理-->
+    <MenuItem id = "idPrint" label = "打印管理" type="Menu" privilegeId  = "9999999">
+      <MenuItem id = "idPrintMenu" label="打印管理" type="Menu" privilegeId="9999999"></MenuItem>
+    </MenuItem>
+    <!--Menu 7: 设备管理-->
+    <MenuItem id = "idMenuEMS" label = "设备管理" type="Menu" privilegeId  = "9999999">
+      <MenuItem id = "idEMSDeviceXiu" label="设备维护" type="Menu" privilegeId="9999999"></MenuItem>
+      <MenuItem id = "idEMSDevice" label="设备" type="Menu" privilegeId="9999999"></MenuItem>
+    </MenuItem>
+    <!--Menu 8: 库房管理-->
+    <MenuItem id = "idStoreHouse" label = "库房管理" type="Menu" privilegeId  = "9999999">
+      <MenuItem id = "idInboundManagementMenu" label="入库管理" type="Menu" privilegeId="9999999"></MenuItem>
+      <MenuItem id = "idOutboundManagementMenu" label="出货管理" type="Menu" privilegeId="9999999"></MenuItem>
+    </MenuItem>
+    <!--Menu 9: 其他-->
+    <!--<MenuItem id = "idOther" label = "其他" type="Menu" privilegeId  = "9999999">
+    </MenuItem>
+    <MenuItem id="idExitMenu" label = "退出" type="Menu" privilegeId  ="9999999">
+      -->
+    <!--退出-->
+    <!--
+      <MenuItem id            = "idExit"
+                label         = "${res:XML.MainMenu.FileMenu.Exit}"
+                icon          = "Icons.16x16.CancelIcon"
+                class         = "FanHai.Gui.Framework.Commands.ExitWorkbenchCommand"
+                insertafter   = "idSeparatorExit"
+                insertbefore  = ""
+                privilegeId   = "9999999"/>
+    </MenuItem>-->
+    <!--Menu 8: 查看-->
+    <!--
+    <MenuItem id = "idViews" label = "${res:XML.MainMenu.ViewMenu}" type="Menu"  privilegeId  ="8000000">
+    </MenuItem>
+    -->
+    <!--Menu 9: 窗口-->
+    <!--
+    <MenuItem id = "Window" label = "${res:XML.MainMenu.WindowMenu}" type="Menu" privilegeId  ="9999999">
+      -->
+    <!--<Condition name = "WindowActive" activewindow="*"  action="Disable">-->
+    <!--
+      -->
+    <!--下一窗口-->
+    <!--
+      -->
+    <!--
+        <MenuItem id  = "NextWindow"
+				          label = "${res:XML.MainMenu.WindowMenu.NxtWindow}"
+				          icon = "Icons.16x16.NextWindowIcon"
+				          shortcut = "Control|Tab"
+				          class = "FanHai.Gui.Framework.Commands.SelectNextWindow"
+                  privilegeId="9999999"/>
+        -->
+    <!--
+      -->
+    <!--上一窗口-->
+    <!--
+      -->
+    <!--
+        <MenuItem id = "PrevWindow"
+				          label = "${res:XML.MainMenu.WindowMenu.PrvWindow}"
+				          icon = "Icons.16x16.PrevWindowIcon"
+				          shortcut = "Shift|Control|Tab"
+				          class = "FanHai.Gui.Framework.Commands.SelectPrevWindow"
+                  privilegeId="9999999"/>
+        <MenuItem id ="NxtPrvSeparator" type = "Separator" />
+        -->
+    <!--
+      -->
+    <!--关闭所有窗口-->
+    <!--
+      -->
+    <!--
+        <MenuItem id    = "CloseAll"
+				          label = "${res:XML.MainMenu.FileMenu.CloseAll}"
+				          icon  = "Icons.16x16.CloseAllDocuments"
+				          class = "FanHai.Gui.Framework.Commands.CloseAllWindows"
+                  privilegeId="9999999"/>
+      </Condition>-->
+    <!--
+      -->
+    <!--所有已打开功能的菜单-->
+    <!--
+      <MenuItem id = "ContentBuilder"  type="Builder" class="FanHai.Gui.Framework.Commands.OpenContentsMenuBuilder"
+                privilegeId="9999999"/>
+      <MenuItem id = "SeparatorWindow" type = "Separator" />
+      -->
+    <!--全屏-->
+    <!--
+      <MenuItem id          = "FullScreen"
+                label       = "${res:XML.MainMenu.ViewMenu.FullScreen}"
+                icon        = "Icons.16x16.FullScreen"
+                class       = "FanHai.Gui.Framework.Commands.ToggleFullscreenCommand"
+                privilegeId ="9999999"/>
+
+    </MenuItem>
+    <MenuItem id    = "CloseAll"
+              label = "${res:XML.MainMenu.FileMenu.CloseAll}"
+              icon  = "Icons.16x16.CloseAllDocuments"
+              class = "FanHai.Gui.Framework.Commands.CloseAllWindows"
+              privilegeId="9999999"/>
+    -->
+    <!--Menu 10: 帮助-->
+    <!--
+    <MenuItem id = "idHelp" label = "${res:XML.MainMenu.HelpMenu}" type="Menu"  privilegeId  ="9999999">
+      <MenuItem id ="idSeparateAbout"
+                type = "Separator"
+                insertbefore="idAbout"
+                insertafter="idHelpContext"/>
+      -->
+    <!--关于-->
+    <!--
+      <MenuItem id = "idAbout"
+			          label = "${res:XML.MainMenu.HelpMenu.About}"
+			          icon = "Icons.16x16.AboutIcon"
+			          class = "FanHai.Gui.Framework.Commands.AboutSolarViewerFramework"
+                privilegeId="9999999"/>
+      <MenuItem id ="idSeparateOptions"
+                     type = "Separator"
+                     insertbefore="idOptions"
+                     insertafter="idAbout"/>
+      -->
+    <!--选项-->
+    <!--
+      <MenuItem id           = "idOptions"
+          label        = "${res:XML.MainMenu.ToolMenu.Options}"
+          icon         = "Icons.16x16.Options"
+          insertafter  = "idSeparateOptions"
+          insertbefore = ""
+          class        = "FanHai.Gui.Framework.Commands.OptionsCommand"
+          privilegeId  = "9999999"/>
+    </MenuItem>-->
+  </Path>
+
+  <!-- Toolbars -->
+  <Path name = "/FanHaiFramework/Workbench/ToolBar/Standard">
+    <!--ToolbarItem id      = "New"
+                   icon    = "Icons.16x16.NewDocumentIcon"
+                   tooltip = "${res:XML.MainMenu.FileMenu.New.File.Description}"
+                   class   = "FanHai.Gui.Framework.Commands.CreateNewFile"/>
+      <ToolbarItem id = "ChooseConfigurationSeparator" type = "Separator"/>
+
+      <ToolbarItem id      = "Open"
+                   icon    = "Icons.16x16.OpenFileIcon"
+                   tooltip = "Open.File"
+                   class   = "FanHai.Gui.Framework.Commands.CreateNewFile"/>
+
+      <ToolbarItem id      = "OpenProject"
+                   tooltip = "Open Project"
+                   icon    = "Icons.16x16.OpenProjectIcon"
+                   class   = "FanHai.Gui.Framework.Commands.CreateNewFile"/>
+    -->
+  </Path>
+
+  <!-- Browser Toolbars -->
+  <Path name = "/FanHaiFramework/ViewContent/Browser/Toolbar">
+    <!--<ToolbarItem id      = "Forward"
+		             icon    = "Icons.16x16.BrowserAfter"
+		             tooltip = "${res:AddIns.HtmlHelp2.Forward}"
+		             class   = "FanHai.Gui.Framework.BrowserDisplayBinding.GoForward"/>
+
+    <ToolbarItem id      = "Stop"
+		             icon    = "Icons.16x16.BrowserCancel"
+		             tooltip = "${res:AddIns.HtmlHelp2.Stop}"
+		             class   = "FanHai.Gui.Framework.BrowserDisplayBinding.Stop"/>
+
+    <ToolbarItem id      = "Refresh"
+		             icon    = "Icons.16x16.BrowserRefresh"
+		             tooltip = "${res:AddIns.HtmlHelp2.Refresh}"
+		             class   = "FanHai.Gui.Framework.BrowserDisplayBinding.Refresh"/>
+
+    <ToolbarItem id = "Separator" type  = "Separator"/>
+
+    <ToolbarItem id      = "GoHome"
+		             icon    = "Icons.16x16.BrowserHome"
+		             tooltip = "${res:AddIns.HtmlHelp2.Homepage}"
+		             class   = "FanHai.Gui.Framework.BrowserDisplayBinding.GoHome"/>
+
+    <ToolbarItem id      = "GoSearch"
+		             icon    = "Icons.16x16.FindIcon"
+		             tooltip = "${res:AddIns.HtmlHelp2.Search}"
+		             class   = "FanHai.Gui.Framework.BrowserDisplayBinding.GoSearch"/>
+
+    <ToolbarItem id      = "URLComboBox"
+		             type    = "ComboBox"
+		             tooltip = "${res:AddIns.HtmlHelp2.EnterURL}"
+		             class   = "FanHai.Gui.Framework.BrowserDisplayBinding.UrlComboBox"/>
+
+    <ToolbarItem id      = "NewWindow"
+		             icon    = "Icons.16x16.BrowserWindow"
+		             tooltip = "${res:AddIns.HtmlHelp2.NewWindow}"
+		             class   = "FanHai.Gui.Framework.BrowserDisplayBinding.NewWindow"/>-->
+
+    <ToolbarItem id      = "URLComboBox"
+		             type    = "ComboBox"
+		             tooltip = "${res:AddIns.HtmlHelp2.EnterURL}"
+		             class   = "FanHai.Gui.Framework.Gui.BrowserDisplayBinding.UrlComboBox"/>
+
+  </Path>
+
+  <!-- Close Context Views-->
+  <Path name = "/FanHaiFramework/Workbench/OpenFileTab/ContextMenu">
+    <MenuItem id = "Close"
+		          label = "${res:OpenFileTabEventHandler.ContextMenu.Close}"
+		          icon  = "Icons.16x16.CloseFileIcon"
+		          class = "FanHai.Gui.Framework.Commands.CloseFileTab"
+              privilegeId  ="9999999"/>
+
+    <MenuItem id    = "CloseAll"
+		          icon  = "Icons.16x16.CloseAllDocuments"
+		          label = "${res:XML.MainMenu.FileMenu.CloseAll}"
+		          class = "FanHai.Gui.Framework.Commands.CloseAllWindows"
+              privilegeId  ="9999999"/>
+
+    <MenuItem id    = "CloseAllButThis"
+		          label = "${res:OpenFileTabEventHandler.ContextMenu.CloseAllButThis}"
+		          class = "FanHai.Gui.Framework.Commands.CloseAllButThisFileTab"
+              privilegeId  ="9999999"/>
+  </Path>
+
+  <!-- Icons -->
+  <Path name = "/Workspace/Icons">
+    <!-- Resources -->
+    <Icon id         = "ResourceFileIcon"
+		      extensions = ".resources;.resx"
+		      resource   = "Icons.16x16.ResourceFileIcon" />
+
+    <!-- XML -->
+    <Icon id         = "XmlFileIcon"
+		      extensions = ".xml"
+		      resource   = "FileIcons.XmlIcon" />
+
+    <Icon id         = "DtdFileIcon"
+		      extensions = ".dtd"
+		      resource   = "Icons.16x16.DTDIcon"/>
+
+    <Icon id         = "XsdFileIcon"
+		      extensions = ".xsd"
+		      resource   = "Icons.16x16.XSDIcon"/>
+
+    <Icon id         = "XslFileIcon"
+		      extensions = ".xsl"
+		      resource   = "Icons.16x16.XSLIcon"/>
+
+    <Icon id         = "HtmlFileIcon"
+		      extensions = ".html;.htm"
+		      resource   = "Icons.16x16.HTMLIcon"/>
+
+    <Icon id         = "AspFileIcon"
+		      extensions = ".asp;.aspx"
+		      resource   = "Icons.16x16.ASPFileIcon"/>
+
+    <Icon id         = "AddInFileIcon"
+		      extensions = ".addin"
+		      resource   = "Icons.16x16.AddInIcon" />
+
+    <!-- TextFiles -->
+    <Icon id         = "TextFileIcon"
+		      extensions = ".txt;.doc"
+		      resource   = "Icons.16x16.TextFileIcon"/>
+
+    <Icon id= "CssFileIcon"
+		      extensions = ".css"
+		      resource   = "Icons.16x16.CSSIcon"/>
+    <Icon id         = "StrongNameKeyFileIcon"
+		      extensions = ".snk"
+		      resource   = "Icons.16x16.StrongNameKeyFileIcon"/>
+  </Path>
+
+  <!-- Options Dialog -->
+  <Path name = "/FanHaiFramework/Dialogs/OptionsDialog">
+    <DialogPanel id    = "UIOptions"
+		             label = "${res:Dialog.Options.TreeViewOptions.OptionsText}">
+      <DialogPanel id    = "SelectCulture"
+			             label = "${res:Dialog.Options.IDEOptions.SelectCulture.PanelName}"
+			             class = "FanHai.Gui.Framework.Gui.OptionPanels.SelectCulturePanel"/>
+      <DialogPanel id    = "Fullscreen"
+			             label = "${res:Dialog.Options.IDEOptions.FullScreen.Title}"
+			             class = "FanHai.Gui.Framework.Gui.OptionPanels.FullscreenPanel"/>
+    </DialogPanel>
+  </Path>
+
+</AddIn>

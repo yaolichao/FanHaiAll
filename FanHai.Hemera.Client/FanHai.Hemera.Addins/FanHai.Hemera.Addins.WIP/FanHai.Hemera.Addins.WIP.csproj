@@ -1,0 +1,1483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{54E00E18-6336-4E1B-82D4-F3E94ED39E53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Addins.WIP</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Addins.WIP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Images.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Office.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Pdf.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Printing.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.RichEdit.v18.1.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraBars.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraPrinting.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraReports.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraRichEdit.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.LabelManager2, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\Interop.LabelManager2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.15.0.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\EquipmentPickDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentPickDialog.Designer.cs">
+      <DependentUpon>EquipmentPickDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\frmOQAQueryDailog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\frmOQAQueryDailog.Designer.cs">
+      <DependentUpon>frmOQAQueryDailog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\FtpFileHelper.cs" />
+    <Compile Include="Gui\InputDevice.cs" />
+    <Compile Include="Gui\LotCreateDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotCreateDetail.Designer.cs">
+      <DependentUpon>LotCreateDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotCreate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotCreate.Designer.cs">
+      <DependentUpon>LotCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotDispatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotDispatch.Designer.cs">
+      <DependentUpon>LotDispatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotDispatchDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotDispatchDetail.Designer.cs">
+      <DependentUpon>LotDispatchDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotDispatchForCustCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotDispatchForCustCheck.Designer.cs">
+      <DependentUpon>LotDispatchForCustCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotDispatchForPallet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotDispatchForPallet.Designer.cs">
+      <DependentUpon>LotDispatchForPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotDispatchForPltChkDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotDispatchForPltChkDialog.Designer.cs">
+      <DependentUpon>LotDispatchForPltChkDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotElPicForCustCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotElPicForCustCheck.Designer.cs">
+      <DependentUpon>LotElPicForCustCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotExceptionProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotExceptionProcess.Designer.cs">
+      <DependentUpon>LotExceptionProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotExchangeWo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotExchangeWo.Designer.cs">
+      <DependentUpon>LotExchangeWo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotExchgWoMultiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotExchgWoMultiForm.Designer.cs">
+      <DependentUpon>LotExchgWoMultiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotExchgWoSingleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotExchgWoSingleForm.Designer.cs">
+      <DependentUpon>LotExchgWoSingleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotExecption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotExecption.Designer.cs">
+      <DependentUpon>LotExecption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrint.Designer.cs">
+      <DependentUpon>LotIVTestPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrintDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrintDialog.Designer.cs">
+      <DependentUpon>LotIVTestPrintDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrintNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrintNew.Designer.cs">
+      <DependentUpon>LotIVTestPrintNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotNumberPrintCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotNumberPrintCtrl.Designer.cs">
+      <DependentUpon>LotNumberPrintCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationDefect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationDefect.Designer.cs">
+      <DependentUpon>LotOperationDefect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOutQuantityAssurance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOutQuantityAssurance.Designer.cs">
+      <DependentUpon>LotOutQuantityAssurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotParamSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotParamSearchDialog.Designer.cs">
+      <DependentUpon>LotParamSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotQueryCustCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotQueryCustCheck.Designer.cs">
+      <DependentUpon>LotQueryCustCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotToWarehouseCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotToWarehouseCheck.Designer.cs">
+      <DependentUpon>LotToWarehouseCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotToWarehouseDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotToWarehouseDetail.Designer.cs">
+      <DependentUpon>LotToWarehouseDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotTransactionHistoryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotTransactionHistoryDialog.Designer.cs">
+      <DependentUpon>LotTransactionHistoryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotUndoCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotUndoCtrl.Designer.cs">
+      <DependentUpon>LotUndoCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PackingListPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PackingListPrint.designer.cs">
+      <DependentUpon>PackingListPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletWholeOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletWholeOut.Designer.cs">
+      <DependentUpon>PalletWholeOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PorLineHelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\PorLineHelpDialog.Designer.cs">
+      <DependentUpon>PorLineHelpDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ProductPrintCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ProductPrintCheck.Designer.cs">
+      <DependentUpon>ProductPrintCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\TerminalLotDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\TerminalLotDialog.Designer.cs">
+      <DependentUpon>TerminalLotDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotQueryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotQueryCtrl.Designer.cs">
+      <DependentUpon>LotQueryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperation.designer.cs">
+      <DependentUpon>LotOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotFutureHold.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotFutureHold.Designer.cs">
+      <DependentUpon>LotFutureHold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotFutureHoldQueryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotFutureHoldQueryDialog.Designer.cs">
+      <DependentUpon>LotFutureHoldQueryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotFutureHoldDetailDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotFutureHoldDetailDialog.Designer.cs">
+      <DependentUpon>LotFutureHoldDetailDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotFutureHoldAddDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotFutureHoldAddDialog.Designer.cs">
+      <DependentUpon>LotFutureHoldAddDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotQueryHelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotQueryHelpDialog.Designer.cs">
+      <DependentUpon>LotQueryHelpDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationScrap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationScrap.Designer.cs">
+      <DependentUpon>LotOperationScrap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationPatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationPatch.Designer.cs">
+      <DependentUpon>LotOperationPatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationRecovered.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationRecovered.Designer.cs">
+      <DependentUpon>LotOperationRecovered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationAdjust.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationAdjust.Designer.cs">
+      <DependentUpon>LotOperationAdjust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationHold.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationHold.Designer.cs">
+      <DependentUpon>LotOperationHold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationRelease.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationRelease.Designer.cs">
+      <DependentUpon>LotOperationRelease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationRework.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationRework.Designer.cs">
+      <DependentUpon>LotOperationRework.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationReturnMaterial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationReturnMaterial.Designer.cs">
+      <DependentUpon>LotOperationReturnMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotQueryConditionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotQueryConditionDialog.Designer.cs">
+      <DependentUpon>LotQueryConditionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletQueryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletQueryCtrl.Designer.cs">
+      <DependentUpon>PalletQueryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletQueryConditionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletQueryConditionDialog.Designer.cs">
+      <DependentUpon>PalletQueryConditionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotExchgWoNoSingleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LotExchgWoNoSingleForm.Designer.cs">
+      <DependentUpon>LotExchgWoNoSingleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotDispatchFor_eWoPallet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotDispatchFor_eWoPallet.Designer.cs">
+      <DependentUpon>LotDispatchFor_eWoPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WarehouseCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WarehouseCtrl.Designer.cs">
+      <DependentUpon>WarehouseCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WarehousePrintDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\WarehousePrintDialog.Designer.cs">
+      <DependentUpon>WarehousePrintDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WarehouseSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\WarehouseSelectForm.Designer.cs">
+      <DependentUpon>WarehouseSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotOperationExchangeLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotOperationExchangeLine.Designer.cs">
+      <DependentUpon>LotOperationExchangeLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\NameplateLabelPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\NameplateLabelPrint.Designer.cs">
+      <DependentUpon>NameplateLabelPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotCreateNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotCreateNew.Designer.cs">
+      <DependentUpon>LotCreateNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotCreateNewDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotCreateNewDetail.Designer.cs">
+      <DependentUpon>LotCreateNewDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotNumPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotNumPrint.Designer.cs">
+      <DependentUpon>LotNumPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotNumRepeatPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotNumRepeatPrint.Designer.cs">
+      <DependentUpon>LotNumRepeatPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ExchangeEquipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ExchangeEquipment.Designer.cs">
+      <DependentUpon>ExchangeEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PrintNameplateLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PrintNameplateLabel.Designer.cs">
+      <DependentUpon>PrintNameplateLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrintDialogPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\LotIVTestPrintDialogPrint.Designer.cs">
+      <DependentUpon>LotIVTestPrintDialogPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\HighOfSFinishedProductsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\HighOfSFinishedProductsCtrl.Designer.cs">
+      <DependentUpon>HighOfSFinishedProductsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\LotExceptionCommand.cs" />
+    <Compile Include="Menu\LotIVTestPrintNewCommand.cs" />
+    <Compile Include="Menu\ProducCheckCommand.cs" />
+    <Compile Include="Menu\WarehouseCtrlCommand.cs" />
+    <Compile Include="Menu\LotCommands.cs" />
+    <Compile Include="Menu\LotDispathCommand.cs" />
+    <Compile Include="Menu\LotCreateCommand.cs" />
+    <Compile Include="Menu\LotNumberPrintCommand.cs" />
+    <Compile Include="Menu\LotUndoCommand.cs" />
+    <Compile Include="Menu\LotExchangeWoCommand.cs" />
+    <Compile Include="Menu\LotIVTestPrintCommand.cs" />
+    <Compile Include="Menu\PackingListPrintCommand.cs" />
+    <Compile Include="Menu\LotOutQuantityAssuranceCommand.cs" />
+    <Compile Include="Menu\PalletQueryCommand.cs" />
+    <Compile Include="Menu\LotOperationExchangeLineCommand.cs">
+    </Compile>
+    <Compile Include="Menu\NameplateLabelPrintCommand.cs" />
+    <Compile Include="Menu\LotCreateNewCommand.cs" />
+    <Compile Include="Menu\LotNumPrintCommand.cs" />
+    <Compile Include="Menu\LotNumRepeatPrintCommand.cs" />
+    <Compile Include="Menu\ExchangeEquipmentCommand.cs" />
+    <Compile Include="Menu\PrintNameplateCommand.cs" />
+    <Compile Include="Menu\PrintLabelCommand.cs" />
+    <Compile Include="Gui\NameplateLabelAutoPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\NameplateLabelAutoPrint.Designer.cs">
+      <DependentUpon>NameplateLabelAutoPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\NameplateLabelAutoPrintCommand.cs" />
+    <Compile Include="Menu\HighOfSFPCtrlCommand.cs" />
+    <Compile Include="Report\NameplateLabel_CQC_AnNeng.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CQC_AnNeng.Designer.cs">
+      <DependentUpon>NameplateLabel_CQC_AnNeng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_Korea_KS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_Korea_KS.designer.cs">
+      <DependentUpon>NameplateLabel_Korea_KS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_SOLAR_JUICE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_SOLAR_JUICE.Designer.cs">
+      <DependentUpon>NameplateLabel_SOLAR_JUICE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV_PVLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV_PVLine.Designer.cs">
+      <DependentUpon>NameplateLabel_TUV_PVLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH_NEW.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH_NEW.Designer.cs">
+      <DependentUpon>NameplateLabel_TUVFH_NEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CGClpz.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CGClpz.Designer.cs">
+      <DependentUpon>NameplateLabel_CGClpz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH_CEC1000.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH_CEC1000.Designer.cs">
+      <DependentUpon>NameplateLabel_TUVFH_CEC1000.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH_CEC1500.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH_CEC1500.Designer.cs">
+      <DependentUpon>NameplateLabel_TUVFH_CEC1500.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\LotIVTestPrintViewNewContent.cs" />
+    <Compile Include="Src\NameplateLabelAutoPrintContent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_5.Designer.cs">
+      <DependentUpon>Label_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ModulePrint.cs" />
+    <Compile Include="Report\ModulePrintDataSet.cs">
+      <DependentUpon>ModulePrintDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ModulePrintDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModulePrintDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ModulePrintDataSetNew.cs">
+      <DependentUpon>ModulePrintDataSetNew.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ModulePrintDataSetNew.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModulePrintDataSetNew.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_516.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_516.Designer.cs">
+      <DependentUpon>NameplateLabel_516.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_61.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_61.Designer.cs">
+      <DependentUpon>NameplateLabel_61.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_ASM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_ASM.Designer.cs">
+      <DependentUpon>NameplateLabel_ASM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CQClpz.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CQClpz.Designer.cs">
+      <DependentUpon>NameplateLabel_CQClpz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_QiXin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_QiXin.Designer.cs">
+      <DependentUpon>NameplateLabel_QiXin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WareHouseDataSet.cs">
+      <DependentUpon>WareHouseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WareHouseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WareHouseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_32.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_32.Designer.cs">
+      <DependentUpon>Label_32.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_321.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_321.Designer.cs">
+      <DependentUpon>Label_321.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_322.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_322.Designer.cs">
+      <DependentUpon>Label_322.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_323.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_323.Designer.cs">
+      <DependentUpon>Label_323.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_324.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_324.Designer.cs">
+      <DependentUpon>Label_324.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_4.Designer.cs">
+      <DependentUpon>Label_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_56.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_56.Designer.cs">
+      <DependentUpon>NameplateLabel_56.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_60.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_60.Designer.cs">
+      <DependentUpon>Label_60.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_543.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_543.Designer.cs">
+      <DependentUpon>NameplateLabel_543.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_58.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_58.Designer.cs">
+      <DependentUpon>Label_58.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV.Designer.cs">
+      <DependentUpon>NameplateLabel_TUV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CQC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CQC.Designer.cs">
+      <DependentUpon>NameplateLabel_CQC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_Korea.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_Korea.Designer.cs">
+      <DependentUpon>NameplateLabel_Korea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_NE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_NE.Designer.cs">
+      <DependentUpon>NameplateLabel_NE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CSA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_CSA.Designer.cs">
+      <DependentUpon>NameplateLabel_CSA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_3221.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_3221.Designer.cs">
+      <DependentUpon>Label_3221.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_QT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_QT.Designer.cs">
+      <DependentUpon>NameplateLabel_QT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_8.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_8.Designer.cs">
+      <DependentUpon>Label_8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_QTXX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_QTXX.Designer.cs">
+      <DependentUpon>NameplateLabel_QTXX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV01.Designer.cs">
+      <DependentUpon>NameplateLabel_TUV01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV02.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV02.Designer.cs">
+      <DependentUpon>NameplateLabel_TUV02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Label_323MaLai.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Label_323MaLai.Designer.cs">
+      <DependentUpon>Label_323MaLai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV_New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUV_New.Designer.cs">
+      <DependentUpon>NameplateLabel_TUV_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVCSA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVCSA.Designer.cs">
+      <DependentUpon>NameplateLabel_TUVCSA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVFH.Designer.cs">
+      <DependentUpon>NameplateLabel_TUVFH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_NE01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_NE01.Designer.cs">
+      <DependentUpon>NameplateLabel_NE01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVCSA1500.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\NameplateLabel_TUVCSA1500.Designer.cs">
+      <DependentUpon>NameplateLabel_TUVCSA1500.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\LotExceptionContent.cs" />
+    <Compile Include="Src\ProductCheckContent.cs" />
+    <Compile Include="Src\WarehouseCtrlContent.cs" />
+    <Compile Include="Src\LotCreateViewContent.cs" />
+    <Compile Include="Src\LotDispatchDetailViewContent.cs" />
+    <Compile Include="Src\LotDispathViewContent.cs" />
+    <Compile Include="Src\LotMergeViewContent.cs" />
+    <Compile Include="Src\LotNumberPrintViewContent.cs" />
+    <Compile Include="Src\LotSearchViewContent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\LotSplitViewContent.cs" />
+    <Compile Include="Src\LotToStoreDetailViewContent.cs" />
+    <Compile Include="Src\LotUndoViewContent.cs" />
+    <Compile Include="Src\LotFutureHoldViewContent.cs" />
+    <Compile Include="Src\LotCreateDetailViewContent.cs" />
+    <Compile Include="Src\LotOperationViewContent.cs" />
+    <Compile Include="Src\LotOperationDetailViewContent.cs" />
+    <Compile Include="Src\LotExchangeWoViewContent.cs" />
+    <Compile Include="Src\LotIVTestPrintViewContent.cs" />
+    <Compile Include="Src\PackingListPrintViewContent.cs" />
+    <Compile Include="Src\LotOutQuantityAssuranceViewContent.cs" />
+    <Compile Include="Src\PalletQueryViewContent.cs" />
+    <Compile Include="Src\LotOperationExchangeLineViewContent.cs" />
+    <Compile Include="Src\NameplateLabelPrintContent.cs" />
+    <Compile Include="Src\LotCreateNewViewContent.cs" />
+    <Compile Include="Src\LotCreateNewDetailViewContent.cs" />
+    <Compile Include="Src\LotNumPrintContent.cs" />
+    <Compile Include="Src\LotNumRepeatPrintContent.cs" />
+    <Compile Include="Src\ExchangeEquipmentContent.cs" />
+    <Compile Include="Src\PrintNameplateContent.cs" />
+    <Compile Include="Src\PrintLabelContent.cs" />
+    <Compile Include="Src\HighOfSFPCtrlContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Conf\FanHai.Hemera.Addins.WIP.addin">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Report\ModulePrintDataSet.xsc">
+      <DependentUpon>ModulePrintDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ModulePrintDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ModulePrintDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\ModulePrintDataSet.xss">
+      <DependentUpon>ModulePrintDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ModulePrintDataSetNew.xsc">
+      <DependentUpon>ModulePrintDataSetNew.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ModulePrintDataSetNew.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ModulePrintDataSetNew.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\ModulePrintDataSetNew.xss">
+      <DependentUpon>ModulePrintDataSetNew.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WareHouseDataSet.xsc">
+      <DependentUpon>WareHouseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WareHouseDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WareHouseDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\WareHouseDataSet.xss">
+      <DependentUpon>WareHouseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\arrow_refresh.png" />
+    <None Include="Resources\edit-save.png" />
+    <None Include="Resources\document_go.png" />
+    <None Include="Resources\status.png" />
+    <None Include="Resources\infomation.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\setting.png" />
+    <None Include="Resources\save_accept.png" />
+    <None Include="Resources\document-delete.png" />
+    <None Include="Resources\document-add.png" />
+    <None Include="Resources\toolstrip-bk.png" />
+    <None Include="Resources\system_search.png" />
+    <None Include="Template\flash_data_ShippingList.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\EquipmentPickDialog.resx">
+      <DependentUpon>EquipmentPickDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\frmOQAQueryDailog.resx">
+      <DependentUpon>frmOQAQueryDailog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotCreate.resx">
+      <DependentUpon>LotCreate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotCreateDetail.resx">
+      <DependentUpon>LotCreateDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotDispatch.resx">
+      <DependentUpon>LotDispatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotDispatchDetail.resx">
+      <DependentUpon>LotDispatchDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotDispatchForCustCheck.resx">
+      <DependentUpon>LotDispatchForCustCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotDispatchForPallet.resx">
+      <DependentUpon>LotDispatchForPallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotDispatchForPltChkDialog.resx">
+      <DependentUpon>LotDispatchForPltChkDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotElPicForCustCheck.resx">
+      <DependentUpon>LotElPicForCustCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotExceptionProcess.resx">
+      <DependentUpon>LotExceptionProcess.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotExchangeWo.resx">
+      <DependentUpon>LotExchangeWo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotExchgWoMultiForm.resx">
+      <DependentUpon>LotExchgWoMultiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotExchgWoSingleForm.resx">
+      <DependentUpon>LotExchgWoSingleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotExecption.resx">
+      <DependentUpon>LotExecption.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotIVTestPrint.resx">
+      <DependentUpon>LotIVTestPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotIVTestPrintDialog.resx">
+      <DependentUpon>LotIVTestPrintDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotIVTestPrintNew.resx">
+      <DependentUpon>LotIVTestPrintNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotNumberPrintCtrl.resx">
+      <DependentUpon>LotNumberPrintCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationDefect.resx">
+      <DependentUpon>LotOperationDefect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOutQuantityAssurance.resx">
+      <DependentUpon>LotOutQuantityAssurance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotParamSearchDialog.resx">
+      <DependentUpon>LotParamSearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotQueryCustCheck.resx">
+      <DependentUpon>LotQueryCustCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotToWarehouseCheck.resx">
+      <DependentUpon>LotToWarehouseCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotToWarehouseDetail.resx">
+      <DependentUpon>LotToWarehouseDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotTransactionHistoryDialog.resx">
+      <DependentUpon>LotTransactionHistoryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotUndoCtrl.resx">
+      <DependentUpon>LotUndoCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PackingListPrint.resx">
+      <DependentUpon>PackingListPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletWholeOut.resx">
+      <DependentUpon>PalletWholeOut.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PorLineHelpDialog.resx">
+      <DependentUpon>PorLineHelpDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ProductPrintCheck.resx">
+      <DependentUpon>ProductPrintCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\TerminalLotDialog.resx">
+      <DependentUpon>TerminalLotDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotQueryCtrl.resx">
+      <DependentUpon>LotQueryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperation.resx">
+      <DependentUpon>LotOperation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotFutureHold.resx">
+      <DependentUpon>LotFutureHold.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotFutureHoldQueryDialog.resx">
+      <DependentUpon>LotFutureHoldQueryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotFutureHoldDetailDialog.resx">
+      <DependentUpon>LotFutureHoldDetailDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotFutureHoldAddDialog.resx">
+      <DependentUpon>LotFutureHoldAddDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotQueryHelpDialog.resx">
+      <DependentUpon>LotQueryHelpDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationScrap.resx">
+      <DependentUpon>LotOperationScrap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationPatch.resx">
+      <DependentUpon>LotOperationPatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationRecovered.resx">
+      <DependentUpon>LotOperationRecovered.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationAdjust.resx">
+      <DependentUpon>LotOperationAdjust.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationHold.resx">
+      <DependentUpon>LotOperationHold.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationRelease.resx">
+      <DependentUpon>LotOperationRelease.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationRework.resx">
+      <DependentUpon>LotOperationRework.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationReturnMaterial.resx">
+      <DependentUpon>LotOperationReturnMaterial.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotQueryConditionDialog.resx">
+      <DependentUpon>LotQueryConditionDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletQueryCtrl.resx">
+      <DependentUpon>PalletQueryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletQueryConditionDialog.resx">
+      <DependentUpon>PalletQueryConditionDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotExchgWoNoSingleForm.resx">
+      <DependentUpon>LotExchgWoNoSingleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotDispatchFor_eWoPallet.resx">
+      <DependentUpon>LotDispatchFor_eWoPallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WarehouseCtrl.resx">
+      <DependentUpon>WarehouseCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WarehousePrintDialog.resx">
+      <DependentUpon>WarehousePrintDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WarehouseSelectForm.resx">
+      <DependentUpon>WarehouseSelectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotOperationExchangeLine.resx">
+      <DependentUpon>LotOperationExchangeLine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\NameplateLabelPrint.resx">
+      <DependentUpon>NameplateLabelPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotCreateNew.resx">
+      <DependentUpon>LotCreateNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotCreateNewDetail.resx">
+      <DependentUpon>LotCreateNewDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotNumPrint.resx">
+      <DependentUpon>LotNumPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotNumRepeatPrint.resx">
+      <DependentUpon>LotNumRepeatPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ExchangeEquipment.resx">
+      <DependentUpon>ExchangeEquipment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PrintNameplateLabel.resx">
+      <DependentUpon>PrintNameplateLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\NameplateLabelAutoPrint.resx">
+      <DependentUpon>NameplateLabelAutoPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LotIVTestPrintDialogPrint.resx">
+      <DependentUpon>LotIVTestPrintDialogPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\HighOfSFinishedProductsCtrl.resx">
+      <DependentUpon>HighOfSFinishedProductsCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_5.resx">
+      <DependentUpon>Label_5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_516.resx">
+      <DependentUpon>NameplateLabel_516.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_61.resx">
+      <DependentUpon>NameplateLabel_61.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_ASM.resx">
+      <DependentUpon>NameplateLabel_ASM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_CQClpz.resx">
+      <DependentUpon>NameplateLabel_CQClpz.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_CQC_AnNeng.resx">
+      <DependentUpon>NameplateLabel_CQC_AnNeng.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_Korea_KS.resx">
+      <DependentUpon>NameplateLabel_Korea_KS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_QiXin.resx">
+      <DependentUpon>NameplateLabel_QiXin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_SOLAR_JUICE.resx">
+      <DependentUpon>NameplateLabel_SOLAR_JUICE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WareHouse.rdlc" />
+    <EmbeddedResource Include="Report\Label_32.resx">
+      <DependentUpon>Label_32.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_321.resx">
+      <DependentUpon>Label_321.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_322.resx">
+      <DependentUpon>Label_322.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_323.resx">
+      <DependentUpon>Label_323.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_324.resx">
+      <DependentUpon>Label_324.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_4.resx">
+      <DependentUpon>Label_4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_56.resx">
+      <DependentUpon>NameplateLabel_56.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_60.resx">
+      <DependentUpon>Label_60.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_543.resx">
+      <DependentUpon>NameplateLabel_543.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_58.resx">
+      <DependentUpon>Label_58.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUV.resx">
+      <DependentUpon>NameplateLabel_TUV.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_CQC.resx">
+      <DependentUpon>NameplateLabel_CQC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_Korea.resx">
+      <DependentUpon>NameplateLabel_Korea.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_NE.resx">
+      <DependentUpon>NameplateLabel_NE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_CSA.resx">
+      <DependentUpon>NameplateLabel_CSA.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_3221.resx">
+      <DependentUpon>Label_3221.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_QT.resx">
+      <DependentUpon>NameplateLabel_QT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_8.resx">
+      <DependentUpon>Label_8.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_QTXX.resx">
+      <DependentUpon>NameplateLabel_QTXX.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUV01.resx">
+      <DependentUpon>NameplateLabel_TUV01.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUV02.resx">
+      <DependentUpon>NameplateLabel_TUV02.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Label_323MaLai.resx">
+      <DependentUpon>Label_323MaLai.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUV_New.resx">
+      <DependentUpon>NameplateLabel_TUV_New.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUVCSA.resx">
+      <DependentUpon>NameplateLabel_TUVCSA.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUVFH.resx">
+      <DependentUpon>NameplateLabel_TUVFH.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_NE01.resx">
+      <DependentUpon>NameplateLabel_NE01.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUVCSA1500.resx">
+      <DependentUpon>NameplateLabel_TUVCSA1500.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUV_PVLine.resx">
+      <DependentUpon>NameplateLabel_TUV_PVLine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUVFH_NEW.resx">
+      <DependentUpon>NameplateLabel_TUVFH_NEW.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_CGClpz.resx">
+      <DependentUpon>NameplateLabel_CGClpz.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUVFH_CEC1000.resx">
+      <DependentUpon>NameplateLabel_TUVFH_CEC1000.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NameplateLabel_TUVFH_CEC1500.resx">
+      <DependentUpon>NameplateLabel_TUVFH_CEC1500.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.StaticFuncs\FanHai.Hemera.Utils.StaticFuncs.csproj">
+      <Project>{54894B8F-B87B-4365-8E80-B8449EB63C89}</Project>
+      <Name>FanHai.Hemera.Utils.StaticFuncs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Barcode\FanHai.Hemera.Utils.Barcode.csproj">
+      <Project>{0AD6B385-20E1-4DCA-B88D-8C046C0F1387}</Project>
+      <Name>FanHai.Hemera.Utils.Barcode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.UDA\FanHai.Hemera.Utils.UDA.csproj">
+      <Project>{E8BEC5DC-6B84-49BF-9E47-A9DC96633E5F}</Project>
+      <Name>FanHai.Hemera.Utils.UDA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework %28FanHai.Gui.Framework\FanHai.Gui.Framework%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Hemera.Addins.EAP\FanHai.Hemera.Addins.EAP.csproj">
+      <Project>{9286F073-B4EC-4B48-8C96-5349EF0462A9}</Project>
+      <Name>FanHai.Hemera.Addins.EAP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo --------WIP
+
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"            mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WIP"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WIP"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                                 "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WIP" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                              "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WIP" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                                   "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WIP" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

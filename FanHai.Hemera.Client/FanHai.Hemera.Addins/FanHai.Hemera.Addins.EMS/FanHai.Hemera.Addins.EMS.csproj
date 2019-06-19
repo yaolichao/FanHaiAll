@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08607CA0-7BA9-4C8D-BB6C-2E403A8DA248}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Addins.EMS</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Addins.EMS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Office.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\ChoiceLayoutPicDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ChoiceLayoutPicDialog.Designer.cs">
+      <DependentUpon>ChoiceLayoutPicDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentStatesChange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentStatesChange.Designer.cs">
+      <DependentUpon>EquipmentStatesChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentCommonQueryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentCommonQueryDialog.Designer.cs">
+      <DependentUpon>EquipmentCommonQueryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentChangeReasons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentChangeReasons.Designer.cs">
+      <DependentUpon>EquipmentChangeReasons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentChangeStates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentChangeStates.Designer.cs">
+      <DependentUpon>EquipmentChangeStates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckListCtrl.Designer.cs">
+      <DependentUpon>EquipmentCheckListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckListJobCompleteCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckListJobCompleteCtrl.Designer.cs">
+      <DependentUpon>EquipmentCheckListJobCompleteCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckListJobsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckListJobsCtrl.Designer.cs">
+      <DependentUpon>EquipmentCheckListJobsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentConditionPMCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentConditionPMCtrl.Designer.cs">
+      <DependentUpon>EquipmentConditionPMCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentGroups.Designer.cs">
+      <DependentUpon>EquipmentGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckItemsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentCheckItemsCtrl.Designer.cs">
+      <DependentUpon>EquipmentCheckItemsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentLayoutCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentLayoutCtrl.Designer.cs">
+      <DependentUpon>EquipmentLayoutCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentLayoutDesignCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentLayoutDesignCtrl.Designer.cs">
+      <DependentUpon>EquipmentLayoutDesignCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentPartsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentPartsCtrl.Designer.cs">
+      <DependentUpon>EquipmentPartsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentQuery.Designer.cs">
+      <DependentUpon>EquipmentQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Equipments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Equipments.Designer.cs">
+      <DependentUpon>Equipments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentSchedulePMCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentSchedulePMCtrl.Designer.cs">
+      <DependentUpon>EquipmentSchedulePMCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentStates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentStates.Designer.cs">
+      <DependentUpon>EquipmentStates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentTaskProcessCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentTaskProcessCtrl.Designer.cs">
+      <DependentUpon>EquipmentTaskProcessCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentTasksCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentTasksCtrl.Designer.cs">
+      <DependentUpon>EquipmentTasksCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\LayoutEventStateHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\LayoutEventStateHistory.Designer.cs">
+      <DependentUpon>LayoutEventStateHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\OperationEquipments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\OperationEquipments.Designer.cs">
+      <DependentUpon>OperationEquipments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\EquipmentStatesChangeCommand.cs" />
+    <Compile Include="Menu\EquipmentChangeReasonsCommand.cs" />
+    <Compile Include="Menu\EquipmentChangeStatesCommand.cs" />
+    <Compile Include="Menu\EquipmentCheckItemsCommand.cs" />
+    <Compile Include="Menu\EquipmentCheckListCommand.cs" />
+    <Compile Include="Menu\EquipmentCheckListJobCompleteCommand.cs" />
+    <Compile Include="Menu\EquipmentCheckListJobsCommand.cs" />
+    <Compile Include="Menu\EquipmentConditionPMCommand.cs" />
+    <Compile Include="Menu\EquipmentGroupsCommand.cs" />
+    <Compile Include="Menu\EquipmentLayoutCommand.cs" />
+    <Compile Include="Menu\EquipmentLayoutDesignCommand.cs" />
+    <Compile Include="Menu\EquipmentPartsCommand.cs" />
+    <Compile Include="Menu\EquipmentSchedulePMCommand.cs" />
+    <Compile Include="Menu\EquipmentsCommand.cs" />
+    <Compile Include="Menu\EquipmentStatesCommand.cs" />
+    <Compile Include="Menu\EquipmentTaskProcessCommand.cs" />
+    <Compile Include="Menu\EquipmentTasksCommand.cs" />
+    <Compile Include="Menu\OperationEquipmentsCommand.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\EquipmentStatesChangeViewContent.cs" />
+    <Compile Include="Src\EquipmentChangeReasonsViewContent.cs" />
+    <Compile Include="Src\EquipmentChangeStatesViewContent.cs" />
+    <Compile Include="Src\EquipmentCheckItemsViewContent.cs" />
+    <Compile Include="Src\EquipmentCheckListJobCompleteViewContent.cs" />
+    <Compile Include="Src\EquipmentCheckListJobsViewContent.cs" />
+    <Compile Include="Src\EquipmentCheckListViewContent.cs" />
+    <Compile Include="Src\EquipmentConditionPMViewContent.cs" />
+    <Compile Include="Src\EquipmentGroupsViewContent.cs" />
+    <Compile Include="Src\EquipmentLayoutDesignViewContent.cs" />
+    <Compile Include="Src\EquipmentLayoutViewContent.cs" />
+    <Compile Include="Src\EquipmentPartsViewContent.cs" />
+    <Compile Include="Src\EquipmentSchedulePMViewContent.cs" />
+    <Compile Include="Src\EquipmentStatesViewContent.cs" />
+    <Compile Include="Src\EquipmentsViewContent.cs" />
+    <Compile Include="Src\EquipmentTaskProcessViewContent.cs" />
+    <Compile Include="Src\EquipmentTasksViewContent.cs" />
+    <Compile Include="Src\OperationEquipmentsViewContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\FanHai.Hemera.Addins.EMS.dll" />
+    <Content Include="bin\Debug\FanHai.Hemera.Addins.EMS.pdb" />
+    <Content Include="Conf\FanHai.Hemera.Addins.EMS.addin" />
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+    <None Include="Resources\New.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\system_search.png" />
+    <None Include="Resources\edit-save.png" />
+    <None Include="Resources\save_accept.png" />
+    <None Include="Resources\document-delete.png" />
+    <None Include="Resources\document-add.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\arrow_refresh.png" />
+    <None Include="Resources\toolstrip-bk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\ChoiceLayoutPicDialog.resx">
+      <DependentUpon>ChoiceLayoutPicDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentStatesChange.resx">
+      <DependentUpon>EquipmentStatesChange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentCommonQueryDialog.resx">
+      <DependentUpon>EquipmentCommonQueryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentChangeReasons.resx">
+      <DependentUpon>EquipmentChangeReasons.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentChangeStates.resx">
+      <DependentUpon>EquipmentChangeStates.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentCheckListCtrl.resx">
+      <DependentUpon>EquipmentCheckListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentCheckListJobCompleteCtrl.resx">
+      <DependentUpon>EquipmentCheckListJobCompleteCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentCheckListJobsCtrl.resx">
+      <DependentUpon>EquipmentCheckListJobsCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentConditionPMCtrl.resx">
+      <DependentUpon>EquipmentConditionPMCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentGroups.resx">
+      <DependentUpon>EquipmentGroups.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentCheckItemsCtrl.resx">
+      <DependentUpon>EquipmentCheckItemsCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentLayoutCtrl.resx">
+      <DependentUpon>EquipmentLayoutCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentLayoutDesignCtrl.resx">
+      <DependentUpon>EquipmentLayoutDesignCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentPartsCtrl.resx">
+      <DependentUpon>EquipmentPartsCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentQuery.resx">
+      <DependentUpon>EquipmentQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Equipments.resx">
+      <DependentUpon>Equipments.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentSchedulePMCtrl.resx">
+      <DependentUpon>EquipmentSchedulePMCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentStates.resx">
+      <DependentUpon>EquipmentStates.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentTaskProcessCtrl.resx">
+      <DependentUpon>EquipmentTaskProcessCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentTasksCtrl.resx">
+      <DependentUpon>EquipmentTasksCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\LayoutEventStateHistory.resx">
+      <DependentUpon>LayoutEventStateHistory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OperationEquipments.resx">
+      <DependentUpon>OperationEquipments.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.StaticFuncs\FanHai.Hemera.Utils.StaticFuncs.csproj">
+      <Project>{54894B8F-B87B-4365-8E80-B8449EB63C89}</Project>
+      <Name>FanHai.Hemera.Utils.StaticFuncs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.UDA\FanHai.Hemera.Utils.UDA.csproj">
+      <Project>{E8BEC5DC-6B84-49BF-9E47-A9DC96633E5F}</Project>
+      <Name>FanHai.Hemera.Utils.UDA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework %28FanHai.Gui.Framework\FanHai.Gui.Framework%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo --------EMS
+
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"          mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\EMS"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\EMS"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\EMS" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\EMS" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                          "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\EMS" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

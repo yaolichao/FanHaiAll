@@ -1,0 +1,94 @@
+﻿<AddIn name        = "FanHai.Hemera.EMS"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Equipment Management System"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.EMS" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.EMS.dll">
+    </Import >
+  </Runtime>
+  
+  <!--设备维护-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idMenuEMS/idEMSDeviceXiu">
+    <!--设备-->
+    <MenuItem id           = "idEquipment"
+              label        = "设备信息"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.EMS.EquipmentsCommand"
+              privilegeId  = "7001000"/>
+    <!--设备组-->
+    <MenuItem id           = "idEquipmentGroup"
+              label        = "设备分组"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idEquipment"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.EMS.EquipmentGroupsCommand"
+              privilegeId  = "7002000"/>
+    <!--工序设备-->
+    <MenuItem id           = "idOperationEquipments"
+               label        = "设备分配"
+               icon         = ""
+               privilegeId  ="7003000"
+               shortcut     = ""
+               class        = "FanHai.Hemera.Addins.EMS.OperationEquipmentsCommand"/>
+    <!--设备状态登记-->
+    <MenuItem id           = "idChangeEquipmentState"
+              label        = "状态录入"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = ""
+              privilegeId  = "7004000"
+              class="FanHai.Hemera.Addins.EMS.EquipmentStatesChangeCommand"/>
+    <!--设备看板-->
+    <MenuItem id="EquipmentLayout"
+              label="设备看板"
+              icon=""
+              privilegeId="7005000"
+              shortcut=""
+              class="FanHai.Hemera.Addins.EMS.EquipmentLayoutCommand"/>
+  </Path>
+  <!--设备-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idMenuEMS/idEMSDevice">
+    <!--设备看板维护-->
+    <MenuItem id="idEquipmentLayoutDesign"
+        label="设备看板维护"
+        icon=""
+        
+        shortcut=""
+        insertafter  = ""
+        insertbefore = ""
+        class="FanHai.Hemera.Addins.EMS.EquipmentLayoutDesignCommand"
+        privilegeId="7006000"/>
+    <!--设备状态-->
+    <MenuItem id           = "idEquipmentState"
+              label        = "${res:FanHai.Hemera.Addins.EMS.EquipmentStates.Name}"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idEquipmentLayoutDesign"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.EMS.EquipmentStatesCommand"
+              privilegeId  = "7007000"/>
+    <!--设备转变状态-->
+    <MenuItem id           = "idEquipmentChangeState"
+              label        = "${res:FanHai.Hemera.Addins.EMS.EquipmentChangeStates.Name}"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idEquipmentState"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.EMS.EquipmentChangeStatesCommand"
+              privilegeId  = "7008000"/>
+
+  </Path>
+
+</AddIn>

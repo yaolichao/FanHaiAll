@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C5769BCE-2DDE-4EEB-AC66-5B9F994638E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Utils</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Utils</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.Domino, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Interop.Domino.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.LabelManager2, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Interop.LabelManager2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="rscp4n, Version=1.0.4127.4409, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\rscp4n.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=AMD64">
+      <HintPath>..\..\packages\sapnco3.x64.3.0.2.0\lib\sapnco.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco_utils, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=AMD64">
+      <HintPath>..\..\packages\sapnco3.x64.3.0.2.0\lib\sapnco_utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\AbstractEngine.cs" />
+    <Compile Include="Class\EncryptDataSet.cs" />
+    <Compile Include="Class\EngineManager.cs" />
+    <Compile Include="Class\GlobalEnvironment.cs" />
+    <Compile Include="Class\LogService.cs" />
+    <Compile Include="DatabaseHelper\Conditions.cs" />
+    <Compile Include="DatabaseHelper\DatabaseTable.cs" />
+    <Compile Include="DatabaseHelper\WhereConditions.cs" />
+    <Compile Include="Interface\IAppEngine.cs" />
+    <Compile Include="PrintPool.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="StaticFuncs\AllCommonFunctions.cs" />
+    <Compile Include="SEnum.cs" />
+    <Compile Include="UtilHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Labels\MES-LABEL01.Lab" />
+    <None Include="packages.config" />
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205e3ee-074b-4867-aa64-52cc42c4ac01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Server
+echo ------Libs
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server"   	              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs"   	              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Labels"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Labels"
+
+echo --Copy Labels for barcode
+xcopy "$(ProjectDir)\Labels"                                                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Labels" /R /Y /Q /D
+
+echo --Copy compiled dll And debug pdb file
+xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs" /R /Y /Q /D
+
+echo --Copy reference dll
+if exist  "$(ProjectDir)\..\Libs" xcopy "$(ProjectDir)\..\Libs\*.dll" "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

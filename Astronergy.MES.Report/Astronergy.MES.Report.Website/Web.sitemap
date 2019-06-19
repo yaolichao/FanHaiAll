@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Default/Default.aspx" title="报表首页"  description="报表首页">     
+      <siteMapNode url="#" title="生产报表" description="生产报表">
+        <siteMapNode url="~/WipReport/DailyReport.aspx" title="日常运营" description=""/>
+        <siteMapNode url="~/WipReport/ModelCtmRpt.aspx" title="CTM" description=""/>
+        <siteMapNode url="~/WareHouse/QueryWareHouseDate.aspx" title="入库报表" description=""/>
+        <siteMapNode url="~/WipReport/WipDisplay.aspx" title="在制品" description=""/>
+        <siteMapNode url="~/WipReport/WipOperationMove.aspx" title="工序产量" description=""/>
+        <siteMapNode url="~/WipReport/WipOperationOutput.aspx" title="工序产量统计" description=""/>
+      </siteMapNode>
+      <siteMapNode url="##" title="品质报表" description="品质报表">
+        <siteMapNode url="~/Quality/QualityProductData.aspx" title="良品率" description=""/>
+        <siteMapNode url="~/Quality/PassYieldData.aspx" title="一次通过率" description=""/>
+        <siteMapNode url="~/Quality/ModuleDefectDisplay.aspx" title="不良品分布" description=""/>
+        <siteMapNode url="~/Quality/ModuleDefectStatistics.aspx" title="不良品统计" description=""/>
+        <siteMapNode url="~/WipReport/FragmentationRate.aspx" title="碎片率" description=""/>
+      </siteMapNode>
+      
+      <siteMapNode url="####" title="设备报表" description="设备报表">
+        <siteMapNode url="~/EquReport/OEE_Factory.aspx" title="设备OEE报表" description=""/>
+      </siteMapNode>
+      
+      <siteMapNode url="#####" title="仓库报表" description="仓库报表">
+        <siteMapNode url="~/WareHouse/QueryNormalClientRpt.aspx" title="常规客户报表" description=""/>
+      </siteMapNode>
+      <!--<siteMapNode url="######" title="客户定制报表" description="客户定制报表">
+        <siteMapNode url="~/Customer/SE_Daily.aspx" title="SE-Daily production" description=""/>
+        <siteMapNode url="~/Customer/SE_ProductionYield.aspx" title="SE-Production Yield" description=""/>
+        <siteMapNode url="~/Customer/SE_VIBreakdown.aspx" title="SE-VI Breakdown" description=""/>
+      </siteMapNode>-->
+      <siteMapNode url="######" title="FlashDataExport" description="FlashDataExport">
+        <siteMapNode url="~/FlashDataExport/ConergyFlashDateExport.aspx" title="ConergyFlashDateExport" description=""/>
+      </siteMapNode>
+    </siteMapNode>
+</siteMap>

@@ -1,0 +1,263 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="../Compent/foot.ascx" TagName="foot" TagPrefix="uc1" %>
+<%--<%@ Register Src="../Compent/Header.ascx" TagName="Header" TagPrefix="uc2" %>--%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+
+    <title>
+        <%= Resources.Lang.PageTitle %></title>
+    <link href="../styles/main.css" rel="stylesheet" type="text/css" />
+
+    <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+
+    <script src="../scripts/global.js" type="text/javascript"></script>
+
+    <script src="../scripts/jquery.validate.js" type="text/javascript"></script>
+
+    <script src="../scripts/thickbox.js" type="text/javascript"></script>
+
+    <asp:ContentPlaceHolder EnableViewState="False" ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".c").click(
+                function() {
+                    $(this).next().slideToggle('slow')
+                });
+            $(".main_top_menu").click(function () {
+                $("#content_menu_main_left").animate({width:'toggle'});
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
+    <div id="warp">
+
+        <%--
+        <div id="header">
+            <uc2:Header ID="Header1" runat="server" />
+        </div>
+        --%>
+
+        <div id="navigationbar">
+            <img style="width: 140px;margin-right: 16px;margin-left: 10px;" src="../Images/logo.png"><%=System.Configuration.ConfigurationManager.AppSettings["CurrentPath"]%>
+        </div>
+
+        <div id = "content">
+        
+            <table style="width: 100%;">
+                <tr>
+                    <td id="content_menu" valign="top">
+                        <div class="main_left" id="content_menu_main_left">
+                            <div style="width: 158px; text-align: left;">
+                                
+                                <div class = "c" id = 'st1'>
+                                    生产报表
+                                </div>
+
+                                <div style="display: none" class="d">
+                                    
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WipReport/DailyReport.aspx">日常营运</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WipReport/ModelCtmRpt.aspx">CTM</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WareHouse/QueryWareHouseDate.aspx">入库报表</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WipReport/WipDisplay.aspx">在制品</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WipReport/WipOperationMove.aspx">工序产量</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WipReport/WipOperationOutput.aspx">工序产量统计</a>
+                                    </div>
+                                    <%--<div class="a"><a class="main_left_a" href="http://hnreport/ReportServer/Pages/ReportViewer.aspx?%2fHnReport%2fDataTracing&rs:Command=Render">产品追溯</a></div>--%>
+                                </div>
+                            </div>
+                            <div style="width: 158px;">
+                                <div class="c">
+                                    品质报表
+                                </div>
+                                <div style="display: none" class="d">
+                                    <div class="a">
+                                        <a class="main_left_a" href="../Quality/QualityProductData.aspx">良品率</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../Quality/PassYieldData.aspx">一次通过率</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../Quality/ModuleDefectDisplay.aspx">不良品分布</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../Quality/ModuleDefectStatistics.aspx">不良品统计</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WipReport/FragmentationRate.aspx">碎片率</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <%--<div style="width: 158px;">
+                                <div class="c" id='rd3'>
+                                    生产报表</div>
+                                <div style="display: none" class="d">
+                                    
+                                </div>
+                            </div>--%>
+                            <div style="width: 158px;">
+                                <div class="c" id='Div1'>
+                                    设备报表</div>
+                                <div style="display: none" class="d">
+                                    <div class="a">
+                                        <a class="main_left_a" href="../EquReport/OEE_Factory.aspx">设备OEE</a></div>
+                                    <%--<div class="a"><a class="main_left_a" href="http://hnreport/ReportServer/Pages/ReportViewer.aspx?%2fNewBoard%2fEqpStatusDisplay&rc:Zoom=Page Width">机况查询</a></div>--%>
+                                    <%--<div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fEPMS+Report%2fOutput&rs:Command=Render">
+                                            每小时产出报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fEPMS+Report%2fDaily+OEE+Report&rs:Command=Render">
+                                            OEE报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fEPMS+Report%2fSearchEquipmentSituation&rs:Command=Render">
+                                            机况查询报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fEPMS+Report%2fNGSeriesDisplay&rs:Command=Render">
+                                            不良品分布报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fEPMS+Report%2fYieldRate&rs:Command=Render">
+                                            良率报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fEPMS+Report%2fASWOutput&rs:Command=Render">
+                                            自动串焊机产出报表(块数)</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fEPMS+Report%2fScrapDetail&rs:Command=Render">
+                                            自动串焊机碎片报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fSHMES+Report%2fQuanlityRateReport&rs:Command=Render">
+                                            优品率报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fSHMES+Report%2fPassYieldRate&rs:Command=Render">
+                                            直通率报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fSHMES+Report%2fCtmList&rs:Command=Render">
+                                            CTM清单</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fSHMES+Report%2fCtmReportMerge&rs:Command=Render">
+                                            CTM报表</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://shepmssys/ReportServer/Pages/ReportViewer.aspx?%2fSHMES+Report%2fCtmReport&rs:Command=Render">
+                                            CTM报表(工单)</a></div>--%>
+                                    <%--<div class="a">
+                                        <a class="main_left_a" href="http://10.123.33.71/ReportServer/Pages/ReportViewer.aspx?%2fNewBoard%2fKPI&rc:Zoom=Page Width">
+                                            KPI指标</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://10.123.33.71/ReportServer/Pages/ReportViewer.aspx?%2fBoard%2fKPIMeter&rc:Zoom=Page width">
+                                            KPI仪表图</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://10.123.33.71/ReportServer/Pages/ReportViewer.aspx?%2fBoard%2fOEEBoard&rc:Zoom=Page Width">
+                                            OEE看板</a></div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="http://10.123.33.71/ReportServer/Pages/ReportViewer.aspx?%2fNewBoard%2fWipDisplay&rc:Zoom=Page Width">
+                                            WIP分布图</a></div>--%>
+<%--                                    <div class="a">
+                                        <a class="main_left_a" href="http://10.20.50.183/ReportServer/Pages/ReportViewer.aspx?%2fBoard%2fPlanProduct&rs:Command=Render">
+                                            计划排程</a></div>--%>
+                                    <%--<div class="a">
+                                        <a class="main_left_a" href="http://10.123.33.71/ReportServer/Pages/ReportViewer.aspx?%2fHnReport%2fPressureConduction&rs:Command=Render">
+                                            耐压导通</a></div>
+                                    <div class="a"><a class="main_left_a" href="http://hnreport/ReportServer/Pages/ReportViewer.aspx?%2fHnReport%2fScrapDetail&rs:Command=Render"> 碎片率明细</a></div>
+                                    <div class="a"><a class="main_left_a" href="http://hnreport/ReportServer/Pages/ReportViewer.aspx?%2fHnReport%2fScrapMWD&rs:Command=Render"> 碎片率月周日查询</a></div>
+                                    <div class="a"><a class="main_left_a" href="http://hnreport/ReportServer/Pages/ReportViewer.aspx?%2fHnReport%2fScrapType&rs:Command=Render">碎片率分类查询</a></div>
+                                    <div class="a"><a class="main_left_a" href="http://hnreport/ReportServer/Pages/ReportViewer.aspx?%2fBoard%2fQuestionDeal&rc:Zoom=Page Width">问题分布图</a></div>
+                                    <div class="a"><a class="main_left_a" href="http://10.123.33.71/ReportServer/Pages/ReportViewer.aspx?%2fHnReport%2fQuanlityRateReport&rs:Command=Render">优品率</a></div>
+                                    <div class="a"><a class="main_left_a" href="http://10.123.33.71/ReportServer/Pages/ReportViewer.aspx?%2fHnReport%2fPassYieldRate&rs:Command=Render">直通率</a></div>--%>
+                                </div>
+                            </div>
+                            
+                            <div style="width: 158px;">
+                                <div class="c" id='Div2'>
+                                    仓库报表</div>
+                                <div style="display: none" class="d">
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WareHouse/QueryNormalClientRpt.aspx">常规客户</a>
+                                    </div>
+                                   <%-- <div class="a">
+                                        <a class="main_left_a" href="../WareHouse/QuerySchuecoRpt.aspx">Schueco报表</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WareHouse/QueryConergyRpt.aspx">Conergy报表</a>
+                                    </div>--%>
+                                </div>
+                            </div>
+                            <%--                            <div style="width: 158px;">
+                                <div class="c" id='Div3'>
+                                    客户定制报表</div>
+                                <div style="display: none" class="d">
+                                    <div class="a">
+                                        <a class="main_left_a" href="../Customer/SE_Daily.aspx">SE-Daily production</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../Customer/SE_ProductionYield.aspx">SE-Production Yield</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../Customer/SE_VIBreakdown.aspx">SE-VI Breakdown</a>
+                                    </div>
+                                </div>
+                            </div>--%>
+                            <%--<div style="width: 158px;">
+                                <div class="c" id='Div4'>
+                                    FlashDataExport</div>
+                                <div style="display: none" class="d">
+                                    <div class="a">
+                                        <a class="main_left_a" href="../FlashDataExport/ConergyFlashDateExport.aspx?isTrue=True">ConergyFlashDateExport</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WipReport/CorpTestData.aspx">Corp客户测试数据</a>
+                                    </div>
+                                    <div class="a">
+                                        <a class="main_left_a" href="../WareHouse/QueryWareHouseRpt.aspx">组件入库信息</a></div>
+                                </div>
+                            </div>--%>
+                        </div>
+                    </td>
+                    <!--width: 82%;-->
+                    <td id="content_main" valign="top">
+                        <div class="main_top">
+                            <div class="main_top_menu">
+                                <img src="../images/menu.png" alt="Alternate Text" />
+                            </div>
+                            <asp:SiteMapPath ID="SiteMapPath1" runat="server" RootNodeStyle-ForeColor="Black"
+                                NodeStyle-ForeColor="Black">
+                            </asp:SiteMapPath>
+                        </div>
+                        <div class="main_right">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        
+        <div id="footer">
+            <uc1:foot ID="foot1" runat="server" />
+        </div>
+    </div>
+    </form>
+</body>
+</html>

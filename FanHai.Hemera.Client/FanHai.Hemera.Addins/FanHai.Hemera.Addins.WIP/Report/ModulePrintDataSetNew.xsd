@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ModulePrintDataSetNew" targetNamespace="http://tempuri.org/ModulePrintDataSetNew.xsd" xmlns:mstns="http://tempuri.org/ModulePrintDataSetNew.xsd" xmlns="http://tempuri.org/ModulePrintDataSetNew.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ModulePrintDataSetNew" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ModulePrintDataSetNew" msprop:Generator_DataSetName="ModulePrintDataSetNew" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ModulePrintTable" msprop:Generator_UserTableName="ModulePrintTable" msprop:Generator_RowDeletedName="ModulePrintTableRowDeleted" msprop:Generator_RowChangedName="ModulePrintTableRowChanged" msprop:Generator_RowClassName="ModulePrintTableRow" msprop:Generator_RowChangingName="ModulePrintTableRowChanging" msprop:Generator_RowEvArgName="ModulePrintTableRowChangeEvent" msprop:Generator_RowEvHandlerName="ModulePrintTableRowChangeEventHandler" msprop:Generator_TableClassName="ModulePrintTableDataTable" msprop:Generator_TableVarName="tableModulePrintTable" msprop:Generator_RowDeletingName="ModulePrintTableRowDeleting" msprop:Generator_TablePropName="ModulePrintTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CoefPM" msprop:Generator_UserColumnName="CoefPM" msprop:Generator_ColumnVarNameInTable="columnCoefPM" msprop:Generator_ColumnPropNameInRow="CoefPM" msprop:Generator_ColumnPropNameInTable="CoefPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CoefISC" msprop:Generator_UserColumnName="CoefISC" msprop:Generator_ColumnVarNameInTable="columnCoefISC" msprop:Generator_ColumnPropNameInRow="CoefISC" msprop:Generator_ColumnPropNameInTable="CoefISCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CoefIPM" msprop:Generator_UserColumnName="CoefIPM" msprop:Generator_ColumnVarNameInTable="columnCoefIPM" msprop:Generator_ColumnPropNameInRow="CoefIPM" msprop:Generator_ColumnPropNameInTable="CoefIPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CoefVOC" msprop:Generator_UserColumnName="CoefVOC" msprop:Generator_ColumnVarNameInTable="columnCoefVOC" msprop:Generator_ColumnPropNameInRow="CoefVOC" msprop:Generator_ColumnPropNameInTable="CoefVOCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CoefVPM" msprop:Generator_UserColumnName="CoefVPM" msprop:Generator_ColumnVarNameInTable="columnCoefVPM" msprop:Generator_ColumnPropNameInRow="CoefVPM" msprop:Generator_ColumnPropNameInTable="CoefVPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PrintQty" msprop:Generator_UserColumnName="PrintQty" msprop:Generator_ColumnVarNameInTable="columnPrintQty" msprop:Generator_ColumnPropNameInRow="PrintQty" msprop:Generator_ColumnPropNameInTable="PrintQtyColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetModuleCode" msprop:Generator_UserColumnName="PowersetModuleCode" msprop:Generator_ColumnVarNameInTable="columnPowersetModuleCode" msprop:Generator_ColumnPropNameInRow="PowersetModuleCode" msprop:Generator_ColumnPropNameInTable="PowersetModuleCodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetModuleName" msprop:Generator_UserColumnName="PowersetModuleName" msprop:Generator_ColumnVarNameInTable="columnPowersetModuleName" msprop:Generator_ColumnPropNameInRow="PowersetModuleName" msprop:Generator_ColumnPropNameInTable="PowersetModuleNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetStandardPM" msprop:Generator_UserColumnName="PowersetStandardPM" msprop:Generator_ColumnVarNameInTable="columnPowersetStandardPM" msprop:Generator_ColumnPropNameInRow="PowersetStandardPM" msprop:Generator_ColumnPropNameInTable="PowersetStandardPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetStandardISC" msprop:Generator_UserColumnName="PowersetStandardISC" msprop:Generator_ColumnVarNameInTable="columnPowersetStandardISC" msprop:Generator_ColumnPropNameInRow="PowersetStandardISC" msprop:Generator_ColumnPropNameInTable="PowersetStandardISCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetStandardVOC" msprop:Generator_UserColumnName="PowersetStandardVOC" msprop:Generator_ColumnVarNameInTable="columnPowersetStandardVOC" msprop:Generator_ColumnPropNameInRow="PowersetStandardVOC" msprop:Generator_ColumnPropNameInTable="PowersetStandardVOCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetStandardIPM" msprop:Generator_UserColumnName="PowersetStandardIPM" msprop:Generator_ColumnVarNameInTable="columnPowersetStandardIPM" msprop:Generator_ColumnPropNameInRow="PowersetStandardIPM" msprop:Generator_ColumnPropNameInTable="PowersetStandardIPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetStandardVPM" msprop:Generator_UserColumnName="PowersetStandardVPM" msprop:Generator_ColumnVarNameInTable="columnPowersetStandardVPM" msprop:Generator_ColumnPropNameInRow="PowersetStandardVPM" msprop:Generator_ColumnPropNameInTable="PowersetStandardVPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PM" msprop:Generator_UserColumnName="PM" msprop:Generator_ColumnVarNameInTable="columnPM" msprop:Generator_ColumnPropNameInRow="PM" msprop:Generator_ColumnPropNameInTable="PMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ISC" msprop:Generator_UserColumnName="ISC" msprop:Generator_ColumnVarNameInTable="columnISC" msprop:Generator_ColumnPropNameInRow="ISC" msprop:Generator_ColumnPropNameInTable="ISCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IPM" msprop:Generator_UserColumnName="IPM" msprop:Generator_ColumnVarNameInTable="columnIPM" msprop:Generator_ColumnPropNameInRow="IPM" msprop:Generator_ColumnPropNameInTable="IPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VOC" msprop:Generator_UserColumnName="VOC" msprop:Generator_ColumnVarNameInTable="columnVOC" msprop:Generator_ColumnPropNameInRow="VOC" msprop:Generator_ColumnPropNameInTable="VOCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VPM" msprop:Generator_UserColumnName="VPM" msprop:Generator_ColumnVarNameInTable="columnVPM" msprop:Generator_ColumnPropNameInRow="VPM" msprop:Generator_ColumnPropNameInTable="VPMColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="TestTime" msprop:Generator_UserColumnName="TestTime" msprop:Generator_ColumnVarNameInTable="columnTestTime" msprop:Generator_ColumnPropNameInRow="TestTime" msprop:Generator_ColumnPropNameInTable="TestTimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PowersetStandardFuse" msprop:Generator_UserColumnName="PowersetStandardFuse" msprop:Generator_ColumnVarNameInTable="columnPowersetStandardFuse" msprop:Generator_ColumnPropNameInRow="PowersetStandardFuse" msprop:Generator_ColumnPropNameInTable="PowersetStandardFuseColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetPowerDifferent" msprop:Generator_UserColumnName="PowersetPowerDifferent" msprop:Generator_ColumnVarNameInTable="columnPowersetPowerDifferent" msprop:Generator_ColumnPropNameInRow="PowersetPowerDifferent" msprop:Generator_ColumnPropNameInTable="PowersetPowerDifferentColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PowersetSubPowerLevel" msprop:Generator_UserColumnName="PowersetSubPowerLevel" msprop:Generator_ColumnVarNameInTable="columnPowersetSubPowerLevel" msprop:Generator_ColumnPropNameInRow="PowersetSubPowerLevel" msprop:Generator_ColumnPropNameInTable="PowersetSubPowerLevelColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ProductModel" msprop:Generator_UserColumnName="ProductModel" msprop:Generator_ColumnVarNameInTable="columnProductModel" msprop:Generator_ColumnPropNameInRow="ProductModel" msprop:Generator_ColumnPropNameInTable="ProductModelColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="LotNo" msprop:Generator_UserColumnName="LotNo" msprop:Generator_ColumnVarNameInTable="columnLotNo" msprop:Generator_ColumnPropNameInRow="LotNo" msprop:Generator_ColumnPropNameInTable="LotNoColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5448B80-6F70-4E50-9271-7DD9082014CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Gui.Framework.Smfa</RootNamespace>
+    <AssemblyName>FanHai.Gui.Framework.Smfa</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CallHelper.cs" />
+    <Compile Include="LogMessageRecorder.cs" />
+    <Compile Include="ExceptionBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="RunWorkbenchException.cs" />
+    <Compile Include="log4netLoggingService.cs" />
+    <Compile Include="WorkbenchSettings.cs" />
+    <Compile Include="FanHaiHost.cs" />
+    <Compile Include="StartupSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FanHai.Gui.Core.WinForms\FanHai.Gui.Core.WinForms.csproj">
+      <Project>{311C6BE4-E4CD-4D59-AB54-72E5F90B2C28}</Project>
+      <Name>FanHai.Gui.Core.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework %28FanHai.Gui.Framework\FanHai.Gui.Framework%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bin\FanHai.Gui.Framework.Smfa.dll" />
+    <Content Include="Bin\FanHai.Gui.Framework.Smfa.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo ------Data
+echo ------Libs
+echo ------Settings
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Data"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Data"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Settings"  mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Settings"
+
+
+echo --Copy compiled dll And debug pdb file
+xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

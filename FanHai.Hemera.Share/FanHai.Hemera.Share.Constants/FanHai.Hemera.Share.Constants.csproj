@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Share.Constants</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Share.Constants</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AWMS_OUTBQC_FIELDS.cs" />
+    <Compile Include="BASE_PRODUCTMODEL_CTM.cs" />
+    <Compile Include="BasicData\BASE_CERTIFICATION.cs" />
+    <Compile Include="LotCustomerModel.cs" />
+    <Compile Include="POR_COMPONENT_TRAY_LIST_FIELDS.cs" />
+    <Compile Include="POR_WORKORDER_PRODUCT.cs" />
+    <Compile Include="BasicData\BASE_POWERSET.cs" />
+    <Compile Include="BasicData\BASE_POWERSET_DETAIL.cs" />
+    <Compile Include="BasicData\BASE_TESTRULE_CTLPARA.cs" />
+    <Compile Include="BasicData\BASE_TESTRULE.cs" />
+    <Compile Include="BasicData\BASE_TESTRULE_AVGPOWER.cs" />
+    <Compile Include="BasicData\BASE_TESTRULE_POWERCTL.cs" />
+    <Compile Include="BasicData\BASE_TESTRULE_PROLEVEL.cs" />
+    <Compile Include="BasicData\BASE_TESTRULE_DECAY.cs" />
+    <Compile Include="BasicData\BASE_TESTRULE_PRINTSET.cs" />
+    <Compile Include="BasicData\BASE_OPT_SETTING.cs" />
+    <Compile Include="BasicData\ReportData\RPT_PLAN_AIM.cs" />
+    <Compile Include="COMMONABLE_FIELDS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PARAMETER_FIELDS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POR_PRODUCT.cs" />
+    <Compile Include="BasicData\BASE_ATTRIBUTE_CATEGORY_FIELDS.cs" />
+    <Compile Include="BasicData\BASE_PRODUCTMODEL.cs">
+    </Compile>
+    <Compile Include="BasicData\BASE_ATTRIBUTE_VALUE_FIELDS.cs" />
+    <Compile Include="BasicData\BASE_CLASSFILE_FIELDS.cs" />
+    <Compile Include="BasicData\BASE_CODE_FIELDS.cs" />
+    <Compile Include="BasicData\BASE_PARAMETER_FIELDS.cs" />
+    <Compile Include="BasicData\BASE_SERIAL_FIELDS.cs" />
+    <Compile Include="CAL_SHIFT.cs" />
+    <Compile Include="BasicData\BASE_PARAMETER_DERIVTION_FIELDS.cs" />
+    <Compile Include="COMPUTER_FIELDS.cs" />
+    <Compile Include="EMS_STATE_EVENT_FIELDS.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="RBAC_ROLE_OWN_STATUS_FIELDS.cs" />
+    <Compile Include="SPC_COUNT_FIELD.cs" />
+    <Compile Include="SPC_CONTROL_PLAN_FIELD.cs" />
+    <Compile Include="EDC_ABNORMAL_DTL_FIELDS.cs" />
+    <Compile Include="EDC_ABNORMAL_FIELDS.cs" />
+    <Compile Include="EMS_CHECKITEMS_FIELDS.cs" />
+    <Compile Include="EMS_CHECKLIST_FIELDS.cs" />
+    <Compile Include="EMS_CHECKLIST_ITEM_FIELDS.cs" />
+    <Compile Include="EMS_CHECKLIST_JOBS_FIELDS.cs" />
+    <Compile Include="EMS_CHECKLIST_JOB_DATA_FIELDS.cs" />
+    <Compile Include="EMS_EQP_TASK_COURSE_PARTS_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENT_PARTS_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENT_TASKS_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENT_TASK_COURSES_FIELDS.cs" />
+    <Compile Include="EMS_LAYOUT_DETAIL_FIELDS.cs" />
+    <Compile Include="EMS_LAYOUT_MAIN_FIELDS.cs" />
+    <Compile Include="EMS_PM_CONDITION_FIELDS.cs" />
+    <Compile Include="EMS_PM_SCHEDULE_FIELDS.cs" />
+    <Compile Include="POR_WORK_ORDER_REPORT_FIELDS.cs" />
+    <Compile Include="RBAC_LOGIN_LOG_FIELDS.cs" />
+    <Compile Include="RBAC_OPERATOR_FIELDS.cs" />
+    <Compile Include="RBAC_ROLE_OWN_STORE_FIELDS.cs" />
+    <Compile Include="SPC_GROUP_POINT_EDIT_FIELDS.cs" />
+    <Compile Include="SPC_PARAM_DATA_FIELDS.cs" />
+    <Compile Include="WIP_COMMENT_FIELDS.cs" />
+    <Compile Include="WIP_CONSIGNMENT_FIELDS.cs" />
+    <Compile Include="WIP_CUSTCHECK_FIELDS.cs" />
+    <Compile Include="WIP_FUTUREHOLD_FIELDS.cs" />
+    <Compile Include="CRM_ATTRIBUTE_FIELDS.cs" />
+    <Compile Include="EDC_MAIN_PARAM_FIELDS.cs" />
+    <Compile Include="EDC_MAIN_FIELDS.cs" />
+    <Compile Include="EDC_COLLECTION_DATA_FIELDS.cs" />
+    <Compile Include="EDC_MAIN_INS_FIELDS.cs" />
+    <Compile Include="EDC_POINT_FIELDS.cs" />
+    <Compile Include="EDC_POINT_PARAMS_FIELDS.cs" />
+    <Compile Include="EDC_SP_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENTS_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENT_CHANGE_REASONS_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENT_CHANGE_STATES_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENT_GROUPS_FIELDS.cs" />
+    <Compile Include="EMS_EQUIPMENT_STATES_FIELDS.cs" />
+    <Compile Include="EMS_OPERATION_EQUIPMENT_FIELDS.cs" />
+    <Compile Include="FMM_LOCATION_FIELDS.cs" />
+    <Compile Include="FMM_LOCATION_LINE_FIELDS.cs" />
+    <Compile Include="FMM_LOCATION_RET_FIELDS.cs" />
+    <Compile Include="FMM_PRODUCTION_LINE_FIELDS.cs" />
+    <Compile Include="GlobalEnums.cs" />
+    <Compile Include="POR_PART_ATTR_FIELDS.cs" />
+    <Compile Include="POR_PART_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_ENTERPRISE_VER_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_EP_VER_R_VER_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_OPERATION_VER_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_ROUTE_VER_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_STEP_ATTR_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_STEP_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_OPERATION_ATTR_FIELDS.cs" />
+    <Compile Include="POR_WORK_ORDER_ATTR_FIELDS.cs" />
+    <Compile Include="FMM_REASON_CODE_CATEGORY_FIELDS.cs" />
+    <Compile Include="FMM_REASON_CODE_FIELDS.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="FMM_REASON_R_CATEGORY_FIELDS.cs" />
+    <Compile Include="POR_LOT_ATTR_FIELDS.cs" />
+    <Compile Include="POR_LOT_FIELDS.cs" />
+    <Compile Include="FieldProperties.cs" />
+    <Compile Include="POR_WORK_ORDER_FIELDS.cs" />
+    <Compile Include="POR_WORK_ORDER_REC_FIELDS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RBAC_OPERATION_FIELDS.cs" />
+    <Compile Include="RBAC_OPERATION_GROUP_FIELDS.cs" />
+    <Compile Include="RBAC_PRIVILEGE_FIELDS.cs" />
+    <Compile Include="RBAC_RESOURCE_FIELDS.cs" />
+    <Compile Include="RBAC_RESOURCE_GROUP_FIELDS.cs" />
+    <Compile Include="RBAC_ROLE_FIELDS.cs" />
+    <Compile Include="RBAC_ROLE_OWN_LINES_FIELDS.cs" />
+    <Compile Include="RBAC_ROLE_OWN_OPERATION_FIELDS.cs" />
+    <Compile Include="RBAC_ROLE_OWN_PRIVILEGE_FIELDS.cs" />
+    <Compile Include="RBAC_USER_FIELDS.cs" />
+    <Compile Include="RBAC_USER_IN_ROLE_FIELDS.cs" />
+    <Compile Include="RBAC_USER_OWN_PRIVILEGES_FIELDS.cs" />
+    <Compile Include="TableFields.cs" />
+    <Compile Include="WIP_DEFECT_FIELDS.cs" />
+    <Compile Include="WIP_FIELDS.cs" />
+    <Compile Include="WIP_HOLD_RELEASE_FIELDS.cs" />
+    <Compile Include="WIP_JOB_FIELDS.cs" />
+    <Compile Include="WIP_MERGE_FIELDS.cs" />
+    <Compile Include="WIP_MESSAGE_FIELDS.cs" />
+    <Compile Include="WIP_RETURN_MAT_FIELDS.cs" />
+    <Compile Include="WIP_SCRAP_FIELDS.cs" />
+    <Compile Include="WIP_SPLIT_FIELDS.cs" />
+    <Compile Include="WIP_STEP_TRANSACTION_FIELDS.cs" />
+    <Compile Include="WIP_TRANSACTION_FIELDS.cs" />
+    <Compile Include="WST_STORE_FIELDS.cs" />
+    <Compile Include="WST_STORE_MAT_FIELDS.cs" />
+    <Compile Include="WST_STORE_SUM_FIELDS.cs" />
+    <Compile Include="WST_STORE_SUM_PART_FIELDS.cs" />
+    <Compile Include="BasicData\BASE_ATTRIBUTE_FIELDS.cs" />
+    <Compile Include="BasicData\BASE_PRODUCTMODEL_CP.cs" />
+    <Compile Include="BasicData\BASE_DECAYCOEFFI.cs" />
+    <Compile Include="BasicData\BASE_PRODUCTMODEL_POWER.cs" />
+    <Compile Include="WIP_PATCH_FIELDS.cs" />
+    <Compile Include="WIP_RECOVERED_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_OPERATION_PARAM_FIELDS.cs" />
+    <Compile Include="POR_ROUTE_STEP_PARAM_FIELDS.cs" />
+    <Compile Include="WIP_PARAM_FIELDS.cs" />
+    <Compile Include="WIP_IV_TEST_FIELDS.cs" />
+    <Compile Include="WIP_LOT_FIELDS.cs" />
+    <Compile Include="WIP_CALIBRATION_INFO_FIELDS.cs" />
+    <Compile Include="WMS_SHIPMENT_FIELDS.cs" />
+    <Compile Include="POR_WORK_ORDER_BOM_FIELDS.cs" />
+    <Compile Include="FMM_PRODUCTION_LINE_SUB_FIELDS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if "$(SolutionName)"=="FanHai.Hemera.Client" (
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"
+
+  echo --Copy compiled dll And debug pdb file
+  xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D  
+  xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D
+)
+
+if "$(SolutionName)"=="FanHai.Hemera.Server" (
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server"   	              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs"   	              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs"
+
+  echo --Copy compiled dll And debug pdb file
+  xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs" /R /Y /Q /D  
+  xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs" /R /Y /Q /D
+)</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

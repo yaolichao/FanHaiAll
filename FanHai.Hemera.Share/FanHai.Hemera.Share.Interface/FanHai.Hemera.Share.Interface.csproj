@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Share.Interface</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Share.Interface</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AWMS\IOutboundOperationEngine.cs" />
+    <Compile Include="BasicData\IBasicCertificationEngine.cs" />
+    <Compile Include="BasicData\IBasicCodeSoftLabelEngine.cs" />
+    <Compile Include="BasicData\IBasicDataEngine.cs" />
+    <Compile Include="BasicData\IByProductEngine.cs" />
+    <Compile Include="BasicData\IProductModelEngine.cs" />
+    <Compile Include="BasicData\IDecayCoeffiEngine.cs" />
+    <Compile Include="BasicData\IBasicPowerSetEngine.cs" />
+    <Compile Include="BasicData\IBasicTestRuleEngine.cs" />
+    <Compile Include="BasicData\IPorProductEngine.cs" />
+    <Compile Include="BasicData\ISupplierEngine.cs" />
+    <Compile Include="BasicData\IBasicPrintLabelEngine.cs" />
+    <Compile Include="BasicData\IByProductPartEngine.cs" />
+    <Compile Include="BasicData\IBomMaterialBandEngine.cs" />
+    <Compile Include="BasicData\ILineSettingEngine.cs" />
+    <Compile Include="BasicData\IMaterialBuckleControlEngine.cs" />
+    <Compile Include="BasicData\ISendingMaterialEngine.cs" />
+    <Compile Include="BasicData\ISpecialMatTeamEngine.cs" />
+    <Compile Include="ILotComponentTrayEngine.cs" />
+    <Compile Include="ReportData\IRptCommonEngine.cs" />
+    <Compile Include="Common\IUdaEngine.cs" />
+    <Compile Include="EDCManagement\IEDCEngine.cs" />
+    <Compile Include="EDCManagement\IEDCPiont.cs" />
+    <Compile Include="EDCManagement\IEDCQuery.cs" />
+    <Compile Include="EDCManagement\IParamEngine.cs" />
+    <Compile Include="EDCManagement\ISampEngine.cs" />
+    <Compile Include="EquipmentManagement\ICalShift.cs" />
+    <Compile Include="EquipmentManagement\IEquipmentChangeReasons.cs" />
+    <Compile Include="EquipmentManagement\IEquipmentChangeStates.cs" />
+    <Compile Include="EquipmentManagement\IEquipmentGroups.cs" />
+    <Compile Include="EquipmentManagement\IEquipments.cs" />
+    <Compile Include="EquipmentManagement\IEquipmentStateEvents.cs" />
+    <Compile Include="EquipmentManagement\IEquipmentStates.cs" />
+    <Compile Include="EquipmentManagement\ILocation.cs" />
+    <Compile Include="EquipmentManagement\IOperationEquipments.cs" />
+    <Compile Include="ICalculateEngine.cs" />
+    <Compile Include="IDBEngine.cs" />
+    <Compile Include="IEngine.cs" />
+    <Compile Include="IPartEngine.cs" />
+    <Compile Include="IServerObjFactory.cs" />
+    <Compile Include="PagingConfig.cs" />
+    <Compile Include="PrintExchangeWo\IPrintIvTestEngine.cs" />
+    <Compile Include="PrintExchangeWo\IExchangeWoEngine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="QMSManagement\IPrintEngine.cs" />
+    <Compile Include="QMSManagement\IQMSEngine.cs" />
+    <Compile Include="RBAC\IOperationGroupEngine.cs" />
+    <Compile Include="RBAC\IPrivilegeEngine.cs" />
+    <Compile Include="RBAC\IRBACOperationEngine.cs" />
+    <Compile Include="RBAC\IResourceEngine.cs" />
+    <Compile Include="RBAC\IResourceGroupEngine.cs" />
+    <Compile Include="RBAC\IRoleEngine.cs" />
+    <Compile Include="RBAC\IUserEngine.cs" />
+    <Compile Include="RBAC\IUserRoleEngine.cs" />
+    <Compile Include="RFC\IRFCEngine.cs" />
+    <Compile Include="IServerObjFactoryExtend.cs" />
+    <Compile Include="SAP\ISAPEngine.cs" />
+    <Compile Include="SPC\ISpcEngine.cs" />
+    <Compile Include="SystemManagement\ICrmAttributeEngine.cs" />
+    <Compile Include="SystemManagement\IEnterpriseEngine.cs" />
+    <Compile Include="SystemManagement\IGetMaterialsEngine.cs" />
+    <Compile Include="SystemManagement\ILineManageEngine.cs" />
+    <Compile Include="SystemManagement\IOperationEngine.cs" />
+    <Compile Include="SystemManagement\IReasonCodeEngine.cs" />
+    <Compile Include="SystemManagement\IRouteEngine.cs" />
+    <Compile Include="SystemManagement\IStoreEngine.cs" />
+    <Compile Include="SystemManagement\IWorkOrdersEngine.cs" />
+    <Compile Include="SystemManagement\IWorkOrderWorkForEngine.cs" />
+    <Compile Include="SystemManagement\IComputerEngine.cs" />
+    <Compile Include="Uda\IUdaCommonControlEx.cs" />
+    <Compile Include="WarehouseManagement\IOnlineMaterialQueryEngine.cs" />
+    <Compile Include="WarehouseManagement\IOperationHandoverEngine.cs" />
+    <Compile Include="WarehouseManagement\IReceiveMaterialEngine.cs" />
+    <Compile Include="WarehouseManagement\IReturnMaterialQueryEngine.cs" />
+    <Compile Include="WarehouseManagement\IUseMaterialEngine.cs" />
+    <Compile Include="WarehouseManagement\IWOMaterialReturnEngine.cs" />
+    <Compile Include="WarehouseManagement\IMaterialReqOrReturnEngine.cs" />
+    <Compile Include="WARK\IGroupArkEngine.cs" />
+    <Compile Include="WARK\ISplitArkEngine.cs" />
+    <Compile Include="WipJob\IWipJobAutoTrack.cs" />
+    <Compile Include="WipManagement\ILotCreateEngine.cs" />
+    <Compile Include="WipManagement\ILotEngine.cs" />
+    <Compile Include="WipManagement\ILotExceptionEngine.cs" />
+    <Compile Include="WipManagement\ILotFutureHoldEngine.cs" />
+    <Compile Include="WipManagement\ILotOperationEngine.cs" />
+    <Compile Include="WipManagement\INameplateLabelAutoPrintEngine.cs" />
+    <Compile Include="WipManagement\IPalletQueryEngine.cs" />
+    <Compile Include="WipManagement\IIVTestDataTransferEngine.cs" />
+    <Compile Include="WipManagement\IWarehouseEngine.cs" />
+    <Compile Include="WipManagement\INameplateLabelPrintEngine.cs" />
+    <Compile Include="WipManagement\ILotNumPrintEngine.cs" />
+    <Compile Include="WipManagement\IHighOfSFinishedProductsEngine.cs" />
+    <Compile Include="WMS\IOutDeliveryQuerryEngine.cs" />
+    <Compile Include="WMS\IPickOperationEngine.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="WMS\IWarehouseWarrantOperationEngine.cs" />
+    <Compile Include="WMS\IShipmentOperationEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\FanHai.Hemera.Share.Interface.dll" />
+    <Content Include="bin\Debug\FanHai.Hemera.Share.Interface.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if "$(SolutionName)"=="FanHai.Hemera.Client" (
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"
+  echo --Copy compiled dll And debug pdb file
+  xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D
+  xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D
+)
+
+if "$(SolutionName)"=="FanHai.Hemera.Server" (
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server"   	              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server"
+  if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs"   	              mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs"
+  echo --Copy compiled dll And debug pdb file
+  xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs" /R /Y /Q /D  
+  xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Server\Libs" /R /Y /Q /D
+)</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

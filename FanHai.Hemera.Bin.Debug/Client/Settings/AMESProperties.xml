@@ -1,0 +1,19 @@
+﻿<AMESProperties>
+  <CoreProperties.UILanguage value="zh-cn" />
+  <Properties name="FanHai.Gui.Framework.Gui.FullscreenOptions">
+    <HideMainMenu value="False" />
+    <HideStatusBar value="True" />
+    <HideToolbars value="True" />
+    <ShowMainMenuOnMouseMove value="True" />
+    <ShowStatusBarOnMouseMove value="True" />
+  </Properties>
+  <FanHai.Gui.Framework.Gui.StatusBarVisible value="True" />
+  <FanHai.Gui.Framework.Gui.ToolBarVisible value="True" />
+  <FanHai.Gui.Framework.Gui.UseProfessionalRenderer value="True" />
+  <Properties name="WorkbenchMemento">
+    <bounds value="0,0,300,300" />
+    <defaultstate value="Maximized" />
+    <windowstate value="Maximized" />
+  </Properties>
+  <Bmonthdata value ="2015-10-20"/>
+</AMESProperties>

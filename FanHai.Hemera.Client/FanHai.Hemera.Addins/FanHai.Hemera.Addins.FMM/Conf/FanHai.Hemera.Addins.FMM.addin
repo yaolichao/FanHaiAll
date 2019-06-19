@@ -1,0 +1,143 @@
+﻿<AddIn name        = "FanHai.Hemera.FMM"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Factory Modeling Module"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.FMM" version = "@SolarViewerCoreVersion"/>
+    <Dependency name = "FanHai.Hemera.EDC" addin="FanHai.Hemera.EDC" version = "@SolarViewerCoreVersion" requirePreload="true"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.FMM.dll">
+      <ConditionEvaluator name="IsSystemManagement" class="FanHai.Hemera.Addins.FMM.IsSystemManagementConditionEvaluator"/>
+    </Import >
+  </Runtime>
+
+  <!--车间配置-->
+  <Path name ="/FanHaiFramework/Workbench/MainMenu/idPlantManagement/idProDepartmentSettingMenu">
+    <!--区域管理-->
+    <MenuItem id     = "idLocation"
+          label        = "生产区域"
+          icon         = ""
+          privilegeId  ="1005000"
+          shortcut     = ""
+          class        = "FanHai.Hemera.Addins.FMM.LocationCommand" />
+    <!--线别管理-->
+    <MenuItem id           = "idProductionLinesEx"
+              label        = "生产线别"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLocation"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.FMM.LineCommandEx"
+              privilegeId  = "1006000"/>
+    <!--班次管理-->
+    <MenuItem id   = "idProductionShifts"
+              label        = "人员班别"
+              icon         = ""
+              shortcut     = ""
+              privilegeId  ="1007000"
+              insertafter  = "idProductionLinesEx"
+              class        = "FanHai.Hemera.Addins.FMM.ShiftManagementCommand"/>
+    <!--排班管理-->
+    <MenuItem id   = "idProductionSchedules"
+              label        = "生产排班"
+              icon         = ""
+              shortcut     = ""
+              privilegeId  ="1008000"
+              insertafter  = "idProductionShifts"
+              class        = "FanHai.Hemera.Addins.FMM.ScheduleCommand"/>
+  </Path>
+  
+  <!--工艺参数设置/组件料号-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idBasis/idProModelMenu">
+    <!--产品料号管理/未知-->
+    <MenuItem id         = "idPart"
+           label        = "组件料号"
+           icon         = ""
+           shortcut     = ""
+           insertbefore = "idProModelSetting"
+           class        = "FanHai.Hemera.Addins.FMM.PartCommand"
+           privilegeId  = "2001000"/>
+  </Path>
+
+  <!--流程管理-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idBasis/idRoutingMenu">
+    <!--工艺流程组管理-->
+    <MenuItem id           = "idEnterprise"
+              label        = "工艺组"
+              icon         = ""
+              shortcut     = ""
+              class        = "FanHai.Hemera.Addins.FMM.EnterpriseCommand"
+              privilegeId  = "2012000"/>
+    <!--工艺流程管理-->
+    <MenuItem id           = "idRoute"
+              label         = "工序流程"
+              icon          = ""
+              shortcut      = ""
+              class         = "FanHai.Hemera.Addins.FMM.RouteCommand"
+              privilegeId   = "2013000"/>
+    <!--工序管理-->
+    <MenuItem id           = "idOperation"
+            label          = "工序属性"
+            icon           = ""
+            shortcut       = ""
+            class          = "FanHai.Hemera.Addins.FMM.OperationCommand"
+            privilegeId    = "2014000"/>
+  </Path>
+
+  <!--代码管理-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idQuantity/idReasonCodeMenu">
+    <!--代码管理-->
+    <!--<MenuItem id           = "idReasonCode"
+              type         = "Menu"
+              icon         = ""
+              shortcut     = ""
+              label        = "${res:FanHai.Hemera.Addins.ReasonCodeManagement.Name}"
+              insertafter  = "idQuantityWorkMenu"
+              insertbefore = ""
+              privilegeId  ="2030000">-->
+      <!--代码维护-->
+      <MenuItem id           = "idReasonCodeItem"
+                label        = "代码管理"
+                icon         = ""
+                shortcut     = ""
+                class        = "FanHai.Hemera.Addins.FMM.ReasonCodeCommand"
+                privilegeId  = "5017000"/>
+      <!--代码组维护-->
+      <MenuItem id           = "idReasonCodeCategory"
+                label        = "代码组"
+                icon         = ""
+                shortcut     = ""
+                class        = "FanHai.Hemera.Addins.FMM.ReasonCodeCategoryCommand"
+                privilegeId  = "5018000"/>
+  </Path>
+
+  <!--配置管理/终端配置-->
+  <Path name ="/FanHaiFramework/Workbench/MainMenu/idBasis/idSettingManagementMenu">
+    <!--客户端配置-->
+    <MenuItem id           = "idComputerSettings"
+              label        = "终端配置"
+              icon         = ""
+              shortcut     = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.FMM.ComputerConfCtrlCommand"
+              privilegeId  = "2015000"/>
+  </Path>
+
+  <!--物料管理/物料区管理-->
+  <Path name="/FanHaiFramework/Workbench/MainMenu/idMaterial/idMaterialMenu">
+    <!--线上仓维护-->
+    <MenuItem id           = "idStoreManagement"
+              label        = "物料区管理"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.FMM.StoreCommand"
+              privilegeId  = "3001000"/>
+  </Path>
+</AddIn>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Servers>
+  <Server>
+    <Channels>
+      <Channel>
+        <!--<ip>192.168.0.191</ip>-->
+        <name>tcp1</name>
+        <port>8081</port>
+        <type>tcp</type>
+      </Channel>
+      <Channel>
+        <name>tcp2</name>
+        <port>9990</port>
+        <type>tcp</type>
+      </Channel>
+    </Channels>
+    <Components>
+      <Component>
+        <name>ServerObjFactory</name>
+        <path></path>
+        <assembly>FanHai.Hemera.Share.Interface.dll</assembly>
+        <class>FanHai.Hemera.Modules.ServerObjFactory,FanHai.Hemera.Modules</class>
+        <interface></interface>
+        <url>FanHai.Hemera.Share.Interface.IServerObjFactory</url>
+        <model>Singleton</model>
+        <active>true</active>
+      </Component>
+    </Components>
+  </Server>
+</Servers>

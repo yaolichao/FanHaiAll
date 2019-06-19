@@ -1,0 +1,65 @@
+﻿<AddIn name        = "FanHai.Hemera.EDC"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Engineering Data Collection"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.EDC" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.EDC.dll">
+    </Import >
+  </Runtime>
+
+  <!--  抽检管理 -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idBasis/idSamplingMenu">
+    <!--抽检管理-->
+    <!--<MenuItem id           = "idSampling"
+              type         = "Menu"
+              label        = "抽检管理"
+              insertafter  = "idSettingManagementMenu"
+              insertbefore = ""
+              privilegeId  = "2040000">-->
+    
+      <!--抽检分组-->
+      <MenuItem id           = "idParameterGroup"
+                label        = "抽检分组"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = ""
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.EDC.EDCManageCommand"
+                privilegeId  = "2021000"/>
+      <!--抽检参数-->
+      <MenuItem id           = "idParameter"
+                label        = "抽检参数"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = ""
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.EDC.ParamCommand"
+                privilegeId  = "2022000"/>
+      <!--采样管理-->
+      <MenuItem id           = "idSampingRule"
+                label        = "抽检项"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = ""
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.EDC.SampCommand"
+                privilegeId  = "2023000"/>
+      <!--抽检点设置-->
+      <MenuItem id           = "idSamplingPoint"
+                label        = "抽检点"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = ""
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.EDC.EDCPointCtlCommand"
+                privilegeId  = "2024000"/>
+  </Path>
+  
+</AddIn>

@@ -1,0 +1,58 @@
+<AddIn name        = "FanHai.Hemera.StartPage"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Start Page"
+       addInManagerHidden = "preinstalled">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.StartPage" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.StartPage.dll"/>
+  </Runtime>
+
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idPlantManagement/idHomePageMenu">
+    <MenuItem id           = "idShowStartPage"
+		          label        = "回首页"
+		          icon         = "Icons.16x16.BrowserWindow"
+              insertafter  = "idSeparatorStartPage"
+              insertbefore = "idSeparatorExit"
+		          class        = "FanHai.Hemera.Addins.StartPage.ShowStartPageCommand"
+              privilegeId  = "9999999"/>
+  </Path>
+
+  <!-- Main Menu 7: 查看 -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idViews">
+    <!--报表模块-->
+    <MenuItem id           = "idStandardReport"
+              label        = "报表"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = "idSeparatorStandardReport"
+              class        = "FanHai.Hemera.Addins.StartPage.ShowReportPageCommand"
+              privilegeId  = "8001000"/>
+  </Path>
+  <!--Menu 10: 帮助-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idHelp">
+    <!--报表模块-->
+    <MenuItem id           = "idHelpContext"
+              label        = "升级日志"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = "idSeparateAbout"
+              class        = "FanHai.Hemera.Addins.StartPage.ShowHelpPageCommand"
+              privilegeId  = "9999999"/>
+  </Path>
+  <Path name = "/Workspace/AutostartNothingLoaded">
+    <Class id    = "ShowStartPageCommand"
+		       class = "FanHai.Hemera.Addins.StartPage.ShowStartPageCommand"/>
+  </Path>
+  <Path name = "/FanHaiFramework/Views/Browser/SchemeExtensions">
+    <BrowserSchemeExtension id    = "startpage"
+		                        class = "FanHai.Hemera.Addins.StartPage.StartPageScheme"/>
+  </Path>
+</AddIn>

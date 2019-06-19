@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3B99CAD2-690C-4F24-8899-B9831979481D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QCCheck</RootNamespace>
+    <AssemblyName>QCCheck</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/QCCheck/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>notes.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.BarTender, Version=9.20.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Interop.BarTender.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.LabelManager2, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Interop.LabelManager2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodePrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodePrint.Designer.cs">
+      <DependentUpon>CodePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQCCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQCCheck.Designer.cs">
+      <DependentUpon>frmQCCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShipNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShipNo.Designer.cs">
+      <DependentUpon>frmShipNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetPOSPrinter.cs" />
+    <Compile Include="PrintUtility\PrintFactory.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SNQuery\frmSNPrintedQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SNQuery\frmSNPrintedQuery.Designer.cs">
+      <DependentUpon>frmSNPrintedQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SNSet\frmSNRangerSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SNSet\frmSNRangerSet.Designer.cs">
+      <DependentUpon>frmSNRangerSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SNSet\frmSNFormatSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SNSet\frmSNFormatSet.Designer.cs">
+      <DependentUpon>frmSNFormatSet.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CodePrint.resx">
+      <DependentUpon>CodePrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQCCheck.resx">
+      <DependentUpon>frmQCCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShipNo.resx">
+      <DependentUpon>frmShipNo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SNQuery\frmSNPrintedQuery.resx">
+      <DependentUpon>frmSNPrintedQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SNSet\frmSNRangerSet.resx">
+      <DependentUpon>frmSNRangerSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SNSet\frmSNFormatSet.resx">
+      <DependentUpon>frmSNFormatSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\QCCheck.vshost.exe.manifest" />
+    <None Include="bin\Release\QCCheck.vshost.exe.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSSOAPLib30">
+      <Guid>{91147A58-DFE4-47C0-8E76-987FC1A6001B}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MSXML2">
+      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZHDSpace\ZHDSpace.csproj">
+      <Project>{66582E6C-253B-4F5D-AD15-7FA4ED295F15}</Project>
+      <Name>ZHDSpace</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BCLW32.DLL" />
+    <Content Include="bin\Debug\Config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\Debug\Interop.MSXML2.dll" />
+    <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="bin\Debug\NoteSounds\10.wav" />
+    <Content Include="bin\Debug\NoteSounds\11.wav" />
+    <Content Include="bin\Debug\NoteSounds\1114.wav" />
+    <Content Include="bin\Debug\NoteSounds\2.wav" />
+    <Content Include="bin\Debug\NoteSounds\22.wav" />
+    <Content Include="bin\Debug\NoteSounds\3.wav" />
+    <Content Include="bin\Debug\NoteSounds\4.wav" />
+    <Content Include="bin\Debug\NoteSounds\5.wav" />
+    <Content Include="bin\Debug\NoteSounds\6.wav" />
+    <Content Include="bin\Debug\NoteSounds\7.wav" />
+    <Content Include="bin\Debug\NoteSounds\8.wav" />
+    <Content Include="bin\Debug\NoteSounds\9.wav" />
+    <Content Include="bin\Debug\NoteSounds\err.wav" />
+    <Content Include="bin\Debug\NoteSounds\pass.wav" />
+    <Content Include="bin\Debug\Print.txt" />
+    <Content Include="bin\Debug\QCCheck.exe" />
+    <Content Include="bin\Debug\QCCheck.pdb" />
+    <Content Include="bin\Debug\QCCheck.vshost.exe" />
+    <Content Include="bin\Debug\WinPort.dll" />
+    <Content Include="bin\Debug\Winpplb.dll" />
+    <Content Include="bin\Debug\ZHDSpace.dll" />
+    <Content Include="bin\Debug\ZHDSpace.pdb" />
+    <Content Include="bin\Debug\新建 文本文档.txt" />
+    <Content Include="bin\Release\Interop.MSSOAPLib30.dll" />
+    <Content Include="bin\Release\QCCheck.vshost.exe" />
+    <Content Include="bin\Winpplb.dll" />
+    <Content Include="Image\add.bmp" />
+    <Content Include="Image\Cancel.gif" />
+    <Content Include="Image\Cross.bmp" />
+    <Content Include="Image\deleteall.bmp" />
+    <Content Include="Image\ExcelImport.bmp" />
+    <Content Include="Image\ExcelOutput.bmp" />
+    <Content Include="Image\Execute.bmp" />
+    <Content Include="Image\exit.PNG" />
+    <Content Include="Image\loading.gif" />
+    <Content Include="Image\MSExcel.bmp" />
+    <Content Include="Image\OK.gif" />
+    <Content Include="Image\print.bmp" />
+    <Content Include="Image\save.png" />
+    <Content Include="Image\select.PNG" />
+    <Content Include="Image\setup.bmp" />
+    <Content Include="Image\update.PNG" />
+    <Content Include="notes.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="bin\Debug\Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

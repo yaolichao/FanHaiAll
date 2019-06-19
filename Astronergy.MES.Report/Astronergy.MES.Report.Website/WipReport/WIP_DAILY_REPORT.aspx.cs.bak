@@ -1,0 +1,700 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using DevExpress.Charts;
+using DevExpress.Web.ASPxGridView;
+using System.Text;
+using DevExpress.Web.ASPxEditors;
+using Astronergy.MES.Report.DataAccess;
+using System.Drawing;
+
+/// <summary>
+/// 组件车间日常营运报表 
+/// </summary>
+public partial class WipReport_FACTORY_DAILY_REPORT : BasePage
+{
+    DailyReportEntity _entity = new DailyReportEntity();
+
+    /// <summary>
+    /// 页面载入事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            ComboxBind();
+
+            this.startDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
+            this.endDate.Text = DateTime.Now.AddDays(-1).ToShortDateString();
+            this.endTime.Text = CommonFunction.GetCurrentDateTime().ToString("HH:mm");
+            this.endDate.Text = CommonFunction.GetCurrentDateTime().ToString("yyyy/MM/dd");
+            this.startTime.Text = "08:00";
+        }
+        BindPartType();
+        BindProId();
+        BindWorder();
+        rbtnLst_SelectedIndexChanged(null, null);
+    }
+    /// <summary>
+    /// 工厂车间和产品类型数据绑定
+    /// </summary>
+    public void ComboxBind()
+    {      
+        //Bind 车间
+        DataTable dtWorkPlace = CommonFunction.GetFactoryWorkPlace();
+        this.cmbWorkPlace.DataSource = dtWorkPlace;
+        this.cmbWorkPlace.DataBind();
+        ListEditItem item = new ListEditItem();
+        item.Value = "";
+        item.Text = "All";
+        this.cmbWorkPlace.Items.Insert(0, item);
+        //Bind 班别
+        DataTable dtShift = CommonFunction.GetCAL_SHIFT();
+        this.cmbShift.DataSource = dtShift;
+        this.cmbShift.DataBind();
+        ListEditItem item_shift = new ListEditItem();
+        item_shift.Value = "";
+        item_shift.Text = "All";
+        this.cmbShift.Items.Insert(0, item_shift);
+    }
+    /// <summary>
+    /// 工厂车间变动，更新工单信息
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void cmbWorkPlace_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindProId();
+        BindWorder();
+    }
+    /// <summary>
+    /// 绑定产品型号。
+    /// </summary>
+    public void BindPartType()
+    {
+        DataTable dtProModel = CommonFunction.GetProductModel();
+
+        DataTable dtType = CommonFunction.GetProductModel();
+        ASPxListBox typeListBox = (ASPxListBox)checkComboBoxForType.FindControl("lbx_type");
+        foreach (DataRow drItem in dtType.Rows)
+        {
+            ListEditItem listEditItem = new ListEditItem();
+            listEditItem.Text = Convert.ToString(drItem["PROMODEL_NAME"]);
+            listEditItem.Value = Convert.ToString(drItem["PROMODEL_NAME"]);
+            typeListBox.Items.Add(listEditItem);
+        }
+        ViewState["dtType"] = dtType;
+        ListEditItem listItem = new ListEditItem();
+        listItem.Text = "(Select All)";
+        listItem.Value = string.Empty;
+        typeListBox.Items.Insert(0, listItem);
+    }
+    /// <summary>
+    /// 绑定工单信息数据
+    /// </summary>
+    public void BindWorder()
+    {
+        DataTable dtWo = CommonFunction.GetWorkOrder();
+        ASPxListBox woListBox = (ASPxListBox)checkComboBoxForWo.FindControl("lbx_wo");
+        foreach (DataRow drItem in dtWo.Rows)
+        {
+            ListEditItem listEditItem = new ListEditItem();
+            listEditItem.Text = Convert.ToString(drItem["WORK_ORDER_NO"]);
+            listEditItem.Value = Convert.ToString(drItem["WORK_ORDER_NO"]);
+            woListBox.Items.Add(listEditItem);
+        }
+        ViewState["dtWo"] = dtWo;
+        ListEditItem listItem = new ListEditItem();
+        listItem.Text = "(Select All)";
+        listItem.Value = string.Empty;
+        woListBox.Items.Insert(0, listItem);
+    }
+    /// <summary>
+    /// 绑定产品ID号信息
+    /// </summary>
+    public void BindProId()
+    {
+        if (cmbWorkPlace.SelectedIndex < 0)
+            return;
+        DataTable dtProId = CommonFunction.GetProId();
+
+        ASPxListBox proidListBox = (ASPxListBox)checkComboBox.FindControl("lbx_proid");
+        foreach (DataRow drItem in dtProId.Rows)
+        {
+            ListEditItem listEditItem = new ListEditItem();
+            listEditItem.Text = Convert.ToString(drItem["PRODUCT_CODE"]);
+            listEditItem.Value = Convert.ToString(drItem["PRODUCT_CODE"]);
+            proidListBox.Items.Add(listEditItem);
+        }
+        ViewState["dtProId"] = dtProId;
+        ListEditItem listItem = new ListEditItem();
+        listItem.Text = "(Select All)";
+        listItem.Value = string.Empty;
+        proidListBox.Items.Insert(0, listItem);
+    }
+
+    protected void btnQuery_Click(object sender, EventArgs e)
+    {
+        BindGvData();
+    }
+
+    /// <summary>
+    /// 根据查询条件，获得数据
+    /// </summary>
+    private void BindGvData()
+    {
+       
+        string locationKey = string.Empty,
+                locationKeys = string.Empty,
+                locationCode = string.Empty,
+                partType = string.Empty,
+                startDay = string.Empty, 
+                endDay = string.Empty, 
+                routeKey = string.Empty;
+
+        if (this.cmbWorkPlace.Text.Trim().Equals(string.Empty))
+        {
+            ShowMessageBox(this.Page, "请选择车间!");
+            return;
+        }
+
+        if (this.startDate.Text.Trim().Equals(string.Empty))
+        {
+            ShowMessageBox(this.Page, "开始日期不能为空!");
+            return;
+        }
+
+        if (this.endDate.Text.Trim().Equals(string.Empty))
+        {
+            ShowMessageBox(this.Page, "结束日期不能为空!");
+            return;
+        }
+
+        //获得查询条件
+        Hashtable hsParams = new Hashtable();
+        DataTable dtLocation = (DataTable)ViewState["dtLocation"];
+        _entity.LocationKeys = this.cmbWorkPlace.SelectedItem.Value.ToString();
+        if (!string.IsNullOrEmpty(_entity.LocationKeys))
+        {
+            _entity.LocationNames = this.cmbWorkPlace.SelectedItem.Text.Trim();
+            locationKey = _entity.LocationKeys;
+        }
+        hidLoactionKey.Value = locationKey;
+        //获得产品ID号
+        string[] strcode = this.checkComboBox.Text.Trim().Split(';');
+        string proids = string.Empty;
+        string proidsForCustCheck = string.Empty;
+        foreach (string s01 in strcode)
+        {
+            if (s01.Trim().Equals(string.Empty)) continue;
+            proids += "'" + s01 + "',";
+            proidsForCustCheck += s01 + ",";
+        }
+        proids = proids.TrimEnd(',');
+        _entity.Pro_Ids = proids;
+        this.hidProid.Value = proids;
+        this.hidProidForCustCheck.Value = proidsForCustCheck.TrimEnd(',');
+        _entity.Proids_notcomma = proidsForCustCheck.TrimEnd(',');
+        //获得工单号
+        string[] strWo = this.checkComboBoxForWo.Text.Trim().Split(';');
+        string wos = string.Empty;
+        string wosForCustCheck = string.Empty;
+        foreach (string s in strWo)
+        {
+            if (s.Trim().Equals(string.Empty)) continue;
+            wos += "'" + s + "',";
+            wosForCustCheck += s + ",";
+        }
+        wos = wos.TrimEnd(',');
+        _entity.WoNumbers = wos;
+        this.hidWorkorder.Value = wos;
+        this.hidWorkOrderFOrCustCheck.Value = wosForCustCheck.TrimEnd(',');
+        _entity.WoNumbers_notcomma = wosForCustCheck.TrimEnd(',');
+        //获得产品型号
+        string[] strtype = this.checkComboBoxForType.Text.Trim().Split(';');
+        string types = string.Empty;
+        string typesForCustCheck = string.Empty;
+        foreach (string s in strtype)
+        {
+            if (s.Trim().Equals(string.Empty)) continue;
+            types += "'" + s + "',";
+            typesForCustCheck += s + ",";
+        }
+        types = types.TrimEnd(',');
+        _entity.Pro_Type = types;
+        hidPartType.Value = types;
+        this.hidPartTypeForCustCheck.Value = typesForCustCheck.TrimEnd(',');
+        _entity.Pro_Type_notcomma = typesForCustCheck.TrimEnd(',');
+        _entity.Current_Time = CommonFunction.GetCurrentDateTime().ToString();
+        //开始日期
+        _entity.Daily_Start_Time = Convert.ToDateTime(this.startDate.Text.Trim()).ToString("yyyy-MM-dd");        
+        //开始时间
+        _entity.Start_Time = this.startTime.Text.Trim();      
+        //结束日期
+        _entity.Daily_End_Time = Convert.ToDateTime(this.endDate.Text.Trim()).ToString("yyyy-MM-dd");        
+        //结束时间
+        _entity.End_Time = this.endTime.Text.Trim();        
+
+        if (Convert.ToDateTime(_entity.Daily_Start_Time) > Convert.ToDateTime(_entity.Current_Time))
+        {
+            ShowMessageBox(this.Page, "开始日期不能大于当前日期!");
+            return;
+        }
+        if (Convert.ToDateTime(_entity.Daily_Start_Time+" "+_entity.Start_Time) > Convert.ToDateTime(_entity.Daily_End_Time+" "+_entity.End_Time))
+        {
+            ShowMessageBox(this.Page, "开始时间不能大于结束时间!");
+            return;
+        }
+        this.hidStartDate.Value = Convert.ToDateTime(this.startDate.Text.Trim()).ToString("yyyy-MM-dd");
+        this.hidStartTime.Value = this.startTime.Text.Trim();
+        this.hidEndDate.Value = Convert.ToDateTime(this.endDate.Text.Trim()).ToString("yyyy-MM-dd");
+        this.hidEndTime.Value = this.endTime.Text.Trim();
+        this.hidShiftKey.Value = Convert.ToString(this.cmbShift.SelectedItem.Value);
+        //按天查询
+        if (rbtnLst.SelectedIndex == 0)
+            _entity.IsDay = true;
+        //按时间
+        if (rbtnLst.SelectedIndex == 1)
+            _entity.IsDay = false;
+        _entity.Shift = Convert.ToString(this.cmbShift.SelectedItem.Value);
+        _entity.ShiftName = this.cmbShift.SelectedItem.Text;
+        //查询日运营报表数据。
+        DataSet ds01 = _entity.GetDailyReport();
+
+        if (!string.IsNullOrEmpty(_entity.ErrorMsg))
+        {
+            ShowMessageBox(this.Page, _entity.ErrorMsg);
+            return;
+        }
+        DataTable dt01 = ds01.Tables[LayoutViewType.ReportTable];
+        ViewState[LayoutViewType.ReportPressCells] = ds01.Tables[LayoutViewType.ReportPressCells];
+
+        this.hidLayoutType.Value=Convert.ToString(ds01.ExtendedProperties[LayoutViewType.ViewModule]);
+        string layoutType = this.hidLayoutType.Value;
+        DataTable dtReport = new DataTable();
+        DataColumn dc = new DataColumn();
+        dc.Caption = Resources.Lang.DAILYREPORTPROJECT;
+        dc.ColumnName = "PROJECT";
+        dtReport.Columns.Add(dc);
+        //if (dtReport.Columns.Contains("ALL_SUM_DATA"))
+        //    dtReport.Columns.Remove("ALL_SUM_DATA");
+
+        if (layoutType.Equals(LayoutViewType.ViewType_Hour))
+        {
+            foreach (DataColumn dc01 in dt01.Columns)
+            {
+                dc = new DataColumn();
+                dc.ColumnName = dc01.ColumnName;
+                if (dc01.ColumnName.Equals("ALL_SUM_DATA"))
+                {
+                    //dc.Caption = Convert.ToDateTime(this.startDate.Text.Trim()).ToString("dd/MM") + "~至今";
+                    dc.Caption = "ALL";
+                }
+                else if (!dc01.ColumnName.Equals("PROJECT") && !dc01.ColumnName.Equals("PRO_NAME") && !dc01.ColumnName.Equals("SEQ") && !dc01.ColumnName.Equals("RN"))
+                {
+                    string caption = Convert.ToDateTime(dc01.ColumnName.Trim()).ToString("dd/MM HH:mm");
+                    caption = caption.Replace('-', '/');
+                    dc.Caption = caption;
+                }
+                dc.DataType = dc01.DataType;
+                dtReport.Columns.Add(dc);
+            }
+        }
+
+        if (layoutType.Equals(LayoutViewType.ViewType_Day))
+        {
+            foreach (DataColumn dc01 in dt01.Columns)
+            {
+                dc = new DataColumn();
+                dc.ColumnName = dc01.ColumnName;
+                if (dc01.ColumnName.Equals("ALL_SUM_DATA"))
+                {
+                    //dc.Caption = Convert.ToDateTime(this.startDate.Text.Trim()).ToString("dd/MM") + "~至今";
+                    dc.Caption = "ALL";
+                }
+                else if (!dc01.ColumnName.Equals("PROJECT") && !dc01.ColumnName.Equals("PRO_NAME") && !dc01.ColumnName.Equals("SEQ") && !dc01.ColumnName.Equals("RN"))
+                {
+                    string caption = Convert.ToDateTime(dc01.ColumnName.Trim()).ToString("dd/MM ");
+                    caption = caption.Replace('-', '/');
+                    dc.Caption = caption;
+                }
+                dc.DataType = dc01.DataType;
+                dtReport.Columns.Add(dc);
+            }
+        }
+
+      
+
+        dc = new DataColumn();
+        dc.Caption = Resources.Lang.FORMULADESCRIPTION;
+        dc.ColumnName = "DESCRIPTION";
+        dtReport.Columns.Add(dc);
+
+        foreach (DataRow dr01 in dt01.Rows)
+        {
+            DataRow dr = dtReport.NewRow();
+            foreach (DataColumn dc01 in dt01.Columns)
+            {
+                dr[dc01.ColumnName] = dr01[dc01.ColumnName];
+            }
+            dtReport.Rows.Add(dr);
+        }
+
+        grid.Columns.Clear();
+        grid.DataSource = null;
+        DataTable dtNew = new DataTable();
+        dtNew = base.LoadResource(dtReport);
+        //
+        //DataRow[] drsProId = dtNew.Select(@"SEQ in ('B222','B233')");
+        //if (drsProId != null && drsProId.Length > 0)
+        //{
+        //    foreach (DataRow drProId in drsProId)
+        //    {
+        //        drProId["PRO_NAME"] = "#" + Convert.ToString(drProId["PRO_NAME"]);
+        //    }
+        //}
+
+        //dtNew = dtReport;
+        //dtNew.AcceptChanges();
+        DataView dv = dtNew.DefaultView;
+        dv.Sort = " SEQ asc,PRO_NAME asc";
+
+        grid.AutoGenerateColumns = true;
+        grid.DataSource = dv;
+        grid.DataBind();
+
+        grid.VisibleColumns[0].FixedStyle = GridViewColumnFixedStyle.Left;
+        //grid.Columns[0] = GridViewColumnFixedStyle.Left;
+        GridViewDataColumn c = (GridViewDataColumn)(this.grid.Columns[0]);
+        this.grid.Columns[0].Assign(this.grid.Columns[0]);
+
+        DataTable dtExport = dv.ToTable();
+        if (dtExport.Columns.Contains("ALL"))
+            dtExport.Columns.Remove("ALL");
+        ViewState["grid"] = dv.ToTable();
+
+
+        for (int i = 0; i < grid.Columns.Count; i++)
+        {
+            if (grid.Columns[i].ToString().Equals("PRO_NAME"))
+            {
+                grid.Columns["PRO_NAME"].Visible = false;
+                continue;
+            }
+
+            if (grid.Columns[i].ToString().Equals("SEQ"))
+            {
+                grid.Columns["SEQ"].Visible = false;
+                continue;
+            }
+            if (grid.Columns[i].ToString().Equals("RN"))
+            {
+                grid.Columns["RN"].Visible = false;
+                continue;
+            }
+
+        }
+
+    }
+  
+    /// <summary>
+    /// 导出EXCEL
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnXlsExport_Click(object sender, EventArgs e)
+    {
+        DataTable dtExpor = (DataTable)ViewState["grid"];
+        if (dtExpor.Rows.Count < 1) return;
+        if (dtExpor.Columns.Contains("PRO_NAME"))
+            dtExpor.Columns.Remove("PRO_NAME");
+
+        Session["grid"] = dtExpor;   
+        Response.Redirect("../Master/ExcelTemplate.aspx", true);
+    }
+
+    protected void grid_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
+    {
+        if (e.RowType == GridViewRowType.Data)
+        {
+            try
+            {
+                string p_name = e.GetValue("PRO_NAME").ToString();
+             
+                if (p_name.ToUpper() == Resources.Lang.B_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+                if (p_name.ToUpper() == Resources.Lang.C_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+                if (p_name.ToUpper() == Resources.Lang.D_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+                if (p_name.ToUpper() == Resources.Lang.E_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+                if (p_name.ToUpper() == Resources.Lang.F_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+                if (p_name.ToUpper() == Resources.Lang.B1_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+                if (p_name.ToUpper() == Resources.Lang.B2_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+                if (p_name.ToUpper() == Resources.Lang.B3_TITLE)
+                {
+                    e.Row.Style.Add("background", Color.LightBlue.Name);
+                }
+            }
+            catch
+            { }
+        }
+    }
+
+    protected void grid_CustomColumnDisplayText1(object sender, ASPxGridViewColumnDisplayTextEventArgs e)
+    {
+        if (e.Column.Index != 0)
+        {
+            try
+            {
+                string startDate = string.Empty, endDate = string.Empty;
+                string headColumnName = e.Column.FieldName;
+                DataRow dr = (DataRow)grid.GetDataRow(e.VisibleRowIndex);
+                string rowKey = dr[grid.KeyFieldName].ToString();
+                string rowseq = Convert.ToString(dr["SEQ"]);
+                if (headColumnName.ToUpper().Trim() == "PROJECT" || headColumnName.ToUpper().Trim() == "DESCRIPTION"
+                    || headColumnName.ToUpper().Trim() == "PRO_NAME" || headColumnName.ToUpper().Trim() == "RN" || headColumnName.ToUpper().Trim() == "SEQ")
+                    return;
+                if (headColumnName.ToUpper().Trim().Equals("ALL_SUM_DATA"))
+                {
+                    startDate = Convert.ToDateTime(hidStartDate.Value + " " + hidStartTime.Value).ToString("yyyy-MM-dd HH:mm:ss");
+                    endDate = Convert.ToDateTime(hidEndDate.Value + " " + hidEndTime.Value).ToString("yyyy-MM-dd HH:mm:ss");
+                }
+                else if (this.hidLayoutType.Value.Trim().Equals(LayoutViewType.ViewType_Hour))
+                {
+                    startDate = Convert.ToDateTime(e.Column.FieldName).AddHours(-1).ToString("yyyy-MM-dd HH:mm:ss");
+                    endDate = Convert.ToDateTime(startDate).AddHours(1).ToString("yyyy-MM-dd HH:mm:ss");
+                }
+                else if (this.hidLayoutType.Value.Trim().Equals(LayoutViewType.ViewType_Day))
+                {
+                    startDate = Convert.ToDateTime(e.Column.FieldName).ToString("yyyy-MM-dd ") + "08:00:01";
+                    endDate = Convert.ToDateTime(startDate).AddDays(1).ToString("yyyy-MM-dd ") + "08:00:00";                    
+                }
+                //--------------------------------------碎片率------------------------------------------------------
+                #region
+                //电池片合计碎片率
+                decimal QtyCells = 0;
+                string colname = string.Empty;
+                if (rowKey.ToUpper().Trim() == Resources.Lang.PER_CELL_CRUSH
+                    || rowKey.ToUpper().Trim() == Resources.Lang.REL_IQC_CELL_CRUSH
+                    || rowKey.ToUpper().Trim() == Resources.Lang.REL_PRESS_CELL_CRUSH)
+                {
+                    colname = e.Column.FieldName;
+                    if (ViewState[LayoutViewType.ReportPressCells] != null)
+                    {
+                        DataTable dtPressCells = ViewState[LayoutViewType.ReportPressCells] as DataTable;
+                        DataRow[] drsCells = dtPressCells.Select(string.Format("PRO_NAME='CELL_ALL_QTY'"));
+                        QtyCells = Convert.ToDecimal(drsCells[0][colname]);
+                    }
+                }
+
+                if (QtyCells > 0)
+                {
+                    if (rowKey.ToUpper().Trim() == Resources.Lang.PER_CELL_CRUSH)
+                    {
+                        e.DisplayText = string.Format("<a  target='_blank' href=\"DailyForPatchQuantity.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&workorder={7}&cells={8}&shift={9}&daytype={10}&reason_code_class=\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                        Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.PER_CELL_CRUSH), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(QtyCells.ToString()), Server.UrlEncode(this.hidShiftKey.Value), rbtnLst.SelectedIndex);
+
+                    }
+                    //电池片来料碎片率
+                    if (rowKey.ToUpper().Trim() == Resources.Lang.REL_IQC_CELL_CRUSH)
+                    {
+                        e.DisplayText = string.Format("<a  target='_blank' href=\"DailyForPatchQuantity.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&workorder={7}&reason_code_class={8}&cells={9}&shift={10}&daytype={11}\" class='dxgv' style='text-decoration:underline;'>{0}</a>", e.Value,
+                        Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.PER_CELL_CRUSH), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode("19"), Server.UrlEncode(QtyCells.ToString()), Server.UrlEncode(this.hidShiftKey.Value), rbtnLst.SelectedIndex);
+                    }
+                    //电池片制成碎片率
+                    if (rowKey.ToUpper().Trim() == Resources.Lang.REL_PRESS_CELL_CRUSH)
+                    {
+                        e.DisplayText = string.Format("<a target='_blank'  href=\"DailyForPatchQuantity.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&workorder={7}&reason_code_class={8}&cells={9}&shift={10}&daytype={11}\" class='dxgv' style='text-decoration:underline;'>{0}</a>", e.Value,
+                        Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.PER_CELL_CRUSH), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode("21"), Server.UrlEncode(QtyCells.ToString()), Server.UrlEncode(this.hidShiftKey.Value), rbtnLst.SelectedIndex);
+                    }
+                }
+                #endregion
+                //--------------------------------------终检优品率-------------------------------------------------------
+                #region
+                if (rowKey.ToUpper().Trim() == Resources.Lang.PER_GR_KJ_B1513 || rowKey.ToUpper().Trim() == Resources.Lang.PER_GR_AJ_B1512 || rowKey.ToUpper().Trim() == Resources.Lang.PER_GR_A0J_B1511)
+                {
+                    string trxType = "0";
+                    if (rowKey.ToUpper().Trim() == Resources.Lang.PER_GR_KJ_B1513)
+                        trxType = "KJ_RATE";
+                    if (rowKey.ToUpper().Trim() == Resources.Lang.PER_GR_AJ_B1512)
+                        trxType = "A_UPON_QUALITY_RATE";
+                    if (rowKey.ToUpper().Trim() == Resources.Lang.PER_GR_A0J_B1511)
+                        trxType = "A0_UPON_QUALITY_RATE";
+
+                    string url = string.Format(@"..\Quality\QualityProductDataDetail.aspx?startTime={0}&endTime={1}&trxType={2}&roomKey={3}&customer={7}&productModel={4}&workOrderNo={5}&queryType={6}",
+                        Server.UrlEncode(startDate),
+                        Server.UrlEncode(endDate),
+                        Server.UrlEncode(trxType),
+                        Server.UrlEncode(hidLoactionKey.Value),
+                        Server.UrlEncode(this.hidProidForCustCheck.Value),
+                        Server.UrlEncode(this.hidWorkOrderFOrCustCheck.Value),
+                        0,
+                        Server.UrlEncode(string.Empty));
+                   
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"{1}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>",
+                         e.Value, url);
+                }
+                #endregion
+                //--------------------------------------终检量------------------------------------------------------------
+                #region
+                if (rowKey.ToUpper().Trim() == Resources.Lang.KJ_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.KJ_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_CUSTCHECK));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.AJ_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.AJ_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_CUSTCHECK));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.A0J_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.A0J_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_CUSTCHECK));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.ERJ_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.A0J_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_CUSTCHECK));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.SANJ_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.SANJ_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_CUSTCHECK));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.SCRAP_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.SCRAP_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_CUSTCHECK));
+                }
+                #endregion
+                //--------------------------------------入库量--------------------------------------------------------------
+                #region
+                if (rowKey.ToUpper().Trim() == Resources.Lang.TO_STORE_KJ)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.KJ_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_WAREHOUSE));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.TO_STORE_AJ)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.AJ_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_WAREHOUSE));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.TO_STORE_A0J)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.A0J_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_WAREHOUSE));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.TO_STORE_ERJ)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.A0J_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_WAREHOUSE));
+                }
+                if (rowKey.ToUpper().Trim() == Resources.Lang.TO_STORE_SANJ)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt={8}&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.SANJ_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(Resources.Lang.OPT_WAREHOUSE));
+                }
+
+                #endregion
+                //--------------------------------------档位分布情况-------------------------------------------------------
+                #region
+                string pmaxstab = string.Empty;
+                string proid = string.Empty;
+                if (rowseq.Equals(Resources.Lang.B222) || rowseq.Equals(Resources.Lang.B233))
+                {
+                    int start = rowKey.IndexOf('(', 0);
+                    pmaxstab = rowKey.Substring(start + 1).TrimEnd(')');
+                    proid = rowKey.Substring(0, start);
+                }
+
+                //入库档位分布情况
+                if (rowseq.Equals(Resources.Lang.B222))
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&workorder={7}&opt={8}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.B222), Server.UrlEncode(proid), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(pmaxstab));
+                }
+                //测试档位分布情况
+                if (rowseq.Equals(Resources.Lang.B233))
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&workorder={7}&opt={8}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                       Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.B233), Server.UrlEncode(proid), Server.UrlEncode(this.hidWorkorder.Value), Server.UrlEncode(pmaxstab));
+                }
+                #endregion
+                //--------------------------------------转工单作业---------------------------------------------------------
+                #region
+                //转进来
+                if (rowKey.ToUpper().Trim() == Resources.Lang.REL_EXCHG_IN_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&workorder={7}&opt=\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                        Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.REL_EXCHG_IN_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value));
+                }
+                //转出去
+                if (rowKey.ToUpper().Trim() == Resources.Lang.REL_EXCHG_OUT_QTY)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt=&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.REL_EXCHG_OUT_QTY), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value));
+                }
+                #endregion
+                //-------------------------------------CTM转换作业--------------------------------------------------------
+                #region
+                if (rowKey.ToUpper().Trim() == Resources.Lang.WEIGHTING_EFFI || rowKey.ToUpper().Trim() == Resources.Lang.WEIGHTING_CTM)
+                {
+                    e.DisplayText = string.Format("<a  target='_blank' href=\"CustCheckAndWarehouse.aspx?locationKey={1}&partType={2}&paraDate01={3}&paraDate02={4}&sType={5}&Pro_id={6}&opt=&workorder={7}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                    Server.UrlEncode(hidLoactionKey.Value), Server.UrlEncode(hidPartType.Value), Server.UrlEncode(startDate), Server.UrlEncode(endDate), Server.UrlEncode(Resources.Lang.WEIGHTING_CTM), Server.UrlEncode(this.hidProid.Value), Server.UrlEncode(this.hidWorkorder.Value));
+                }
+                #endregion
+            }
+            catch (Exception ex)
+            { }
+        }
+    }
+
+    protected void rbtnLst_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (rbtnLst.SelectedIndex == 0)
+        {
+            this.startTime.ClientEnabled = false;
+            this.endTime.ClientEnabled = false;
+            this.cmbShift.ClientEnabled = true;
+        }
+        if (rbtnLst.SelectedIndex == 1)
+        {
+            this.startTime.ClientEnabled = true;
+            this.endTime.ClientEnabled = true;
+            this.cmbShift.ClientEnabled = false;
+        }
+    }
+}
+

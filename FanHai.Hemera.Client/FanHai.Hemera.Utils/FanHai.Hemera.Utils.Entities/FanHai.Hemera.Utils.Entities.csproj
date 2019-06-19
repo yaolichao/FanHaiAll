@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Utils.Entities</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Utils.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AWMS\OutboundOperationEntity.cs" />
+    <Compile Include="BarCode.cs" />
+    <Compile Include="BaseAttribute.cs" />
+    <Compile Include="BaseAttributeCategory.cs" />
+    <Compile Include="BaseUserDefinedAttr.cs" />
+    <Compile Include="BaseUserDefinedAttrs.cs" />
+    <Compile Include="BasicData\BasicCertificationEntity.cs" />
+    <Compile Include="BasicData\BasicCodeSoftLabelEntity.cs" />
+    <Compile Include="BasicData\ByProductEntity.cs" />
+    <Compile Include="BasicData\DecayCoeffiEntity.cs" />
+    <Compile Include="BasicData\BasePowerSetEntity.cs" />
+    <Compile Include="BasicData\BaseTestRuleEntity.cs" />
+    <Compile Include="BasicData\PrintLabelEntity.cs" />
+    <Compile Include="BasicData\PorProductEntity.cs" />
+    <Compile Include="BasicData\SupplierEntity.cs" />
+    <Compile Include="BasicData\ByProductPartEntity.cs" />
+    <Compile Include="BasicData\BomMaterialBandEntity.cs" />
+    <Compile Include="BasicData\LineSettingEntity.cs" />
+    <Compile Include="BasicData\MaterialBuckleControlEntity.cs" />
+    <Compile Include="BasicData\SpecialMatTeamEntity.cs" />
+    <Compile Include="Lot\LotComponentTrayEntity.cs" />
+    <Compile Include="ReportData\RptCommonEntity.cs" />
+    <Compile Include="CalShift.cs" />
+    <Compile Include="ComputerConfig.cs" />
+    <Compile Include="EquipmentEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentStateEventsEntity.cs" />
+    <Compile Include="Lot\LotEntity.cs" />
+    <Compile Include="Lot\LotCreateEntity.cs" />
+    <Compile Include="Lot\LotQueryEntity.cs" />
+    <Compile Include="Lot\LotOperationEntity.cs" />
+    <Compile Include="Lot\LotAfterIvTestEntity.cs" />
+    <Compile Include="Lot\PalletQueryEntity.cs" />
+    <Compile Include="Lot\IVTestDataTransferEntity.cs" />
+    <Compile Include="OnlineMaterialQueryEntity.cs" />
+    <Compile Include="OperationHandover.cs" />
+    <Compile Include="PrintExchangeWo\ExchangeWoEntity.cs" />
+    <Compile Include="PrintExchangeWo\IVTestDataEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="ReceiveMaterial.cs" />
+    <Compile Include="EdcGatherData.cs" />
+    <Compile Include="EdcPoint.cs" />
+    <Compile Include="EquipmentManagement\EquipmentCheckItemEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentCheckListEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentCheckListJobEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentConditionPMEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentLayoutEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentPartEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentSchedulePMEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentTaskEntity.cs" />
+    <Compile Include="ErrorMessage.cs" />
+    <Compile Include="Exceptions\BaseException.cs" />
+    <Compile Include="CrmAttribute.cs" />
+    <Compile Include="EdcManage.cs" />
+    <Compile Include="Route\Enterprise.cs" />
+    <Compile Include="EntityObject.cs" />
+    <Compile Include="EquipmentManagement\EquipmentChangeStateEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentChangeStatesEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentGroupEntity.cs" />
+    <Compile Include="EquipmentManagement\EquipmentStateEntity.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="LocationLine.cs" />
+    <Compile Include="LocationRet.cs" />
+    <Compile Include="Lot\LotEDCEntity.cs" />
+    <Compile Include="Route\OperationEntity.cs" />
+    <Compile Include="Route\Osbase.cs" />
+    <Compile Include="Param.cs" />
+    <Compile Include="Part.cs" />
+    <Compile Include="Privilege.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBACOperation.cs" />
+    <Compile Include="RBACOperationGroup.cs" />
+    <Compile Include="ReasonCode.cs" />
+    <Compile Include="ReasonCodeCategory.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="ResourceGroup.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="Route\RouteEntity.cs" />
+    <Compile Include="Route\RouteQueryEntity.cs" />
+    <Compile Include="ScheduleDay.cs" />
+    <Compile Include="SpcEntity.cs" />
+    <Compile Include="Route\StepEntity.cs" />
+    <Compile Include="Store.cs" />
+    <Compile Include="StoreMat.cs" />
+    <Compile Include="Uda\BaseUserDefinedAttrEx.cs" />
+    <Compile Include="ReturnMaterialQueryEntity.cs" />
+    <Compile Include="EdcQuery.cs" />
+    <Compile Include="Uda\UdaEntity.cs" />
+    <Compile Include="Uda\UserDefinedAttrEx.cs" />
+    <Compile Include="Uda\UserDefinedAttrsEx.cs" />
+    <Compile Include="UseMaterial.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="WARK\GroupArkEntity.cs" />
+    <Compile Include="WARK\SplitArkEntity.cs" />
+    <Compile Include="WIP\LotExceptionEngine.cs" />
+    <Compile Include="WIP\NameplateLabelAutoPrintEntity.cs" />
+    <Compile Include="WIP\WarehouseEngine.cs" />
+    <Compile Include="WIP\NameplateLabelPrintEngine.cs" />
+    <Compile Include="WIP\LotNumPrintEngine.cs" />
+    <Compile Include="WIP\HighOfSFinishedProductsEngine.cs" />
+    <Compile Include="WMS\OutDeliveryQuerryEngine.cs" />
+    <Compile Include="WMS\ShipmentOperationEntity.cs" />
+    <Compile Include="WMS\WarehouseWarrantOperationEntity.cs" />
+    <Compile Include="WOMaterialReturnEntity.cs" />
+    <Compile Include="SampManage.cs" />
+    <Compile Include="SEntity.cs" />
+    <Compile Include="UserDefinedAttr.cs" />
+    <Compile Include="UserDefinedAttrs.cs" />
+    <Compile Include="WorkOrders.cs" />
+    <Compile Include="WorkOrderWorkFor.cs" />
+    <Compile Include="Lot\FutureHoldEntity.cs" />
+    <Compile Include="BasicData\ProductModelEntity.cs" />
+    <Compile Include="WorkOrderEntity.cs" />
+    <Compile Include="MaterialReqOrReturnEntity.cs" />
+    <Compile Include="SendingMaterialEntity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Hemera.Utils.StaticFuncs\FanHai.Hemera.Utils.StaticFuncs.csproj">
+      <Project>{54894B8F-B87B-4365-8E80-B8449EB63C89}</Project>
+      <Name>FanHai.Hemera.Utils.StaticFuncs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\FanHai.Hemera.Utils.Entities.dll" />
+    <Content Include="bin\Debug\FanHai.Hemera.Utils.Entities.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"
+
+echo --Copy compiled dll And debug pdb file
+xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

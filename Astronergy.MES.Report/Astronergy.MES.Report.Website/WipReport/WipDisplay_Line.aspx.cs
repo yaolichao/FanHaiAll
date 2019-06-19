@@ -1,0 +1,305 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using DevExpress.Charts;
+using DevExpress.Web;
+using System.Text;
+using DevExpress.XtraCharts;
+using DevExpress.XtraCharts.Web;
+using Astronergy.MES.Report.DataAccess;
+
+/// <summary>
+/// 电池在制品分布报表。
+/// </summary>
+public partial class WipReport_WipDisplay_Line : BasePage
+{
+    private WipDisplayDataAccess_Line wipInstance = new WipDisplayDataAccess_Line();
+
+    /// <summary>
+    /// 页面载入事件。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            BindRoom();
+            BindProId();
+            BindLine();
+            BindPartNumber(string.Empty);
+            chart.Visible = false;
+        }
+    }
+    /// <summary>
+    /// 绑定工厂车间
+    /// </summary>
+    public void BindRoom()
+    {
+        DataTable dtWorkPlace = CommonFunction.GetFactoryWorkPlace();
+        this.cmbWorkPlace.DataSource = dtWorkPlace;
+        this.cmbWorkPlace.DataBind();
+        this.cmbWorkPlace.SelectedIndex = 0;
+
+        string roomKey = Convert.ToString(this.cmbWorkPlace.Value);
+        BindWorkOrderNumber(roomKey);
+
+    }
+    /// <summary>
+    /// 绑定产品ID号。
+    /// </summary>
+    public void BindProId()
+    {
+        DataTable dtProId= CommonFunction.GetProId();
+        this.cmbProId.DataSource = dtProId;
+        this.cmbProId.DataBind();
+        this.cmbProId.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        this.cmbProId.SelectedIndex = 0;
+    }
+
+    public void BindLine()
+    {
+        //DataTable dtLine = CommonFunction.GetLine();
+        //this.cmbLine.DataSource = dtLine;
+        //this.cmbLine.DataBind();
+        //this.cmbLine.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        //this.cmbLine.SelectedIndex = 0;
+
+        DataTable dtLine = CommonFunction.GetLine();
+        ASPxListBox lstWO = this.ddeProMode.FindControl("lstWO") as ASPxListBox;
+        if (lstWO != null)
+        {
+            lstWO.DataSource = dtLine;
+            lstWO.TextField = "LINE_NAME";
+            lstWO.ValueField = "LINE_NAME";
+            lstWO.DataBind();
+            lstWO.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        }
+    }
+    /// <summary>
+    /// 绑定产品料号。
+    /// </summary>
+    public void BindPartNumber(string orderNumber)
+    {
+        DataTable dt = null;
+        if (string.IsNullOrEmpty(orderNumber) || orderNumber.ToUpper() == "ALL")
+        {
+            dt = CommonFunction.GetPartNumber();
+        }
+        else
+        {
+            dt = CommonFunction.GetPartNumber(orderNumber);
+        }
+        this.cmbPartNumber.DataSource = dt;
+        this.cmbPartNumber.DataBind();
+        this.cmbPartNumber.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        this.cmbPartNumber.SelectedIndex = 0;
+    }
+    /// <summary>
+    /// 绑定工单
+    /// </summary>
+    public void BindWorkOrderNumber(string roomKey)
+    {
+        DataTable dtEquipmentNo = CommonFunction.GetLotWorkOrderNumber(roomKey);
+        this.cmbWorkOrderNumber.DataSource = dtEquipmentNo;
+        this.cmbWorkOrderNumber.DataBind();
+        this.cmbWorkOrderNumber.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        this.cmbWorkOrderNumber.SelectedIndex = 0;
+    }
+    /// <summary>
+    /// 车间值改变时触发。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void cmbWorkPlace_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string roomKey = Convert.ToString(this.cmbWorkPlace.Value);
+        BindWorkOrderNumber(roomKey);
+    }
+
+    /// <summary>
+    /// 查询
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnQuery_Click(object sender, EventArgs e)
+    {
+        BindLine();
+        try
+        {
+            this.grid.Columns.Clear();
+            this.grid.AutoGenerateColumns = true;
+            this.chart.Series.Clear();
+
+            string roomKey = Convert.ToString(this.cmbWorkPlace.Value);
+            string proId = Convert.ToString(this.cmbProId.Text);
+            string orderNo = Convert.ToString(this.cmbWorkOrderNumber.Text);
+            string partNumber = Convert.ToString(this.cmbPartNumber.Text);
+            string oprline = Convert.ToString(this.ddeProMode.Text.Trim());
+            string lineName ="";
+            string[] str_Line;
+
+            if (oprline != "")
+            {
+                str_Line = oprline.Split('#');
+                for (int w = 0; w < str_Line.Length; w++)
+                {
+                    if (lineName == "")
+                    {
+                        lineName = str_Line[w].ToString().Trim();
+                    }
+                    else
+                    {
+                        lineName = lineName + "," + str_Line[w].ToString().Trim();
+                    }
+                }
+            }
+
+            int hours = 0;
+            string waitTime = this.txtWaitTime.Text.Trim();
+            if (!int.TryParse(waitTime, out hours))
+            {
+                hours = 0;
+            }
+
+            if (hours < 0)
+            {
+                base.ShowMessageBox(this.Page, "等待时间要求是>=的整数！");
+                return;
+            }
+
+            int onLineHours = 0;
+            string onLineTime = this.txtLineTime.Text.Trim();
+            if (!int.TryParse(onLineTime, out onLineHours))
+            {
+                onLineHours = 0;
+            }
+
+            if (onLineHours < 0)
+            {
+                base.ShowMessageBox(this.Page, "在线时间要求是>=的整数！");
+                return;
+            }
+
+            wipInstance.FactoryRoomKey = roomKey;
+            wipInstance.FactoryRoomName = this.cmbWorkPlace.Text.Trim();
+            wipInstance.ProId = proId;
+            wipInstance.WorkOrderNumberKey = orderNo;
+            wipInstance.PartNumber = partNumber;
+            wipInstance.Oprline = lineName;
+            wipInstance.Hours = hours;
+            wipInstance.OnLineHours = onLineHours;
+            DataTable dtResult = new DataTable();
+            DataTable dtChart = new DataTable();
+            wipInstance.GetWIP(ref dtChart, ref dtResult);
+            chart.Visible = true;
+            ViewState["grid"] = dtResult;
+            this.grid.DataSource = dtResult;
+            this.grid.DataBind();
+            this.BindChart(dtChart, this.chart);
+        }
+        catch (Exception ex)
+        {
+            base.ShowMessageBox(this, "错误：" + ex.Message);
+        }
+    }
+    /// <summary>
+    /// 给Chart绑定数据
+    /// </summary>
+    /// <param name="dt"></param>
+    /// <param name="chart"></param>
+    private void BindChart(DataTable dt, WebChartControl chart)
+    {
+        chart.Series.Clear();
+
+        Series s0 = new Series("暂停", ViewType.Bar);
+        Series s1 = new Series("运行", ViewType.Bar);
+        Series s2 = new Series("等待", ViewType.Bar);
+
+        foreach (DataRow dr in dt.Rows)
+        {
+            s0.Points.Add(new SeriesPoint(dr["STEP_NAME"], dr["HOLD"]));
+            s1.Points.Add(new SeriesPoint(dr["STEP_NAME"], dr["RUN"]));
+            s2.Points.Add(new SeriesPoint(dr["STEP_NAME"], dr["WAIT"]));
+        }
+        chart.Series.Add(s0);
+        chart.Series.Add(s1);
+        chart.Series.Add(s2);
+    }
+
+    /// <summary>
+    /// 导出数据到excel表格
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnXlsExport_Click(object sender, EventArgs e)
+    {
+        this.gridExporter.Columns.Clear();
+        this.gridExporter.AutoGenerateColumns = true;
+        DataTable dtResult = ViewState["grid"] as DataTable;
+        this.gridExporter.DataSource = dtResult;
+        this.gridExporter.DataBind();
+        this.exporter.WriteXlsToResponse();
+    }
+
+    /// <summary>
+    /// 自定义显示文本。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void grid_CustomColumnDisplayText(object sender, ASPxGridViewColumnDisplayTextEventArgs e)
+    {
+        DataTable dt = this.grid.DataSource as DataTable;
+        if (e.Column.Index != 0 && dt != null)
+        {
+            string rowHeader = Convert.ToString(dt.Rows[e.VisibleRowIndex][0]);
+            if (e.Value.ToString() != "0" && sender==this.grid)
+            {
+                string colHeader = e.Column.FieldName;
+                string status = Server.UrlEncode(rowHeader);
+                string stepName = Server.UrlEncode(colHeader);
+                e.DisplayText = string.Format("<a href='javascript:void(0);' onclick='javascript:window.open(\"WipDisplay_Detail_Line.aspx?status={1}&RouteID={2}&Factory={3}&WorkOrderNumberKey={4}&Hours={5}&proid={6}&partNumber={7}&OnlineHours={8}&oprline={9}\");' class='dxgv' style='text-decoration:underline;'>{0}</a>",
+                    e.Value,
+                    status,
+                    stepName,
+                    Server.UrlEncode(wipInstance.FactoryRoomKey),
+                    Server.UrlEncode(wipInstance.WorkOrderNumberKey),
+                    wipInstance.Hours,
+                    Server.UrlEncode(wipInstance.ProId),
+                    Server.UrlEncode(this.cmbPartNumber.Text.ToString().Trim()),
+                    wipInstance.OnLineHours,
+                     Server.UrlEncode(wipInstance.Oprline)
+                    );
+            }
+        }
+    }
+
+    /// <summary>
+    /// 导出EXCEL时触发。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void exporter_RenderBrick(object sender, DevExpress.Web.ASPxGridViewExportRenderingEventArgs e)
+    {
+        if (e.RowType == DevExpress.Web.GridViewRowType.Data && e.Column != null)
+        {
+            e.Text = Convert.ToString(e.TextValue);
+        }
+    }
+
+
+    protected void cmbWorkOrderNumber_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindPartNumber(this.cmbWorkOrderNumber.Text);
+    }
+}
+

@@ -1,0 +1,54 @@
+﻿<AddIn name        = "FanHai.Hemera.SPC"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Statistical Process Control"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.SPC" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.SPC.dll">
+    </Import >
+  </Runtime>
+
+  <!--质量管理/SPC分析-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idQuantity/idMenuProcessadditionMenu">
+    <!--SPC异常规则设定-->
+    <MenuItem id           = "idSpcAbnormalSponts"
+              label        = "SPC异常规则设定"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = "idSpcControlPlan"
+              class        = "FanHai.Hemera.Addins.SPC.AbnormalCommand"
+              privilegeId  ="5014000"/>
+    <!--SPC管控计划设定-->
+    <MenuItem id           = "idSpcControlPlan"
+              label        = "SPC管控计划设定"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idSpcAbnormalSponts"
+              insertbefore = "idSeparatorSpcChart"
+              class        = "FanHai.Hemera.Addins.SPC.SPCControlPlanCommand"
+              privilegeId  ="5015000"/>
+    <!--控制图表前分隔符-->
+    <!--<MenuItem   id            = "idSeparatorSpcChart"
+                type          = "Separator"
+                insertafter   = "idSpcControlPlan"
+                insertbefore  = "idSpcChart"
+                privilegeId  ="7003000"/>-->
+    <!--SPC控制图表-->
+    <MenuItem id           = "idSpcChart"
+              label        = "SPC控制图表"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idSeparatorSpcChart"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.SPC.SpcChartCommand"
+              privilegeId  ="5016000"/>
+  </Path>
+</AddIn>
+

@@ -1,0 +1,213 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using DevExpress.Web;
+using Astronergy.MES.Report.DataAccess;
+using DevExpress.XtraCharts;
+using DevExpress.XtraCharts.Web;
+using System.Collections.Generic;
+using System.Drawing;
+
+/// <summary>
+/// 批次数据清单。
+/// </summary>
+public partial class WipReport_OEMLotData : BasePage
+{
+    private OEMLotDataAccess dataAccess = new OEMLotDataAccess();
+    /// <summary>
+    /// 页面载入事件。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            BindRoomData();
+            BindProductModel();
+            if (Request["palletNo"] != null)
+            {
+                string palletNo = Request["palletNo"];
+                this.txtPalletNo.Text = palletNo;
+                btnQuery_Click(sender, e);
+            }
+            else
+            {
+                DateTime dtNow = CommonFunction.GetCurrentDateTime();
+                this.dateStart.Value = dtNow.AddDays(-7).ToString("yyyy-MM-dd 00:00:00");
+                this.dateEnd.Value = dtNow.ToString("yyyy-MM-dd 00:00:00");
+            }
+        }
+        if (this.IsCallback)
+        {
+            string callbackId = Convert.ToString(Request["__CALLBACKID"]);
+            if (callbackId == this.grid.UniqueID)
+            {
+                DataTable dtLotData = (DataTable)Cache[Session.SessionID + "_LotData"];
+                if (dtLotData != null)
+                {
+                    this.grid.Columns.Clear();
+                    this.grid.AutoGenerateColumns = true;
+                    this.grid.DataSource = dtLotData;
+                    this.grid.DataBind();
+                    this.grid.AutoGenerateColumns = false;
+                }
+                else
+                {
+                    btnQuery_Click(sender, e);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 工厂车间。
+    /// </summary>
+    private void BindRoomData()
+    {
+        DataTable dtWorkPlace = CommonFunction.GetFactoryWorkPlace();
+        this.cmbWorkPlace.DataSource = dtWorkPlace;
+        this.cmbWorkPlace.DataBind();
+        this.cmbWorkPlace.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        this.cmbWorkPlace.SelectedIndex = 0;
+    }
+    /// <summary>
+    /// 产品ID号
+    /// </summary>
+    private void BindProductModel()
+    {
+        DataTable dtProduct = CommonFunction.GetProId();
+        ASPxListBox lst = this.ddeProductId.FindControl("lstProductId") as ASPxListBox;
+        if (lst != null)
+        {
+            lst.DataSource = dtProduct;
+            lst.TextField = "PRODUCT_CODE";
+            lst.ValueField = "PRODUCT_CODE";
+            lst.DataBind();
+            lst.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        }
+    }
+    /// <summary>
+    /// 查询优品率数据。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnQuery_Click(object sender, EventArgs e)
+    {
+        string roomName = Convert.ToString(this.cmbWorkPlace.Text);
+        string productId = this.ddeProductId.Text.Trim();
+        string workOrderNo = this.ddeWorkOrderNumber.Text.Trim();
+        string lotNo = this.txtLotNo.Text.Trim();
+        string palletNo = this.txtPalletNo.Text.Trim();
+        string partNumber = this.txtPartNumber.Text.Trim();
+
+        string startTime = this.dateStart.Value;
+        string endTime = this.dateEnd.Value;
+        string startToWHTime = this.txtToWarehouseStartTime.Value;
+        string endToWHTime = this.txtToWarehouseEndTime.Value;
+
+        if (roomName.ToUpper() == "ALL") roomName = string.Empty;
+        if (workOrderNo.ToUpper() == "ALL") workOrderNo = string.Empty;
+        if (productId.ToUpper() == "ALL") productId = string.Empty;
+
+        DataSet ds = dataAccess.GetLotListData(startTime, endTime, startToWHTime,endToWHTime,
+                                               lotNo, palletNo, roomName, productId, workOrderNo,partNumber);
+        if (ds != null)
+        {
+            Cache[Session.SessionID + "_LotData"] = ds.Tables[0];
+            this.grid.Columns.Clear();
+            this.grid.AutoGenerateColumns = true;
+            this.grid.DataSource = ds.Tables[0];
+            this.grid.DataBind();
+            this.grid.AutoGenerateColumns = false;
+        }
+        this.UpdatePanelResult.Update();
+    }
+
+    /// <summary>
+    /// 导出EXCEL。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnXlsExport_Click(object sender, EventArgs e)
+    {
+        DataTable dtLotData = (DataTable)Cache[Session.SessionID + "_OemLotData"];
+        if (dtLotData == null)
+        {
+            btnQuery_Click(sender, e);
+            dtLotData = (DataTable)Cache[Session.SessionID + "_OemLotData"];
+        }
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AppendHeader("content-disposition", "attachment;filename=\"LotData.xls\"");
+        Response.ContentType = "Application/ms-excel";
+        Export.ExportToExcel(Response.OutputStream, dtLotData);
+        Response.End();
+    }
+    /// <summary>
+    /// 自定义文本。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void grid_CustomColumnDisplayText(object sender, ASPxGridViewColumnDisplayTextEventArgs e)
+    {
+        ASPxGridView gv = sender as ASPxGridView;
+        DataTable dt = gv.DataSource as DataTable;
+        if (dt != null && e.Column.Index == 1)
+        {
+            string lotKey = Convert.ToString(e.Value);
+            string url = string.Format(@"OEMLotDataDetail.aspx?lotkey={0}",
+                                      Server.UrlEncode(lotKey));
+
+            e.DisplayText = string.Format("<a href=\"{1}\" onmouseover=\"status='明细';return true\" title=\"明细\" target=\"blank\" class=\"dxgv\" style=\"text-decoration:underline;\">{0}</a>",
+                                          e.Value, url);
+        }
+
+        if (dt != null && dt.Columns[e.Column.FieldName].DataType == typeof(DateTime))
+        {
+            if (e.Value != null && e.Value!=DBNull.Value)
+            {
+                e.DisplayText = ((DateTime)e.Value).ToString("yyyy-MM-dd HH:mm:ss");
+            }
+        }
+    }
+
+    /// <summary>
+    /// 行创建时触发事件，用于合并单元格。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void grid_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
+    {
+       
+    }
+    /// <summary>
+    /// 数据绑定时触发事件。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void grid_DataBound(object sender, EventArgs e)
+    {
+        ASPxGridView gv = sender as ASPxGridView;
+        if (gv.Columns.Count > 0)
+        {
+            foreach(GridViewColumn gvc in gv.Columns)
+            {
+                gvc.CellStyle.Wrap = DevExpress.Utils.DefaultBoolean.False;
+            }
+            gv.Columns[0].Width = Unit.Pixel(80);
+            gv.Columns[1].Width = Unit.Pixel(150);
+            gv.Columns[3].Width = Unit.Pixel(150);
+            gv.Columns[6].Width = Unit.Pixel(150);
+        }
+    }
+}
+

@@ -1,0 +1,388 @@
+﻿<AddIn name        = "FanHai.Hemera.WIP"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Work In Process"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.WIP" version = "@SolarViewerCoreVersion"/>
+    <Dependency name = "FanHai.Hemera.EAP" addin="FanHai.Hemera.EAP" version = "@SolarViewerCoreVersion" requirePreload="true"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.WIP.dll">
+    </Import >
+  </Runtime>
+
+  <!-- Main Menu : 过站管理 -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idMenuProcess/idDisPatchManagementMenu">
+    <!--工作站作业-->
+    <MenuItem id           = "idLotDispatch"
+                label        = "过站"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = ""
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.WIP.LotDispathCommand"
+                privilegeId  = "4001000"/>
+    <!--E工单包装作业-->
+    <MenuItem id           = "ideWoPalletDispatch"
+                label        = "实验工单包装作业"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idLotDispatch"
+                insertbefore = "idSeparatorMenuLot"
+                class        = "FanHai.Hemera.Addins.WIP.LotDispatchFor_eWoPalletCommand"
+                privilegeId  = "4082000"/>
+    <!--批次管理\创建生产批次-->
+    <MenuItem id           = "idLotBatchCreate"
+              label        = "组件创建"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idSeparatorMenuWorkOrder"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotBatchCreateCommand"
+              privilegeId  = "4002000"/>
+    <!--批次管理\创建生产批次-->
+    <MenuItem id           = "idLotBatchCreate"
+              label        = "生产批次(自动序列号)"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idSeparatorMenuWorkOrder"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotCreateNewCommand"
+              privilegeId  = "4003000"/>
+    <!--批次管理\创建补片批次-->
+    <MenuItem id           = "idLotCreate"
+              label        = "组件补片"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotBatchCreate"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotCreateCommand"
+              privilegeId  = "4004000"/>
+    <!--批次管理\批次查询-->
+    <MenuItem id           = "idLotSearch"
+              label        = "组件查询"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotCreate"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotSearchCommand"
+              privilegeId  = "4005000"/>
+  </Path>
+
+  <!--组件管理-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idMenuProcess/idElementManagementMenu">
+    <!--批次管理\暂停批次-->
+    <MenuItem id           = "idLotHold"
+              label        = "单件暂停"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotHoldCommand"
+              privilegeId  = "4006000"/>
+    <!--批次管理\预设暂停-->
+    <MenuItem id           = "idLotFutureHold"
+              label        = "提前暂停"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotHold"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotFutureHoldCommand"
+              privilegeId  = "4007000"/>
+    <!--批次管理\批量暂停批次-->
+    <MenuItem id           = "idLotBatchHold"
+              label        = "多件暂停"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotFutureHold"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotBatchHoldCommand"
+              privilegeId  = "4008000"/>
+    <!--批次管理\释放批次-->
+    <MenuItem id           = "idLotRelease"
+              label        = "单件释放"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotBatchHold"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotReleaseCommand"
+              privilegeId  = "4009000"/>
+    <!--批次管理\批量释放批次-->
+    <MenuItem id           = "idLotBatchRelease"
+              label        = "多件释放"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotRelease"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotBatchReleaseCommand"
+              privilegeId  = "4010000"/>
+    <!--批次管理\调整批次-->
+    <MenuItem id           = "idLotAdjust"
+              label        = "单件信息修改"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotBatchRelease"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotAdjustCommand"
+              privilegeId  = "4011000"/>
+    <!--批次管理\批量调整批次-->
+    <MenuItem id           = "idLotBatchAdjust"
+              label        = "多件信息修改"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotAdjust"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotBatchAdjustCommand"
+              privilegeId  = "4012000"/>
+    <!--组件管理管理\批次号转单串焊设备-->
+    <MenuItem id           = "idExchangeEquipment"
+              label        = "焊接设备转产"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotBatchAdjust"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.ExchangeEquipmentCommand"
+              privilegeId  = "4013000"/>
+  </Path>
+  
+  <!--电池片管理-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idMenuProcess/idLotCellManagementMenu">
+    <!--批次管理\撤销操作-->
+    <MenuItem id           = "idLotUndo"
+              label        = "回退作业"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotUndoCommand"
+              privilegeId  = "4014000"/>
+    <!--批次管理\批次退料-->
+    <MenuItem id           = "idLotReturnMaterial"
+              label        = "组件退料"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotUndo"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotReturnMaterialCommand"
+              privilegeId  = "4015000"/>
+    <!--批次管理\电池片补片-->
+    <MenuItem id           = "idLotCellPatch"
+              label        = "硅片补片"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotReturnMaterial"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotCellPatchCommand"
+              privilegeId  = "4016000"/>
+    <!--批次管理\电池片回收-->
+    <MenuItem id           = "idLotCellRecovered"
+              label        = "硅片回收"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotCellPatch"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotCellRecoveredCommand"
+              privilegeId  = "4017000"/>
+  </Path>
+
+  <!--不良品处理-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idQuantity/idDefectMenu">
+    <!--批次管理\组件报废-->
+    <MenuItem id           = "idLotModuleScrap"
+              label        = "报废作业"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotModuleScrapCommand"
+              privilegeId  = "5001000"/>
+    <!--批次管理\组件不良-->
+    <MenuItem id           = "idLotDefect"
+              label        = "不良判定"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotModuleScrap"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotDefectCommand"
+              privilegeId  = "5002000"/>
+    <!--批次管理\返修-->
+    <MenuItem id           = "idLotRework"
+              label        = "单件返修"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotDefect"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotReworkCommand"
+              privilegeId  = "5003000"/>
+    <!--批次管理\返修-->
+    <MenuItem id           = "idLotBatchRework"
+              label        = "多件返修"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotRework"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotBatchReworkCommand"
+              privilegeId  = "5004000"/>
+  </Path>
+
+  <!--质量作业-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idQuantity/idQuantityWorkMenu">
+    <!--终检信息查询-->
+    <MenuItem id           = "idLotCustCheckQuery"
+              label        = "功率信息"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotCustCheckQueryCommand"
+              privilegeId  = "5005000"/>
+    <!--转工单作业-->
+    <MenuItem id           = "idlotexchangewomenu"
+              label        = "工单转换"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idLotCustCheckQuery"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotExchangeWoCommand"
+              privilegeId  = "5006000"/>
+    <!--批量转工单作业-->
+    <!--
+    <MenuItem id           = "idMultilotexchangewomenu"
+              label        = "批量转工单作业"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idlotexchangewomenu"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotMultiExchangeWoCommand"
+              privilegeId  = "3048000"/>-->
+    <!--返工单作业-->
+    <MenuItem id           = "idRepairlotexchangewomenu"
+              label        = "组件返工"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idMultilotexchangewomenu"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotRepairExchangeWoCommand"
+              privilegeId  = "5007000"/>
+    <MenuItem id           = "idLotOutQuantityAssurance"
+			       label        = "质量抽检"
+			       icon         = ""
+			       shortcut     = ""
+			       insertafter  = "idRepairlotexchangewomenu"
+			       insertbefore = ""
+			       class        = "FanHai.Hemera.Addins.WIP.LotOutQuantityAssuranceCommand"
+			       privilegeId  = "5008000"/>
+    <!--整托出托功能-->
+    <!--<MenuItem id           = "idPalletWholeOut"
+             label        = "整托出托"
+             icon         = ""
+             shortcut     = ""
+             insertafter  = "idLotOutQuantityAssurance"
+             insertbefore = ""
+             class        = "FanHai.Hemera.Addins.WIP.PalletWholeOutCommand"
+             privilegeId  = "3046000"/>-->
+
+    <!--托盘信息查询-->
+    <MenuItem id      = "idPalletInfoQuery"
+         label        = "托盘查询"
+         icon         = ""
+         shortcut     = ""
+         insertafter  = "idPalletWholeOut"
+         insertbefore = ""
+         class        = "FanHai.Hemera.Addins.WIP.PalletQueryCommand"
+         privilegeId  = "5009000"/>
+    <!--线别调整-->
+    <MenuItem id      = "idExchangeLine"
+         label        = "组件转线"
+         icon         = ""
+         shortcut     = ""
+         insertafter  = "idPalletInfoQuery"
+         insertbefore = ""
+         class        = "FanHai.Hemera.Addins.WIP.LotOperationExchangeLineCommand"
+         privilegeId  = "5010000"/>
+
+    <!--线别调整-->
+    <MenuItem id      = "idLotExceptionProcess"
+         label        = "手工不良记录"
+         icon         = ""
+         shortcut     = ""
+         insertafter  = ""
+         insertbefore = ""
+         class        = "FanHai.Hemera.Addins.WIP.LotExceptionCommand"
+         privilegeId  = "5011000"/>
+  </Path>
+
+  <!--打印管理-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idPrint/idPrintMenu">
+    <!--铭牌标签打印-->
+    <!--<MenuItem id           = "idLotIVTestPrint"
+              label        = "铭牌打印"
+              icon         = ""
+              shortcut     = ""
+              insertafter  = "idPrintLabelManage"
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.WIP.LotIVTestPrintCommand"
+              privilegeId  = "3040000"/>-->
+    <!--标签/铭牌打印-->
+    <MenuItem id           = "idLotIVTestPrint"
+             label         = "标签/铭牌查询"
+             icon          = ""
+             shortcut      = ""
+             insertafter   = "idPrintLabelManage"
+             insertbefore  = ""
+             class         = "FanHai.Hemera.Addins.WIP.LotIVTestPrintCommand"
+             privilegeId   = "6002000"/>
+    <!--包装清单打印-->
+    <MenuItem id           = "idPackingListPrintmenu"
+		          label        = "包装清单打印"
+		          icon         = ""
+		          shortcut     = ""
+		          insertafter  = "idLotIVTestPrint"
+		          insertbefore = ""
+		          class        = "FanHai.Hemera.Addins.WIP.PackingListPrintCommand"
+		          privilegeId  = "6003000"/>
+    <!--序列号打印-->
+    <MenuItem id           = "idLotNumPrint"
+             label         = "序列号打印"
+             icon          = ""
+             shortcut      = ""
+             insertafter   = "idPackingListPrintmenu"
+             insertbefore  = ""
+             class         = "FanHai.Hemera.Addins.WIP.LotNumPrintCommand"
+             privilegeId   = "6004000"/>
+    <!--序列号补打-->
+    <MenuItem id           = "idLotNumRepeatPrint"
+            label         = "补印"
+            icon          = ""
+            shortcut      = ""
+            insertafter   = "idLotNumPrint"
+            insertbefore  = ""
+            class         = "FanHai.Hemera.Addins.WIP.LotNumRepeatPrintCommand"
+            privilegeId   = "6005000"/>
+    <!--标签/铭牌打印-->
+    <MenuItem id           = "idLotIVTestPrint"
+             label         = "标签/铭牌打印"
+             icon          = ""
+             shortcut      = ""
+             insertafter   = "idPrintLabelManage"
+             insertbefore  = ""
+             class         = "FanHai.Hemera.Addins.WIP.LotIVTestPrintNewCommand"
+             privilegeId   = "6006000"/>
+  </Path>
+
+  <!--入库管理/入库单-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idStoreHouse/idInboundManagementMenu">
+    <MenuItem id      = "idWarehouse"
+         label        = "入库单"
+         icon         = ""
+         shortcut     = ""
+         insertafter  = ""
+         insertbefore = ""
+         class        = "FanHai.Hemera.Addins.WIP.WarehouseCtrlCommand"
+         privilegeId  = "8001000"/>
+  </Path>
+</AddIn>

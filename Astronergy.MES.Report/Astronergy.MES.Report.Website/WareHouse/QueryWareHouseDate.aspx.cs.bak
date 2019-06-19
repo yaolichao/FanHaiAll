@@ -1,0 +1,457 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using Astronergy.MES.Report.DataAccess;
+using DevExpress.Web.ASPxEditors;
+using DevExpress.Web.ASPxGridView;
+
+public partial class WareHouse_QueryWareHouseDate : BasePage
+{
+    private Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate whrep = new Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate();
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            deStartDate.Date = DateTime.Now;
+            deEndDate.Date = DateTime.Now;
+            BindFactory();
+            BindWO();
+            BindPowerLevel();
+        }
+        BindWO();
+        BindPowerLevel();
+    }
+    protected void btnQuey_Click(object sender, EventArgs e)
+    {
+        string sStartDate, sEndDate, sGradCode, sGradName, sNO,sItemCode, sItem, sItem1, sItem2, sQstartdate, sQenddate, sDateParam, sItem3, sFactory;
+        int i = 0;
+        DateTime dtStartDate, dtEndDate, dtParam;
+        string sWO, sPowerLevel;
+        //string[] sarrWO, sarrPowerLevel;
+
+        sWO = "";
+        sPowerLevel = "";
+        sQstartdate = "";
+        sQenddate = "";
+        sStartDate = deStartDate.Text.Trim();
+        sEndDate = deEndDate.Text.Trim();
+        //dtStartDate = Convert.ToDateTime(sStartDate);
+        //dtEndDate = Convert.ToDateTime(sEndDate);
+        //sFactory = cboFactory.Text.Trim();
+        sFactory = cboFactory.Value.ToString();
+        if (sFactory == "ALL")
+        {
+            sFactory = "";
+        }
+        sWO = ddeWO.Text.Trim();
+        sPowerLevel = ddePowerLevel.Text.Trim();
+        //sarrWO = ddeWO.Text.Trim().Split('#');
+        //sarrPowerLevel = ddePowerLevel.Text.Trim().Split('#');
+        //for (int m = 0; m < sarrWO.Length;m++ )
+        //{
+        //    if (sarrWO[m].ToString().Trim() != "")
+        //    {
+        //        if (sWO == "")
+        //        {
+        //            sWO = "'" + sarrWO[m].ToString().Trim() + "'";
+        //        }
+        //        else
+        //        {
+        //            sWO = sWO + ",'" + sarrWO[m].ToString().Trim() + "'";
+        //        }
+        //    }
+        //}
+        //for (int j = 0; j < sarrPowerLevel.Length;j++ )
+        //{
+        //    if (sarrPowerLevel[j].ToString().Trim() != "")
+        //    {
+        //        if (sPowerLevel == "")
+        //        {
+        //            sPowerLevel = "'" + sarrPowerLevel[j].ToString().Trim() + "'";
+        //        }
+        //        else
+        //        {
+        //            sPowerLevel = sPowerLevel + ",'" + sarrPowerLevel[j].ToString().Trim() + "'";
+        //        }
+        //    }
+        //}
+        sNO = "序号";
+        sItemCode = "项目代码";
+        sItem = "项目";
+        sItem1 = "块数";
+        sItem2 = "瓦数";
+        sItem3 = "实际功率";
+
+        //if (sStartDate == "" || sEndDate == "")
+        //{
+        //    base.ShowMessageBox(this.Page, "查询参数不能都为空！");
+        //    return;
+        //}
+        //if (Convert.ToDateTime(sStartDate) > Convert.ToDateTime(sEndDate))
+        //{
+        //    base.ShowMessageBox(this.Page, "起始日期不能大于结止日期！");
+        //    return;
+        //}
+        if (sStartDate != "")
+        {
+            sQstartdate = sStartDate + " 08:00:00";
+        }
+        if (sEndDate != "")
+        {
+            sQenddate = Convert.ToDateTime(sEndDate).AddDays(1).ToString("yyyy-MM-dd") + " 08:00:00";
+        }
+        string partNumber = this.txtPartNumber.Text.Trim();
+        DataSet dsGradDate = Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate.GetGrade();
+        //DataSet dsWareHouseDate = Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate.GetWareHouseData(sFactory, sQstartdate, sQenddate, sWO, sPowerLevel);
+        DataSet dsWareHouseDate = whrep.GetWareHouseDataNew(sFactory, sQstartdate, sQenddate, sWO, sPowerLevel, partNumber);
+        //DataSet dsWareHouseDateDtl = whrep.GetWareHouseDataNewDtl(sFactory, sQstartdate, sQenddate, sWO, sPowerLevel);
+        DataSet dsWOQty = new DataSet();
+        //ViewState["FactoryKey"] = sFactory;
+        //ViewState["WO"] = sWO;
+        //ViewState["PowerLevel"] = sPowerLevel;
+        //Session["WareHouseDateDtl"] = dsWareHouseDateDtl;
+        this.hidsFactory.Value = sFactory;
+        this.hidsPowerLevel.Value = sPowerLevel;
+        this.hidsQenddate.Value = sQenddate;
+        this.hidsQstartdate.Value = sQstartdate;
+        this.hidsWO.Value = sWO;
+        if (!string.IsNullOrEmpty(sWO) && dsWareHouseDate.Tables[0].Rows.Count < 1)
+        {
+            base.ShowMessageBox(this.Page, "指定工单无数据，请确认！");
+            gvWareHouse.DataSource = null;
+            gvWareHouse.DataBind();
+            return;
+        }
+        if (!string.IsNullOrEmpty(sWO))
+        {
+            dsWOQty = Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate.GetWOQuantity(sWO);
+
+            var mindate = (from mind in dsWareHouseDate.Tables[0].AsEnumerable()
+                           select mind.Field<string>("WH_DTAE")).Min();
+            var maxdate = (from maxd in dsWareHouseDate.Tables[0].AsEnumerable()
+                           select maxd.Field<string>("WH_DTAE")).Max();
+
+            sStartDate = mindate.ToString();
+            sEndDate = maxdate.ToString();
+        }
+
+        dtStartDate = Convert.ToDateTime(sStartDate);
+        dtEndDate = Convert.ToDateTime(sEndDate);
+        
+        DataTable dtWareHouse = new DataTable();
+        dtWareHouse.Columns.Add("WHNO");
+        dtWareHouse.Columns.Add("WHITEMCODE");
+        dtWareHouse.Columns.Add("WHITEM");
+
+        dtParam = dtStartDate;
+        while (dtParam <= dtEndDate)
+        {
+            dtWareHouse.Columns.Add("WH" + (i * 3 + 3).ToString().Trim());
+            dtWareHouse.Columns.Add("WH" + (i * 3 + 3 + 1).ToString().Trim());
+            dtWareHouse.Columns.Add("WH" + (i * 3 + 3 + 2).ToString().Trim());
+            i = i + 1;
+            dtParam = dtStartDate.AddDays(i);
+        }
+        object[] objrow1 = new object[i * 3 + 3];
+        object[] objrow2 = new object[i * 3 + 3];
+        objrow1[0] = (object)sNO;
+        objrow1[1] = (object)sItemCode;
+        objrow1[2] = (object)sItem;
+        objrow2[0] = (object)sNO;
+        objrow2[1] = (object)sItemCode;
+        objrow2[2] = (object)sItem;
+        for (int r = 0; r < i; r++)
+        {
+            objrow1[r * 3 + 3] = (object)dtStartDate.AddDays(r).ToString("yyyy-MM-dd");
+            objrow1[r * 3 + 3 + 1] = (object)dtStartDate.AddDays(r).ToString("yyyy-MM-dd");
+            objrow1[r * 3 + 3 + 2] = (object)dtStartDate.AddDays(r).ToString("yyyy-MM-dd");
+            objrow2[r * 3 + 3] = (object)sItem1;
+            objrow2[r * 3 + 3 + 1] = (object)sItem2;
+            objrow2[r * 3 + 3 + 2] = (object)sItem3;
+        }
+        dtWareHouse.Rows.Add(objrow1);
+        dtWareHouse.Rows.Add(objrow2);
+
+        for (int g = 0; g < dsGradDate.Tables[0].Rows.Count; g++)
+        {
+            sGradCode = dsGradDate.Tables[0].Rows[g]["COLUMN_CODE"].ToString().Trim();
+            sGradName = dsGradDate.Tables[0].Rows[g]["COLUMN_NAME"].ToString().Trim();
+            dtStartDate = Convert.ToDateTime(sStartDate);
+            dtEndDate = Convert.ToDateTime(sEndDate);
+            dtParam = dtStartDate;
+            object[] objrow = new object[i * 3 + 3];
+            objrow[0] = (object)(g + 1).ToString();
+            objrow[1] = (object)sGradCode;
+            objrow[2] = (object)sGradName;
+            int d = 0;
+            string sQty, sPowerSum, sPMSum;
+            while (dtParam <= dtEndDate)
+            {
+                sDateParam = dtParam.ToString("yyyy-MM-dd");
+                dsWareHouseDate.Tables[0].DefaultView.RowFilter = "GRADE='" + sGradCode + "' AND  WH_DTAE='" + sDateParam + "'";
+                if (dsWareHouseDate.Tables[0].DefaultView.Count > 0)
+                {
+                    sQty = dsWareHouseDate.Tables[0].DefaultView[0]["WH_QTY"].ToString();
+                    sPowerSum = Convert.ToDouble(dsWareHouseDate.Tables[0].DefaultView[0]["WH_POWER"].ToString()).ToString("##0.00");
+                    sPMSum = Convert.ToDouble(dsWareHouseDate.Tables[0].DefaultView[0]["WH_PM"].ToString()).ToString("##0.00");
+                    objrow[d * 3 + 3] = (object)sQty;
+                    objrow[d * 3 + 3 + 1] = (object)sPowerSum;
+                    objrow[d * 3 + 3 + 2] = (object)sPMSum;
+                }
+                d = d + 1;
+                dtParam = dtStartDate.AddDays(d);
+            }
+            dtWareHouse.Rows.Add(objrow);
+        }
+
+        object[] objtot = new object[i * 3 + 3];
+        object[] objWOQty = new object[i * 3 + 3];
+        object[] objUnInputQty = new object[i * 3 + 3];
+        int ntot = dsGradDate.Tables[0].Rows.Count + 1;
+        objtot[0] = (object)ntot.ToString();
+        objtot[1] = (object)"合计";
+        objtot[2] = (object)"合计";
+        objWOQty[0] = (object)(ntot + 1).ToString();
+        objWOQty[1] = (object)"工单数量";
+        objWOQty[2] = (object)"工单数量";
+        objUnInputQty[0] = (object)(ntot + 2).ToString();
+        objUnInputQty[1] = (object)"未入库数量";
+        objUnInputQty[2] = (object)"未入库数量";
+        int totd = 0;
+        int nWOQty = 0;
+        int nInputQty = 0;
+        if (!string.IsNullOrEmpty(sWO))
+        {
+            nWOQty = int.Parse(dsWOQty.Tables[0].Rows[0]["QUANTITY_ORDERED"].ToString());
+        }
+        dtStartDate = Convert.ToDateTime(sStartDate);
+        dtEndDate = Convert.ToDateTime(sEndDate);
+        dtParam = dtStartDate;
+        while (dtParam <= dtEndDate)
+        {
+            sDateParam = dtParam.ToString("yyyy-MM-dd");
+            var totqty = (from qty in dsWareHouseDate.Tables[0].AsEnumerable()
+                          where qty.Field<string>("WH_DTAE") == sDateParam
+                          select qty.Field<int>("WH_QTY")).Sum();
+            var totpower = (from power in dsWareHouseDate.Tables[0].AsEnumerable()
+                            where power.Field<string>("WH_DTAE") == sDateParam
+                            select power.Field<decimal>("WH_POWER")).Sum();
+            var totpm = (from pm in dsWareHouseDate.Tables[0].AsEnumerable()
+                        where pm.Field<string>("WH_DTAE") == sDateParam
+                        select pm.Field<decimal>("WH_PM")).Sum();
+            //int dtotqty = int.Parse(totqty.ToString());
+            //decimal dtotpower = decimal.Parse(totpower.ToString());
+            objtot[totd * 3 + 3] = (object)totqty.ToString();
+            objtot[totd * 3 + 3 + 1] = (object)totpower.ToString("##0.00");
+            objtot[totd * 3 + 3 + 2] = (object)totpm.ToString("##0.00");
+
+            nInputQty = nInputQty + int.Parse(totqty.ToString());
+            if(!string.IsNullOrEmpty(sWO))
+            {
+                objWOQty[totd * 3 + 3] = (object)nWOQty.ToString();
+                objUnInputQty[totd * 3 + 3] = (object)(nWOQty - nInputQty);
+            }
+            totd = totd + 1;
+            dtParam = dtStartDate.AddDays(totd);
+        }
+
+        dtWareHouse.Rows.Add(objtot);
+        if (!string.IsNullOrEmpty(sWO))
+        {
+            dtWareHouse.Rows.Add(objWOQty);
+            dtWareHouse.Rows.Add(objUnInputQty);
+        }
+
+        //Cache[Session.SessionID + "WareHouse"] = dtWareHouse;
+        gvWareHouse.DataSource = null;
+        gvWareHouse.Columns.Clear();
+        gvWareHouse.AutoGenerateColumns = true;
+        gvWareHouse.DataSource = dtWareHouse;
+        gvWareHouse.DataBind();
+
+        gvWareHouse.Columns["WHITEMCODE"].Visible = false;
+
+     
+    }
+    protected void gvWareHouse_DataBound(object sender, EventArgs e)
+    {
+        ASPxGridView gv = sender as ASPxGridView;
+        if (gv != null && gv.Columns.Count > 1)
+        {
+            for (int i = 0; i < gv.Columns.Count; i++)
+            {
+                gv.Columns[i].CellStyle.Wrap = DevExpress.Web.ASPxClasses.DefaultBoolean.False;
+            }
+        }
+    }
+    protected void gvWareHouse_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
+    {
+        DataTable dt = gvWareHouse.DataSource as DataTable;
+        if (e.RowType == GridViewRowType.Data && dt != null)
+        {
+            string productModelName = Convert.ToString(dt.Rows[e.VisibleIndex]["WHNO"]);
+            int mergeCellCount = dt.Select(string.Format("WHNO='{0}'", productModelName)).Count();
+            //合并序号单元格。
+            if (e.VisibleIndex % mergeCellCount == 0)
+            {
+                e.Row.Cells[0].RowSpan = mergeCellCount;
+            }
+            else
+            {
+                e.Row.Cells[0].Visible = false;
+            }
+        }
+
+        if (e.RowType == GridViewRowType.Data && dt != null)
+        {
+            string productModelName = Convert.ToString(dt.Rows[e.VisibleIndex]["WHITEMCODE"]);
+            int mergeCellCount = dt.Select(string.Format("WHITEMCODE='{0}'", productModelName)).Count();
+            //合并项目代码单元格。
+            if (e.VisibleIndex % mergeCellCount == 0)
+            {
+                e.Row.Cells[0].RowSpan = mergeCellCount;
+            }
+            else
+            {
+                e.Row.Cells[0].Visible = false;
+            }
+        }
+
+        if (e.RowType == GridViewRowType.Data && dt != null)
+        {
+            string productModelName = Convert.ToString(dt.Rows[e.VisibleIndex]["WHITEM"]);
+            int mergeCellCount = dt.Select(string.Format("WHITEM='{0}'", productModelName)).Count();
+            //合并项目单元格。
+            if (e.VisibleIndex % mergeCellCount == 0)
+            {
+                e.Row.Cells[1].RowSpan = mergeCellCount;
+            }
+            else
+            {
+                e.Row.Cells[1].Visible = false;
+            }
+        }
+    }
+    protected void btnExcel_Click(object sender, EventArgs e)
+    {
+        DataTable dtExcel = (DataTable)Cache[Session.SessionID + "WareHouse"];
+        if (dtExcel == null)
+        {
+            btnQuey_Click(sender, e);
+        }
+        else
+        {
+            gvWareHouse.DataSource = dtExcel;
+            gvWareHouse.DataBind();
+        }
+        this.exporter.WriteXlsToResponse();
+    }
+
+    public void BindFactory()
+    {
+        DataSet dsFactory = Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate.GetFactoryWorkPlace();
+        cboFactory.DataSource = dsFactory.Tables[0];
+        cboFactory.TextField = "LOCATION_NAME";
+        cboFactory.ValueField = "LOCATION_KEY";
+        cboFactory.DataBind();
+        cboFactory.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        cboFactory.SelectedIndex = 0;
+    }
+
+    public void BindWO()
+    {
+        string sFactory, sStartDate;
+        sFactory = "";
+        sStartDate = DateTime.Now.AddDays(-90).ToString("yyyy-MM-dd");
+        if (cboFactory.Text.Trim() != "ALL")
+        {
+            sFactory = cboFactory.Text.Trim();
+        }
+        DataSet dsWO = Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate.GetWOData(sFactory,sStartDate,"");
+        ASPxListBox lstWO = this.ddeWO.FindControl("lstWO") as ASPxListBox;
+        if (lstWO != null)
+        {
+            lstWO.DataSource = dsWO.Tables[0];
+            lstWO.TextField = "ORDER_NUMBER";
+            lstWO.ValueField = "ORDER_NUMBER";
+            lstWO.DataBind();
+            lstWO.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        }
+    }
+
+    public void BindPowerLevel()
+    {
+        DataSet dsPowerLevel = Astronergy.MES.Report.DataAccess.WareHouse.WareHouseDate.GetPowerLever("","","");
+        ASPxListBox lstPowerLevel = this.ddePowerLevel.FindControl("lstPowerLevel") as ASPxListBox;
+        if (lstPowerLevel != null)
+        {
+            lstPowerLevel.DataSource = dsPowerLevel.Tables[0];
+            lstPowerLevel.TextField = "PMAXSTAB";
+            lstPowerLevel.ValueField = "PMAXSTAB";
+            lstPowerLevel.DataBind();
+            lstPowerLevel.Items.Insert(0, new ListEditItem("ALL", "ALL"));
+        }
+    }
+    protected void gvWareHouse_CustomColumnDisplayText(object sender, ASPxGridViewColumnDisplayTextEventArgs e)
+    {
+        if (e.Column.Index > 1)
+        {
+            try
+            {
+                string sDate = string.Empty, sGrad = string.Empty, sType = string.Empty;
+                string headColumnName = e.Column.FieldName;
+                DataRow dr = (DataRow)gvWareHouse.GetDataRow(0);
+                DataRow drType = (DataRow)gvWareHouse.GetDataRow(1);
+                DataRow drKey = (DataRow)gvWareHouse.GetDataRow(e.VisibleRowIndex);
+                string rowKey = drKey[gvWareHouse.KeyFieldName].ToString();
+                sGrad = Convert.ToString(drKey["WHITEMCODE"]);
+
+                if (headColumnName.ToUpper().Trim() == "WHNO" || headColumnName.ToUpper().Trim() == "WHITEMCODE"
+                    || headColumnName.ToUpper().Trim() == "WHITEM" || Convert.ToInt16(rowKey) > 8 || Convert.ToInt16(rowKey) < 1)
+                    return;
+
+                sDate = Convert.ToDateTime(Convert.ToString(dr[e.Column.FieldName])).ToString("yyyy-MM-dd ");
+                sType = Convert.ToString(drType[e.Column.FieldName]);
+                if (sType.Equals("块数"))
+                {
+                    sType = "A";
+                }
+                else if (sType.Equals("瓦数"))
+                {
+                    sType = "B";
+                }
+                else if (sType.Equals("实际功率"))
+                {
+                    sType = "C";
+                }
+                else
+                {
+                    sType = "";
+                }
+
+                e.DisplayText = string.Format("<a  target='_blank' href=\"QueryWareHouseData_Detail.aspx?Grad={1}&Qdate={2}&Type={3}&Factory={4}&Qstartdate={5}&Qenddate={6}&WO={7}&PowerLevel={8}&partNumber={9}\" class=\'dxgv\' style=\'text-decoration:underline;\'>{0}</a>", e.Value,
+                                                Server.UrlEncode(sGrad), 
+                                                Server.UrlEncode(sDate), 
+                                                Server.UrlEncode(sType), 
+                                                Server.UrlEncode(hidsFactory.Value),
+                                                Server.UrlEncode(hidsQstartdate.Value),
+                                                Server.UrlEncode(hidsQenddate.Value), 
+                                                Server.UrlEncode(hidsWO.Value), 
+                                                Server.UrlEncode(hidsPowerLevel.Value),
+                                                Server.UrlEncode(this.txtPartNumber.Text.Trim()));
+            }
+            catch (Exception ex)
+            { }
+        }
+    }
+}

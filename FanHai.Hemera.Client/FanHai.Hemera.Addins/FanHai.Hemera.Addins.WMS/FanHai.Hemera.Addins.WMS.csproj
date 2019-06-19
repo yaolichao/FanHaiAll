@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07DDD555-B430-4111-A97B-33366B01F591}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Addins.WMS</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Addins.WMS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Pdf.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.RichEdit.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.RichEdit.v18.1.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraPrinting.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="org.in2bits.MyXls, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Libs\ReferenceDlls\org.in2bits.MyXls.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\OutDeliveryQCQuerry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\OutDeliveryQCQuerry.Designer.cs">
+      <DependentUpon>OutDeliveryQCQuerry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\OutDeliveryQuerryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\OutDeliveryQuerryCtrl.Designer.cs">
+      <DependentUpon>OutDeliveryQuerryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PickCarInfoWinFM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\PickCarInfoWinFM.Designer.cs">
+      <DependentUpon>PickCarInfoWinFM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PickModifyCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PickModifyCtrl.Designer.cs">
+      <DependentUpon>PickModifyCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PickOrderCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PickOrderCtrl.Designer.cs">
+      <DependentUpon>PickOrderCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PMAddProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\PMAddProd.Designer.cs">
+      <DependentUpon>PMAddProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SelectZMBLNRFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\SelectZMBLNRFrm.Designer.cs">
+      <DependentUpon>SelectZMBLNRFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ShowLGORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ShowLGORT.Designer.cs">
+      <DependentUpon>ShowLGORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ToBeSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ToBeSet.Designer.cs">
+      <DependentUpon>ToBeSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\UpdateContainerNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\UpdateContainerNo.Designer.cs">
+      <DependentUpon>UpdateContainerNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentCtrl.Designer.cs">
+      <DependentUpon>PalletShipmentCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentQueryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentQueryCtrl.Designer.cs">
+      <DependentUpon>PalletShipmentQueryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ShipManagementCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ShipManagementCtrl.Designer.cs">
+      <DependentUpon>ShipManagementCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WarehouseWarrantCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WarehouseWarrantCtrl.Designer.cs">
+      <DependentUpon>WarehouseWarrantCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WarehouseWarrantQueryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WarehouseWarrantQueryCtrl.Designer.cs">
+      <DependentUpon>WarehouseWarrantQueryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WarehouseWarrantSynCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WarehouseWarrantSynCtrl.Designer.cs">
+      <DependentUpon>WarehouseWarrantSynCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentsCtrl.Designer.cs">
+      <DependentUpon>PalletShipmentsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentsSelectDailog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentsSelectDailog.Designer.cs">
+      <DependentUpon>PalletShipmentsSelectDailog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentsSterilisationCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentsSterilisationCtrl.Designer.cs">
+      <DependentUpon>PalletShipmentsSterilisationCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentQueryNewCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\PalletShipmentQueryNewCtrl.Designer.cs">
+      <DependentUpon>PalletShipmentQueryNewCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\OutDeliveryQuerryCommand.cs" />
+    <Compile Include="Menu\PalletShipmentCommand.cs" />
+    <Compile Include="Menu\PalletShipmentQueryCommand.cs" />
+    <Compile Include="Menu\PickModifyCommand.cs" />
+    <Compile Include="Menu\PickOrderCommand.cs" />
+    <Compile Include="Menu\ToBeSetCommand.cs" />
+    <Compile Include="Menu\UpdateContainerNoCommand.cs" />
+    <Compile Include="Menu\WarehouseWarrantCommand.cs" />
+    <Compile Include="Menu\WarehouseWarrantQueryCommand.cs" />
+    <Compile Include="Menu\WarehouseWarrantSynCommand.cs" />
+    <Compile Include="Menu\PalletShipmentsSterilisationCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Src\OutDeliveryQuerryContent.cs" />
+    <Compile Include="Src\PalletShipmentViewContent.cs" />
+    <Compile Include="Src\PalletShipmentQueryViewContent.cs" />
+    <Compile Include="Src\PickModifyViewContent.cs" />
+    <Compile Include="Src\PickOrderViewContent.cs" />
+    <Compile Include="Src\ToBeSetContent.cs" />
+    <Compile Include="Src\UpdateContainerNoContent.cs" />
+    <Compile Include="Src\WarehouseWarrantQueryContent.cs" />
+    <Compile Include="Src\WarehouseWarrantSynContent.cs" />
+    <Compile Include="Src\WarehouseWarrantViewContent.cs" />
+    <Compile Include="Src\PalletShipmentsSterilisationContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Conf\FanHai.Hemera.Addins.WMS.addin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Resources\blue24_0021.gif" />
+    <None Include="Resources\blue24_0031.gif" />
+    <None Include="Resources\blue24_0041.gif" />
+    <None Include="Resources\blue24_0051.gif" />
+    <None Include="Resources\blue24_0061.gif" />
+    <None Include="Resources\blue24_0071.gif" />
+    <None Include="Resources\blue24_0081.gif" />
+    <None Include="Resources\blue24_0091.gif" />
+    <None Include="Resources\blue24_0101.gif" />
+    <None Include="Resources\blue24_0111.gif" />
+    <None Include="Resources\blue24_0121.gif" />
+    <None Include="Resources\blue24_0131.gif" />
+    <None Include="Resources\blue24_0141.gif" />
+    <None Include="Resources\blue24_0151.gif" />
+    <None Include="Resources\blue24_0161.gif" />
+    <None Include="Resources\blue24_0171.gif" />
+    <None Include="Resources\blue24_0181.gif" />
+    <None Include="Resources\blue24_0191.gif" />
+    <None Include="Resources\blue24_0201.gif" />
+    <None Include="Resources\blue24_0211.gif" />
+    <None Include="Resources\blue24_0221.gif" />
+    <None Include="Resources\blue24_0231.gif" />
+    <None Include="Resources\blue24_0241.gif" />
+    <None Include="Resources\blue24_0251.gif" />
+    <None Include="Resources\blue24_0261.gif" />
+    <None Include="Resources\blue24_0271.gif" />
+    <None Include="Resources\blue24_0281.gif" />
+    <None Include="Resources\blue24_0291.gif" />
+    <None Include="Resources\blue24_0301.gif" />
+    <None Include="Resources\blue24_0311.gif" />
+    <None Include="Resources\blue24_0321.gif" />
+    <None Include="Resources\blue24_0331.gif" />
+    <None Include="Resources\blue24_0341.gif" />
+    <None Include="Resources\blue24_0351.gif" />
+    <None Include="Resources\blue24_0361.gif" />
+    <None Include="Resources\blue24_0371.gif" />
+    <None Include="Resources\blue24_0381.gif" />
+    <None Include="Resources\blue24_0391.gif" />
+    <None Include="Resources\blue24_0401.gif" />
+    <None Include="Resources\blue24_0411.gif" />
+    <None Include="Resources\blue24_0421.gif" />
+    <None Include="Resources\blue24_0431.gif" />
+    <None Include="Resources\blue24_0441.gif" />
+    <None Include="Resources\blue24_0451.gif" />
+    <None Include="Resources\blue24_0461.gif" />
+    <None Include="Resources\blue24_0471.gif" />
+    <None Include="Resources\blue24_0481.gif" />
+    <None Include="Resources\blue24_0491.gif" />
+    <None Include="Resources\blue24_0501.gif" />
+    <None Include="Resources\blue24_0511.gif" />
+    <None Include="Resources\blue24_0521.gif" />
+    <None Include="Resources\blue24_0531.gif" />
+    <None Include="Resources\blue24_0541.gif" />
+    <None Include="Resources\blue24_0551.gif" />
+    <None Include="Resources\blue24_0561.gif" />
+    <None Include="Resources\blue24_0571.gif" />
+    <None Include="Resources\blue24_0581.gif" />
+    <None Include="Resources\blue24_0591.gif" />
+    <None Include="Resources\blue24_0601.gif" />
+    <None Include="Resources\blue24_0612.gif" />
+    <None Include="Resources\blue24_0622.gif" />
+    <None Include="Resources\blue24_0632.gif" />
+    <None Include="Resources\blue24_0642.gif" />
+    <None Include="Resources\blue24_0652.gif" />
+    <None Include="Resources\blue24_0662.gif" />
+    <None Include="Resources\blue24_0672.gif" />
+    <None Include="Resources\blue24_0682.gif" />
+    <None Include="Resources\blue24_0692.gif" />
+    <None Include="Resources\blue24_0702.gif" />
+    <None Include="Resources\blue24_0712.gif" />
+    <None Include="Resources\blue24_0722.gif" />
+    <None Include="Resources\blue24_0732.gif" />
+    <None Include="Resources\blue24_0742.gif" />
+    <None Include="Resources\blue24_0752.gif" />
+    <None Include="Resources\blue24_0762.gif" />
+    <None Include="Resources\blue24_0772.gif" />
+    <None Include="Resources\blue24_0782.gif" />
+    <None Include="Resources\blue24_0792.gif" />
+    <None Include="Resources\blue24_0802.gif" />
+    <None Include="Resources\blue24_0812.gif" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\document-add.png" />
+    <None Include="Resources\save_accept.png" />
+    <None Include="Resources\document-delete.png" />
+    <Content Include="Resources\system_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\OutDeliveryQCQuerry.resx">
+      <DependentUpon>OutDeliveryQCQuerry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OutDeliveryQuerryCtrl.resx">
+      <DependentUpon>OutDeliveryQuerryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PickCarInfoWinFM.resx">
+      <DependentUpon>PickCarInfoWinFM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PickModifyCtrl.resx">
+      <DependentUpon>PickModifyCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PickOrderCtrl.resx">
+      <DependentUpon>PickOrderCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PMAddProd.resx">
+      <DependentUpon>PMAddProd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SelectZMBLNRFrm.resx">
+      <DependentUpon>SelectZMBLNRFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ShowLGORT.resx">
+      <DependentUpon>ShowLGORT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ToBeSet.resx">
+      <DependentUpon>ToBeSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\UpdateContainerNo.resx">
+      <DependentUpon>UpdateContainerNo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletShipmentCtrl.resx">
+      <DependentUpon>PalletShipmentCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletShipmentQueryCtrl.resx">
+      <DependentUpon>PalletShipmentQueryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ShipManagementCtrl.resx">
+      <DependentUpon>ShipManagementCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WarehouseWarrantCtrl.resx">
+      <DependentUpon>WarehouseWarrantCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WarehouseWarrantQueryCtrl.resx">
+      <DependentUpon>WarehouseWarrantQueryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WarehouseWarrantRep.rdlc" />
+    <EmbeddedResource Include="Gui\WarehouseWarrantSynCtrl.resx">
+      <DependentUpon>WarehouseWarrantSynCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletShipmentsCtrl.resx">
+      <DependentUpon>PalletShipmentsCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletShipmentsSelectDailog.resx">
+      <DependentUpon>PalletShipmentsSelectDailog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletShipmentsSterilisationCtrl.resx">
+      <DependentUpon>PalletShipmentsSterilisationCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\PalletShipmentQueryNewCtrl.resx">
+      <DependentUpon>PalletShipmentQueryNewCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework %28FanHai.Gui.Framework\FanHai.Gui.Framework%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo -------WMS
+
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"          mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WMS"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WMS"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                       "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WMS" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                    "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WMS" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                         "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\WMS" /R /Y /Q /D</PostBuildEvent>
+  </PropertyGroup>
+</Project>

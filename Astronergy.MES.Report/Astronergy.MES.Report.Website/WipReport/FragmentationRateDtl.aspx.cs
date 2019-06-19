@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Astronergy.MES.Report.DataAccess;
+using System.Data;
+using DevExpress.Web;
+using DevExpress.Data;
+
+public partial class WipReport_FragmentationRateDtl : BasePage
+{
+    string stime = string.Empty, etime = string.Empty, sType = string.Empty, locationkey = string.Empty, sName = string.Empty, shiftName = string.Empty;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            sType = Server.UrlDecode(Request.Params["sType"].ToString());
+            sName = Server.UrlDecode(Request.Params["sName"].ToString());
+            shiftName = Server.UrlDecode(Request.Params["shiftname"].ToString());
+            stime = Server.UrlDecode(Request.Params["paraDate01"].ToString());
+            etime = Server.UrlDecode(Request.Params["paraDate02"].ToString());
+            locationkey = Server.UrlDecode(Request.Params["locationKey"].ToString());
+           
+         
+            BindGvAndChart();
+        }
+    }
+
+    private void BindGvAndChart()
+    {
+        try
+        {
+
+            DataSet dsReturn = FragmentationRateData.QueryPatchDataDtl(sType, sName, locationkey, shiftName, stime, etime);
+
+            DataTable dtGv = LoadColumnsResource(dsReturn.Tables[0]);
+            ViewState["grid"] = dtGv;
+
+            ASPxSummaryItem item = new ASPxSummaryItem();
+            item.FieldName = "PATCH_QUANTITY";
+            item.SummaryType = SummaryItemType.Sum;
+            item.DisplayFormat = "不良总计：{0}";
+            this.grid.TotalSummary.Add(item);
+            this.grid.Settings.ShowFooter = true;
+
+            this.grid.DataSource = dtGv;
+            //this.grid.SummaryText = "PATCH_QUANTITY";           
+            this.grid.DataBind();
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+
+    protected void btnXlsExport_Click(object sender, EventArgs e)
+    {
+        DataTable dtExpor = (DataTable)ViewState["grid"];
+        if (dtExpor.Rows.Count < 1) return;
+        if (dtExpor.Columns.Contains("PRO_NAME"))
+            dtExpor.Columns.Remove("PRO_NAME");
+
+        Session["grid"] = dtExpor;
+        //Response.Redirect("../Master/TableToExcelTemple.aspx", true);        
+        Response.Redirect("../Master/ExcelTemplate.aspx", true);
+    }
+
+    protected void grid_BeforeColumnSortingGrouping(object sender, DevExpress.Web.ASPxGridViewBeforeColumnGroupingSortingEventArgs e)
+    {
+        this.grid.DataSource = (DataTable)ViewState["grid"];
+        this.grid.DataBind();
+    }
+}

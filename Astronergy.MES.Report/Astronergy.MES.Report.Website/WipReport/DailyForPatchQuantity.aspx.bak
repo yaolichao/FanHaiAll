@@ -1,0 +1,68 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DailyForPatchQuantity.aspx.cs" Inherits="WipReport_DailyForPatchQuantity" %>
+
+<%@ Register assembly="DevExpress.XtraCharts.v9.3.Web, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts.Web" tagprefix="dxchartsui" %>
+<%@ Register assembly="DevExpress.XtraCharts.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts" tagprefix="cc1" %>
+<%@ Register assembly="DevExpress.Web.ASPxGridView.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.ASPxGridView.v9.3.Export, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView.Export" tagprefix="dx" %>
+<%@ Register src="../Compent/Header.ascx" tagname="Header" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+     <div id="header">         
+        <uc1:Header ID="Header1" runat="server" />          
+    </div>
+    <div>
+      <div class="gridview">                   
+        <dxchartsui:WebChartControl ID="chart" runat="server" Width="1000px">
+<SeriesTemplate LabelTypeName="SideBySideBarSeriesLabel" PointOptionsTypeName="PointOptions" SeriesViewTypeName="SideBySideBarSeriesView">
+<View HiddenSerializableString="to be serialized"></View>
+
+<Label HiddenSerializableString="to be serialized" LineVisible="True">
+<FillStyle FillOptionsTypeName="SolidFillOptions">
+<Options HiddenSerializableString="to be serialized"></Options>
+</FillStyle>
+</Label>
+
+<PointOptions HiddenSerializableString="to be serialized"></PointOptions>
+
+<LegendPointOptions HiddenSerializableString="to be serialized"></LegendPointOptions>
+</SeriesTemplate>
+
+<FillStyle FillOptionsTypeName="SolidFillOptions">
+<Options HiddenSerializableString="to be serialized"></Options>
+</FillStyle>
+        </dxchartsui:WebChartControl>
+        </div>
+          <div class="gridview" >            
+                <dx:ASPxButton ID="btnXlsExport" runat="server" Text="Export to XLS" UseSubmitBehavior="False"
+            OnClick="btnXlsExport_Click" Width="120px">
+            <Image Url="~/Images/xls.jpg" Width="16" Height="16">
+            </Image>
+        </dx:ASPxButton>
+        <dx:ASPxGridView ID="gvPatchDisplay" runat="server" EnableCallBacks="False"  KeyFieldName="REASON_CODE_NAME"  
+                    Width="60%" oncustomcolumndisplaytext="gvPatchDisplay_CustomColumnDisplayText" >
+          <Styles>
+               <Cell Wrap="False">
+                </Cell>
+                <AlternatingRow BackColor="#F2F1FC">
+                </AlternatingRow>
+               </Styles>
+            <SettingsPager AlwaysShowPager="True" Mode="ShowAllRecords">
+            </SettingsPager>
+        </dx:ASPxGridView>
+        </div>
+    
+    </div>
+    <dx:ASPxGridViewExporter ID="exporter" runat="server" GridViewID="gvPatchDisplay">
+    </dx:ASPxGridViewExporter>
+    </form>
+</body>
+</html>

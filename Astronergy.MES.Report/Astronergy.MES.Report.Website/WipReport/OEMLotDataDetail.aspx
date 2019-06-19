@@ -1,0 +1,124 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OEMLotDataDetail.aspx.cs" Inherits="WipReport_OEMLotDataDetail" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dxe" %>
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dxwgv" %>
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Src="../Compent/Header.ascx" TagName="Header" TagPrefix="uc2" %>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+    批次数据明细-<%= this.PagetTitle%>
+    </title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+     <uc2:Header ID="Header1" runat="server" />
+    </div>
+    <div>
+    <table border="0" width="100%">
+    <tr>
+        <td align="left">
+            <dxe:ASPxLabel ID="lblLotNoText" runat="server" Text="批次号：">
+            </dxe:ASPxLabel>
+            <dxe:ASPxLabel ID="lblLotNo" runat="server" Text="">
+            </dxe:ASPxLabel>
+        </td>
+    </tr>
+    </table>
+    </div>
+    <div>
+
+        <dx:ASPxPageControl ID="pcLotData" runat="server" ActiveTabIndex="0" EnableCallBacks="true"
+            Height="352px" Width="100%">
+            <TabPages>
+                <dx:TabPage Text="基本信息">
+                    <TabStyle HorizontalAlign="Left">
+                    </TabStyle>
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+                            <dx:ASPxGridView ID="gvLotBaseInfo" runat="server" Width="100%" 
+                                OnCustomColumnDisplayText="gvLotBaseInfo_CustomColumnDisplayText">
+                                <SettingsBehavior AllowSort="false" AllowDragDrop="false" />
+                            </dx:ASPxGridView>
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+                <dx:TabPage Text="加工历史">
+                    <TabStyle HorizontalAlign="Left">
+                    </TabStyle>
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+                            <dx:ASPxGridView ID="gvHistory" runat="server" Width="100%" 
+                                OnCustomColumnDisplayText="gvHistory_CustomColumnDisplayText"
+                                OnHtmlRowCreated="gvHistory_HtmlRowCreated">
+                                <SettingsPager PageSize="1000" />
+                                <SettingsBehavior AllowSort="false" AllowDragDrop="false" />
+                            </dx:ASPxGridView>
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+                <dx:TabPage Text="工序参数">
+                    <TabStyle HorizontalAlign="Left">
+                    </TabStyle>
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+                            <dx:ASPxGridView ID="gvParamData" runat="server" Width="100%"
+                                OnCustomColumnDisplayText="gvParamData_CustomColumnDisplayText">
+                                <SettingsPager PageSize="1000" />
+                                <SettingsBehavior AllowSort="false" AllowDragDrop="false" />
+                            </dx:ASPxGridView>
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+                <dx:TabPage Text="报废不良">
+                    <TabStyle HorizontalAlign="Left">
+                    </TabStyle>
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+                            <dx:ASPxGridView ID="gvDefectScrap" runat="server" Width="100%"
+                                OnCustomColumnDisplayText="gvDefectScrap_CustomColumnDisplayText">
+                                <SettingsBehavior AllowSort="false" AllowDragDrop="false" />
+                            </dx:ASPxGridView>
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+                <dx:TabPage Text="IV测试数据">
+                    <TabStyle HorizontalAlign="Left">
+                    </TabStyle>
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+                            <dx:ASPxGridView ID="gvIVTestData" runat="server" Width="100%"
+                                OnCustomColumnDisplayText="gvIVTestData_CustomColumnDisplayText">
+                                <SettingsBehavior AllowSort="false" AllowDragDrop="false" />
+                            </dx:ASPxGridView>
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+                <dx:TabPage Text="EL图片">
+                    <TabStyle HorizontalAlign="Left">
+                    </TabStyle>
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+                            <dxe:ASPxLabel ID="lblELPicturePath" runat="server" Text="">
+                            </dxe:ASPxLabel>
+                            <br />
+                            <dxe:ASPxImage ID="imgEL" runat="server">
+                            </dxe:ASPxImage>
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+            </TabPages>
+        </dx:ASPxPageControl>
+    </div>
+    </form>
+</body>
+</html>

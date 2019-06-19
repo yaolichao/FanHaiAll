@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0AD6B385-20E1-4DCA-B88D-8C046C0F1387}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Utils.Barcode</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Utils.Barcode</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code128.cs" />
+    <Compile Include="CodePrint.cs" />
+    <Compile Include="NetworkPrinterHelper.cs" />
+    <Compile Include="ParallelPrinterHelper.cs" />
+    <Compile Include="PrintLabelParameterData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="RAWPrinterHelper.cs" />
+    <Compile Include="SerialPrinterHelper.cs" />
+    <Compile Include="ArgobarPrinterHelper.cs" />
+    <Compile Include="ZebraNetPrinterHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\FanHai.Hemera.Utils.Barcode.dll" />
+    <Content Include="bin\Debug\FanHai.Hemera.Utils.Barcode.pdb" />
+    <Content Include="Labels\Label01.txt" />
+    <Content Include="Labels\Label02.txt" />
+    <Content Include="Labels\LotLabel.txt" />
+    <Content Include="Labels\PackageLabel.txt" />
+    <Content Include="Resource\001.jpg" />
+    <Content Include="Resource\002.jpg" />
+    <Content Include="Resource\003.jpg" />
+    <Content Include="Resource\004.jpg" />
+    <Content Include="Resource\005.jpg" />
+    <Content Include="Resource\006.jpg" />
+    <Content Include="Resource\007.jpg" />
+    <Content Include="Resource\008.jpg" />
+    <Content Include="Resource\009.jpg" />
+    <Content Include="Resource\02.bmp" />
+    <Content Include="Resource\021.bmp" />
+    <Content Include="Resource\02demo.bmp" />
+    <Content Include="Resource\0502.jpg" />
+    <Content Include="Resource\0503.jpg" />
+    <Content Include="Resource\0504.jpg" />
+    <Content Include="Resource\0505.jpg" />
+    <Content Include="Resource\12.jpg" />
+    <Content Include="Resource\201.jpg" />
+    <Content Include="Resource\203.jpg" />
+    <Content Include="Resource\204.jpg" />
+    <Content Include="Resource\205.jpg" />
+    <Content Include="Resource\206.jpg" />
+    <Content Include="Resource\207.jpg" />
+    <Content Include="Resource\208.jpg" />
+    <Content Include="Resource\301.jpg" />
+    <Content Include="Resource\302.jpg" />
+    <Content Include="Resource\303.jpg" />
+    <Content Include="Resource\304.jpg" />
+    <Content Include="Resource\4.JPG" />
+    <Content Include="Resource\401.jpg" />
+    <Content Include="Resource\402.jpg" />
+    <Content Include="Resource\403.jpg" />
+    <Content Include="Resource\5BB.png" />
+    <Content Include="Resource\601.jpg" />
+    <Content Include="Resource\602.jpg" />
+    <Content Include="Resource\604.jpg" />
+    <Content Include="Resource\605.jpg" />
+    <Content Include="Resource\606.jpg" />
+    <Content Include="Resource\8-!.jpg" />
+    <Content Include="Resource\8-02.jpg" />
+    <Content Include="Resource\8-R.jpg" />
+    <Content Include="Resource\about.bmp" />
+    <Content Include="Resource\about.jpg" />
+    <Content Include="Resource\AnNeng.png" />
+    <Content Include="Resource\astr.bmp" />
+    <Content Include="Resource\astr3.bmp" />
+    <Content Include="Resource\astrdemo.bmp" />
+    <Content Include="Resource\astronergy-标准标志字体.jpg" />
+    <Content Include="Resource\astronergy.bmp" />
+    <Content Include="Resource\astronergy.JPG" />
+    <Content Include="Resource\astr_stand.bmp" />
+    <Content Include="Resource\backg.bmp" />
+    <Content Include="Resource\Bcp.ico" />
+    <Content Include="Resource\BsepLogo.bmp" />
+    <Content Include="Resource\ce.bmp" />
+    <Content Include="Resource\ce.jpg" />
+    <Content Include="Resource\ce1.jpg" />
+    <Content Include="Resource\ce2.jpg" />
+    <Content Include="Resource\CE3.bmp" />
+    <Content Include="Resource\CE标志.bmp" />
+    <Content Include="Resource\chint.bmp" />
+    <Content Include="Resource\chint.JPG" />
+    <Content Include="Resource\Con1.bmp" />
+    <Content Include="Resource\ConCE-E.bmp" />
+    <Content Include="Resource\ConCE.bmp" />
+    <Content Include="Resource\ConCSA.bmp" />
+    <Content Include="Resource\ConE.bmp" />
+    <Content Include="Resource\ConE2.bmp" />
+    <Content Include="Resource\ConE3.bmp" />
+    <Content Include="Resource\conergy.bmp" />
+    <Content Include="Resource\ConergyLogo.jpg" />
+    <Content Include="Resource\ConLine.bmp" />
+    <Content Include="Resource\ConLogo.bmp" />
+    <Content Include="Resource\ConTUV-E - Copy.bmp" />
+    <Content Include="Resource\ConTUV-E.bmp" />
+    <Content Include="Resource\ConTUV-E1.bmp" />
+    <Content Include="Resource\ConTUV.bmp" />
+    <Content Include="Resource\ConTUV0.bmp" />
+    <Content Include="Resource\ConTUV1.bmp" />
+    <Content Include="Resource\ConTUVE2.bmp" />
+    <Content Include="Resource\ConTUVE3.bmp" />
+    <Content Include="Resource\ConUL.bmp" />
+    <Content Include="Resource\delete.png" />
+    <Content Include="Resource\Dept.gif" />
+    <Content Include="Resource\dj01.bmp" />
+    <Content Include="Resource\ELCO1.jpg" />
+    <Content Include="Resource\flash-90.bmp" />
+    <Content Include="Resource\flash.bmp" />
+    <Content Include="Resource\Groups.ico" />
+    <Content Include="Resource\help.jpg" />
+    <Content Include="Resource\Ie.bmp" />
+    <Content Include="Resource\Info.gif" />
+    <Content Include="Resource\Info1.gif" />
+    <Content Include="Resource\JapanC.bmp" />
+    <Content Include="Resource\JapanD.bmp" />
+    <Content Include="Resource\JapanE.bmp" />
+    <Content Include="Resource\JapanL.bmp" />
+    <Content Include="Resource\JapanL.jpg" />
+    <Content Include="Resource\JapanTh.bmp" />
+    <Content Include="Resource\jingke.jpg" />
+    <Content Include="Resource\Landscap.bmp" />
+    <Content Include="Resource\localizer.jpg" />
+    <Content Include="Resource\localizer_bt.jpg" />
+    <Content Include="Resource\LSISLOGO.jpg" />
+    <Content Include="Resource\manager.ico" />
+    <Content Include="Resource\Mhps.ico" />
+    <Content Include="Resource\mhps.jpg" />
+    <Content Include="Resource\Mhps1.ico" />
+    <Content Include="Resource\Mhps3.ico" />
+    <Content Include="Resource\NGQCELL222.bmp" />
+    <Content Include="Resource\NGQCELL237.bmp" />
+    <Content Include="Resource\NGQCELL252.bmp" />
+    <Content Include="Resource\No.bmp" />
+    <Content Include="Resource\OKQCELL215.bmp" />
+    <Content Include="Resource\OKQCELL220.bmp" />
+    <Content Include="Resource\OKQCELL225.bmp" />
+    <Content Include="Resource\OKQCELL230.bmp" />
+    <Content Include="Resource\OKQCELL235.bmp" />
+    <Content Include="Resource\OKQCELL240.bmp" />
+    <Content Include="Resource\OKQCELL245.bmp" />
+    <Content Include="Resource\OKQCELL250.bmp" />
+    <Content Include="Resource\OKQCELL255.bmp" />
+    <Content Include="Resource\OKQCELL260.bmp" />
+    <Content Include="Resource\pass.bmp" />
+    <Content Include="Resource\pass3.bmp" />
+    <Content Include="Resource\Pb_b_dn.bmp" />
+    <Content Include="Resource\Pb_b_up.bmp" />
+    <Content Include="Resource\Pb_u_dn.bmp" />
+    <Content Include="Resource\Pb_u_up.bmp" />
+    <Content Include="Resource\PNT.ico" />
+    <Content Include="Resource\Portrait.bmp" />
+    <Content Include="Resource\Power.bmp" />
+    <Content Include="Resource\PVLineLogo.png" />
+    <Content Include="Resource\PVSIEC.bmp" />
+    <Content Include="Resource\P_exit.bmp" />
+    <Content Include="Resource\P_next.bmp" />
+    <Content Include="Resource\P_print.bmp" />
+    <Content Include="Resource\P_prior.bmp" />
+    <Content Include="Resource\Q_ng_222.bmp" />
+    <Content Include="Resource\Q_ng_237.bmp" />
+    <Content Include="Resource\Q_ng_252.bmp" />
+    <Content Include="Resource\Q_ok_215.bmp" />
+    <Content Include="Resource\Q_ok_220.bmp" />
+    <Content Include="Resource\Q_ok_225.bmp" />
+    <Content Include="Resource\Q_ok_230.bmp" />
+    <Content Include="Resource\Q_ok_235.bmp" />
+    <Content Include="Resource\Q_ok_240.bmp" />
+    <Content Include="Resource\Q_ok_245.bmp" />
+    <Content Include="Resource\Q_ok_250.bmp" />
+    <Content Include="Resource\Q_ok_255.bmp" />
+    <Content Include="Resource\Q_ok_260.bmp" />
+    <Content Include="Resource\R-s.bmp" />
+    <Content Include="Resource\R.bmp" />
+    <Content Include="Resource\Recycle.bmp" />
+    <Content Include="Resource\reports.jpg" />
+    <Content Include="Resource\Resize.gif" />
+    <Content Include="Resource\Schu01.bmp" />
+    <Content Include="Resource\schu03.bmp" />
+    <Content Include="Resource\Schu05.bmp" />
+    <Content Include="Resource\Schu06.bmp" />
+    <Content Include="Resource\SchuCE.bmp" />
+    <Content Include="Resource\Schueco UL.bmp" />
+    <Content Include="Resource\SEC.bmp" />
+    <Content Include="Resource\SED.bmp" />
+    <Content Include="Resource\SEE.bmp" />
+    <Content Include="Resource\SEPower.bmp" />
+    <Content Include="Resource\SER.bmp" />
+    <Content Include="Resource\SER_Logo.bmp" />
+    <Content Include="Resource\SE_Logo.bmp" />
+    <Content Include="Resource\SE_Logo.jpg" />
+    <Content Include="Resource\SoviSol_LOGO.jpg" />
+    <Content Include="Resource\SUNFarming.jpg" />
+    <Content Include="Resource\SunFarming01.jpg" />
+    <Content Include="Resource\SunFarming01_20151105.jpg" />
+    <Content Include="Resource\SUNFarming_20151105.jpg" />
+    <Content Include="Resource\t.bmp" />
+    <Content Include="Resource\tf_02.bmp" />
+    <Content Include="Resource\Time.gif" />
+    <Content Include="Resource\TUV.bmp" />
+    <Content Include="Resource\TUV标志.JPG" />
+    <Content Include="Resource\t_add0.bmp" />
+    <Content Include="Resource\t_add1.bmp" />
+    <Content Include="Resource\t_close0.bmp" />
+    <Content Include="Resource\t_close1.bmp" />
+    <Content Include="Resource\t_print0.bmp" />
+    <Content Include="Resource\t_print1.bmp" />
+    <Content Include="Resource\UL.bmp" />
+    <Content Include="Resource\UL3.bmp" />
+    <Content Include="Resource\UL标志.bmp" />
+    <Content Include="Resource\User.gif" />
+    <Content Include="Resource\Winsol.bmp" />
+    <Content Include="Resource\Winsol1.bmp" />
+    <Content Include="Resource\Winsol12.bmp" />
+    <Content Include="Resource\Yes.bmp" />
+    <Content Include="Resource\ZebraDemo\ZebraCode.txt" />
+    <Content Include="Resource\ZebraDemo\ZebraCodePowerLable.txt" />
+    <Content Include="Resource\未标题-2 拷贝.jpg" />
+    <Content Include="Resource\电击标志.bmp" />
+    <Content Include="Resource\电击标志1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+    <None Include="Resource\code128.ttf" />
+    <None Include="Resource\code39.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CodeSoftLabels\" />
+    <Folder Include="obj\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Labels"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Labels"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Resource"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Resource"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Resource\ZebraDemo"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Resource\ZebraDemo"
+
+echo --Copy compiled dll And debug pdb file
+xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D
+
+echo --Copy  label txt files that used by barcode printer
+xcopy "$(ProjectDir)Labels\*.txt"                                                                 "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Labels" /R /Y /Q /D
+xcopy "$(ProjectDir)Resource\*.*"                                                                 "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Resource" /R /Y /Q /D
+xcopy "$(ProjectDir)Resource\ZebraDemo\*.*"                                                                 "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Resource\ZebraDemo" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

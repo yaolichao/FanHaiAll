@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCCheck", "QCCheck\QCCheck.csproj", "{3B99CAD2-690C-4F24-8899-B9831979481D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZHDSpace", "ZHDSpace\ZHDSpace.csproj", "{66582E6C-253B-4F5D-AD15-7FA4ED295F15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B99CAD2-690C-4F24-8899-B9831979481D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B99CAD2-690C-4F24-8899-B9831979481D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B99CAD2-690C-4F24-8899-B9831979481D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B99CAD2-690C-4F24-8899-B9831979481D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66582E6C-253B-4F5D-AD15-7FA4ED295F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66582E6C-253B-4F5D-AD15-7FA4ED295F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66582E6C-253B-4F5D-AD15-7FA4ED295F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66582E6C-253B-4F5D-AD15-7FA4ED295F15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6A539C6C-91F9-4268-9216-A8FEAC173797}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Utils.Libs</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Utils.Libs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bin\FanHai.Hemera.Utils.Libs.dll" />
+    <Content Include="Bin\FanHai.Hemera.Utils.Libs.pdb" />
+    <Content Include="ReferenceDlls\BarCode.dll" />
+    <Content Include="ReferenceDlls\BCLW32.DLL" />
+    <Content Include="ReferenceDlls\DevExpress.Charts.v9.3.Core.dll" />
+    <Content Include="ReferenceDlls\DevExpress.Data.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.Utils.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraBars.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraCharts.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraCharts.v9.3.UI.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraEditors.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraGrid.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraLayout.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraNavBar.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraPivotGrid.v9.3.Core.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraPivotGrid.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraPrinting.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraReports.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraRichEdit.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraTreeList.v9.3.dll" />
+    <Content Include="ReferenceDlls\DevExpress.XtraVerticalGrid.v9.3.dll" />
+    <Content Include="ReferenceDlls\Interop.LabelManager2.dll" />
+    <Content Include="ReferenceDlls\itextsharp.dll" />
+    <Content Include="ReferenceDlls\iTextSharp.xml" />
+    <Content Include="ReferenceDlls\log4net.dll" />
+    <Content Include="ReferenceDlls\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="ReferenceDlls\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="ReferenceDlls\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="ReferenceDlls\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="ReferenceDlls\Mono.Security.dll" />
+    <Content Include="ReferenceDlls\Npgsql.dll" />
+    <Content Include="ReferenceDlls\org.in2bits.MyXls.dll" />
+    <Content Include="ReferenceDlls\org.in2bits.MyXls.XML" />
+    <Content Include="ReferenceDlls\WeifenLuo.WinFormsUI.Docking.dll" />
+    <Content Include="ReferenceDlls\WinPort.dll" />
+    <Content Include="ReferenceDlls\Winpplb.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Libs
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"   	mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs"
+
+echo --Copy All Referenced dll files
+xcopy "$(ProjectDir)ReferenceDlls"  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Libs" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

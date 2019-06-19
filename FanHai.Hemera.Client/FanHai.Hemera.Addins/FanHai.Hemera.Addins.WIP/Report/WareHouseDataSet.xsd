@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="WareHouseDataSet" targetNamespace="http://tempuri.org/WareHouseDataSet.xsd" xmlns:mstns="http://tempuri.org/WareHouseDataSet.xsd" xmlns="http://tempuri.org/WareHouseDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="WareHouseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="WareHouseDataSet" msprop:Generator_DataSetName="WareHouseDataSet" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="WIPRKPO" msprop:Generator_UserTableName="WIPRKPO" msprop:Generator_RowDeletedName="WIPRKPORowDeleted" msprop:Generator_RowChangedName="WIPRKPORowChanged" msprop:Generator_RowClassName="WIPRKPORow" msprop:Generator_RowChangingName="WIPRKPORowChanging" msprop:Generator_RowEvArgName="WIPRKPORowChangeEvent" msprop:Generator_RowEvHandlerName="WIPRKPORowChangeEventHandler" msprop:Generator_TableClassName="WIPRKPODataTable" msprop:Generator_TableVarName="tableWIPRKPO" msprop:Generator_RowDeletingName="WIPRKPORowDeleting" msprop:Generator_TablePropName="WIPRKPO">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MATNR" msprop:Generator_UserColumnName="MATNR" msprop:Generator_ColumnVarNameInTable="columnMATNR" msprop:Generator_ColumnPropNameInRow="MATNR" msprop:Generator_ColumnPropNameInTable="MATNRColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="MATNR_DESC" msprop:Generator_UserColumnName="MATNR_DESC" msprop:Generator_ColumnVarNameInTable="columnMATNR_DESC" msprop:Generator_ColumnPropNameInRow="MATNR_DESC" msprop:Generator_ColumnPropNameInTable="MATNR_DESCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CHARG" msprop:Generator_UserColumnName="CHARG" msprop:Generator_ColumnPropNameInRow="CHARG" msprop:Generator_ColumnVarNameInTable="columnCHARG" msprop:Generator_ColumnPropNameInTable="CHARGColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="XP006" msprop:Generator_UserColumnName="XP006" msprop:Generator_ColumnPropNameInRow="XP006" msprop:Generator_ColumnVarNameInTable="columnXP006" msprop:Generator_ColumnPropNameInTable="XP006Column" type="xs:string" minOccurs="0" />
+              <xs:element name="XP001" msprop:Generator_UserColumnName="XP001" msprop:Generator_ColumnPropNameInRow="XP001" msprop:Generator_ColumnVarNameInTable="columnXP001" msprop:Generator_ColumnPropNameInTable="XP001Column" type="xs:string" minOccurs="0" />
+              <xs:element name="XP002" msprop:Generator_UserColumnName="XP002" msprop:Generator_ColumnPropNameInRow="XP002" msprop:Generator_ColumnVarNameInTable="columnXP002" msprop:Generator_ColumnPropNameInTable="XP002Column" type="xs:string" minOccurs="0" />
+              <xs:element name="XP003" msprop:Generator_UserColumnName="XP003" msprop:Generator_ColumnPropNameInRow="XP003" msprop:Generator_ColumnVarNameInTable="columnXP003" msprop:Generator_ColumnPropNameInTable="XP003Column" type="xs:string" minOccurs="0" />
+              <xs:element name="XP004" msprop:Generator_UserColumnName="XP004" msprop:Generator_ColumnPropNameInRow="XP004" msprop:Generator_ColumnVarNameInTable="columnXP004" msprop:Generator_ColumnPropNameInTable="XP004Column" type="xs:string" minOccurs="0" />
+              <xs:element name="XP005" msprop:Generator_UserColumnName="XP005" msprop:Generator_ColumnPropNameInRow="XP005" msprop:Generator_ColumnVarNameInTable="columnXP005" msprop:Generator_ColumnPropNameInTable="XP005Column" type="xs:string" minOccurs="0" />
+              <xs:element name="JIEXIANHE" msprop:Generator_UserColumnName="JIEXIANHE" msprop:Generator_ColumnPropNameInRow="JIEXIANHE" msprop:Generator_ColumnVarNameInTable="columnJIEXIANHE" msprop:Generator_ColumnPropNameInTable="JIEXIANHEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="XP007" msprop:Generator_UserColumnName="XP007" msprop:Generator_ColumnPropNameInRow="XP007" msprop:Generator_ColumnVarNameInTable="columnXP007" msprop:Generator_ColumnPropNameInTable="XP007Column" type="xs:string" minOccurs="0" />
+              <xs:element name="MENGE" msprop:Generator_UserColumnName="MENGE" msprop:Generator_ColumnPropNameInRow="MENGE" msprop:Generator_ColumnVarNameInTable="columnMENGE" msprop:Generator_ColumnPropNameInTable="MENGEColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="XP009" msprop:Generator_UserColumnName="XP009" msprop:Generator_ColumnVarNameInTable="columnXP009" msprop:Generator_ColumnPropNameInRow="XP009" msprop:Generator_ColumnPropNameInTable="XP009Column" type="xs:string" minOccurs="0" />
+              <xs:element name="XP011" msprop:Generator_UserColumnName="XP011" msprop:Generator_ColumnPropNameInRow="XP011" msprop:Generator_ColumnVarNameInTable="columnXP011" msprop:Generator_ColumnPropNameInTable="XP011Column" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

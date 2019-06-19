@@ -1,0 +1,165 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/Master/MasterPage.master" AutoEventWireup="true" CodeFile="WIP_PLAN_AIMS.aspx.cs" Inherits="WipReport_WIP_PLAN_AIMS" Title="计划输入页" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#aspnetForm").validate();    
+    });
+</script>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div class="searchbar">
+    <div class="searchbar">
+        <span>
+            <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="车间名称">
+            </dx:ASPxLabel>
+            
+        </span><span>
+            <dx:ASPxComboBox ID="cmbWorkPlace" runat="server"  Width="100px"  
+            TextField="LOCATION_NAME" ValueField="LOCATION_KEY" ValueType="System.String"
+                AutoPostBack="True" 
+            onselectedindexchanged="cmbWorkPlace_SelectedIndexChanged">
+            </dx:ASPxComboBox>            
+        </span>
+               <span>
+         <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="产品类型">
+            </dx:ASPxLabel>           
+        </span><span>
+            <dx:aspxcombobox ID="cmbPartType" runat="server" Width="100px" 
+            AutoPostBack="false" 
+            TextField="PROMODEL_NAME" ValueField="PROMODEL_NAME">
+            </dx:aspxcombobox>       
+        </span>
+        <span>
+         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="开始时间">
+            </dx:ASPxLabel>
+         
+        </span><span>
+            <dx:ASPxDateEdit ID="startDate" runat="server" Width="100px">
+            </dx:ASPxDateEdit>          
+        </span>
+        <span>
+          <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="结束时间">
+            </dx:ASPxLabel>
+       </span>
+            <span>
+               <dx:ASPxDateEdit ID="endDate" runat="server" Width="100px">
+            </dx:ASPxDateEdit>               
+            </span>
+           <span>
+         <dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="产品ID号">
+            </dx:ASPxLabel>           
+        </span><span>      
+            <dx:aspxcombobox ID="cmbProId" runat="server" Width="100px" 
+            TextField="PRODUCT_CODE" ValueField="PRODUCT_CODE">
+            </dx:aspxcombobox>          
+        </span>
+        <span>
+         <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="工单号">
+            </dx:ASPxLabel>           
+        </span><span>
+            <dx:aspxcombobox ID="cmbWo" runat="server" Width="100px" 
+            TextField="WORK_ORDER_NO" ValueField="WORK_ORDER_NO">
+            </dx:aspxcombobox>        
+        </span>  
+        <span>
+            <asp:Button ID="btnQuery" runat="server" Text="查 询" 
+            onclick="btnQuery_Click"/>
+        </span>    
+    </div>   
+    </div>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server"> 
+    <ContentTemplate>
+    <div class="gridview">
+       <div class="gridbar" style=" color:Black;">                
+                <asp:LinkButton ID="ibtnAdd" CssClass="actbutton"  
+                    CausesValidation="false"  runat="server" Enabled="true"  Visible=true 
+                    onclick="ibtnAdd_Click" >
+                <img src="../images/document-add.png" />新增</asp:LinkButton> 
+                  <asp:LinkButton ID="LinkButton1" CssClass="actbutton"  
+                    CausesValidation="false"  runat="server" Enabled="true"  Visible=true 
+                    onclick="ibtnSubmit_Click">
+                <img src="../images/edit-save.png" />保存</asp:LinkButton>                                        
+        </div>
+    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False"  CssClass="grid"  
+            DataKeyNames="PLANID" ondatabound="grid_DataBound" 
+            onrowdatabound="grid_RowDataBound" >
+        <Columns>          
+            <asp:TemplateField HeaderText="计划日期">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PLAN_DATE") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>        
+                     <asp:TextBox ID="txtPlanDate" runat="server" class="required" Text='<%# Bind("PLAN_DATE") %>' Width="120"></asp:TextBox>                                                                   
+                </ItemTemplate>
+            </asp:TemplateField>
+             <asp:TemplateField HeaderText="班别">
+                  <EditItemTemplate>
+                      <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("SHIFT_VALUE") %>'></asp:TextBox>
+                  </EditItemTemplate>
+                  <ItemTemplate>
+                      <asp:DropDownList ID="ddlShift_Value" runat="server"
+                          DataTextField="SHIFT_VALUE" DataValueField="SHIFT_VALUE" Width="60" class="required" >
+                      </asp:DropDownList>  
+                      <asp:HiddenField ID="hiddenShift_Value" runat="server" Value='<%# Bind("SHIFT_VALUE") %>' />                                             
+                  </ItemTemplate>
+            </asp:TemplateField>
+              <asp:TemplateField HeaderText="车间名称">
+                  <EditItemTemplate>
+                      <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("LOCATION_NAME") %>'></asp:TextBox>
+                  </EditItemTemplate>
+                  <ItemTemplate>
+                   <asp:TextBox ID="txtLocationName" runat="server" class="required" Text='<%# Bind("LOCATION_NAME") %>' Width="100"></asp:TextBox>                            
+                  </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="产品类型">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("PART_TYPE") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                 <asp:TextBox ID="txtPartType" runat="server" class="required" Text='<%# Bind("PART_TYPE") %>' Width="100"></asp:TextBox>                      
+                </ItemTemplate>
+            </asp:TemplateField>
+                 <asp:TemplateField HeaderText="工单号">
+                <EditItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("WORK_ORDER_NO") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                 <asp:TextBox ID="txtWoInput" runat="server" class="required" Text='<%# Bind("WORK_ORDER_NO") %>'></asp:TextBox>                   
+                </ItemTemplate>
+            </asp:TemplateField> 
+                 <asp:TemplateField HeaderText="产品ID号">
+                <EditItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("PRO_ID") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                 <asp:TextBox ID="txtProIdInput" runat="server" class="required" Text='<%# Bind("PRO_ID") %>' Width="120"></asp:TextBox>                   
+                </ItemTemplate>
+            </asp:TemplateField>                    
+            <asp:TemplateField HeaderText="组件日投入量">
+                <EditItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("QUANTITY_INPUT") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                 <asp:TextBox ID="txtQtyInput" runat="server" class="required number" Text='<%# Bind("QUANTITY_INPUT") %>'></asp:TextBox>                   
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="日出组件量">
+                <EditItemTemplate>
+                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("QUANTITY_OUTPUT") %>'></asp:Label>                    
+                </EditItemTemplate>
+                <ItemTemplate>
+                   <asp:TextBox ID="txtQtyOutput" runat="server" class="required number" Text='<%# Bind("QUANTITY_OUTPUT") %>'></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+    </div>
+    </ContentTemplate>
+       </asp:UpdatePanel>
+</asp:Content>
+

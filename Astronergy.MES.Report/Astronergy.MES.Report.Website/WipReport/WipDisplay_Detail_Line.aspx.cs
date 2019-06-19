@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DevExpress.Web;
+using System.Data;
+using DevExpress.Data;
+using Astronergy.MES.Report.DataAccess;
+
+/// <summary>
+/// 工序在制品分布明细报表。
+/// </summary>
+public partial class WipReport_WipDisplay_Detail_Line : System.Web.UI.Page
+{
+    private WipDisplayDataAccess_Line wipInstance = new WipDisplayDataAccess_Line();
+    /// <summary>
+    /// 页面载入事件。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            wipInstance.ProId = Server.UrlDecode(Request.QueryString["proid"].ToString());
+            wipInstance.FactoryRoomKey = Server.UrlDecode(Request.QueryString["Factory"].ToString());
+            wipInstance.WorkOrderNumberKey = Server.UrlDecode(Request.QueryString["WorkOrderNumberKey"].ToString());
+            wipInstance.Hours = Convert.ToInt32(Request.QueryString["Hours"]);
+            wipInstance.OnLineHours = Convert.ToInt32(Request.QueryString["OnlineHours"]);
+            wipInstance.Oprline = Server.UrlDecode(Request.QueryString["Oprline"].ToString());
+            string stepName = Server.UrlDecode(Request.QueryString["RouteID"].ToString());
+            string status = Server.UrlDecode(Request.QueryString["status"].ToString());
+            string partNumber = Server.UrlDecode(Request.QueryString["partNumber"].ToString());
+            if (stepName.Equals("合计")) stepName = string.Empty;
+
+            DataTable dt = wipInstance.GetWIPDetail(stepName, status,partNumber);
+            this.gvResults.DataSource = dt;
+            this.gvResults.DataBind();
+            ViewState["dt"] = dt;
+            gvResults.TotalSummary.Clear();
+            ASPxSummaryItem lotCount = new ASPxSummaryItem();
+            lotCount.FieldName = "序列号";
+            lotCount.ShowInColumn = "序列号";
+            lotCount.DisplayFormat = "数量合计:{0}";
+            lotCount.SummaryType = SummaryItemType.Count;
+            gvResults.TotalSummary.Add(lotCount);
+
+            ASPxSummaryItem inSummary = new ASPxSummaryItem();
+            inSummary.FieldName = "电池片数量";
+            inSummary.ShowInColumn = "电池片数量";
+            inSummary.DisplayFormat = "数量合计:{0}";
+            inSummary.SummaryType = SummaryItemType.Sum;
+            gvResults.TotalSummary.Add(inSummary);
+        }
+    }
+
+    /// <summary>
+    /// 自定义显示文本。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void gvResults_CustomColumnDisplayText(object sender, ASPxGridViewColumnDisplayTextEventArgs e)
+    {
+        ASPxGridView gv = sender as ASPxGridView;
+        DataTable dt = gv.DataSource as DataTable;
+        if (dt != null && e.Column.Index == 0)
+        {
+            string lotKey = Convert.ToString(e.Value);
+            string url = string.Format(@"LotDataDetail.aspx?lotkey={0}", Server.UrlEncode(lotKey));
+            e.DisplayText = string.Format("<a href=\"{1}\" onmouseover=\"status='明细';return true\" title=\"明细\" target=\"_blank\" class=\"dxgv\" style=\"text-decoration:underline;\">{0}</a>",
+                                          e.Value, url);
+        }
+    }
+
+
+    /// <summary>
+    /// 导出到EXCEL。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnXlsExport_Click(object sender, EventArgs e)
+    {
+        DataTable dtLotData = (DataTable)ViewState["dt"];
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AppendHeader("content-disposition", "attachment;filename=\"WipDisplayDetail_Line.xls\"");
+        Response.ContentType = "Application/ms-excel";
+        Export.ExportToExcel(Response.OutputStream, dtLotData);
+        Response.End();
+    }
+
+    protected void gvResults_BeforeColumnSortingGrouping(object sender, ASPxGridViewBeforeColumnGroupingSortingEventArgs e)
+    {
+        this.gvResults.DataSource = (DataTable)ViewState["dt"];
+        this.gvResults.DataBind();
+    }
+
+    protected void gvResults_PageIndexChanged(object sender, EventArgs e)
+    {
+        this.gvResults.DataSource = (DataTable)ViewState["dt"];
+        this.gvResults.DataBind();
+    }
+}
