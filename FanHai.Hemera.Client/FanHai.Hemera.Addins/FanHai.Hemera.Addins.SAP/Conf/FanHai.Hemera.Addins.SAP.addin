@@ -1,0 +1,75 @@
+﻿<AddIn name        = "FanHai.Hemera.SAP"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, SAP"
+       addInManagerHidden = "true">
+
+  <Manifest>
+    <Identity name = "FanHai.Hemera.SAP" version = "@SolarViewerCoreVersion"/>
+    <Dependency name = "FanHai.Hemera.MM" addin="FanHai.Hemera.MM" version = "@SolarViewerCoreVersion" requirePreload="true"/>
+  </Manifest>
+
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.SAP.dll">
+    </Import >
+  </Runtime>
+
+ <!--工单管理-->
+  <Path name="/FanHaiFramework/Workbench/MainMenu/idBasis/idWorkOrderManagementMenu">
+    <!-- 工单获取 -->
+    <MenuItem id           = "idWorkOrderGet"
+              label        = "ERP工单"
+              icon         = ""
+              shortcut     = ""
+              insertbefore = ""
+              class        = "FanHai.Hemera.Addins.SAP.GetWorkOrderCommand"
+              privilegeId  = "2008000"/>
+    <!-- 工单维护 -->
+    <MenuItem   id           = "idWorkOrderManage"
+                label        = "工单维护"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idWorkOrderGet"
+                class        = "FanHai.Hemera.Addins.SAP.WorkOrderManageCommand"
+                privilegeId  = "2009000"/>
+  </Path>
+
+  <!-- Main Menu 3: 生产管理 -->
+  <!--<Path name = "/FanHaiFramework/Workbench/MainMenu/idMenuProcess">-->
+
+    <!-- 工单管理 -->
+    <!--<MenuItem   id           = "idWorkOrderSendQuery"
+                label        = "工单下发查询"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idWorkOrderManage"
+                insertbefore = "idSeparatorMenuWorkOrder"
+                class        = "FanHai.Hemera.Addins.SAP.WorkOrderSendQueryCommand"
+                privilegeId  = "3013000"/>-->
+    <!--<MenuItem id           = "idSeparatorMenuWorkOrder"
+              type         = "Separator"
+              insertafter  = "idWorkOrderSendQuery"
+              insertbefore = ""/>-->
+  <!--</Path>-->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idMenuMaterial">
+    <!--来料接收-->
+    <MenuItem id           = "idWorkOrderSendMaterial"
+                label        = "来料接收"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idManualReceiveMaterial"
+                insertbefore = "idWorkOrderReturn"
+                class        = "FanHai.Hemera.Addins.SAP.ReceiveMaterialCommand"
+                privilegeId  = "5001000"/>
+    <!--工单退料-->
+    <MenuItem   id           = "idWorkOrderReturn"
+                label        = "工单退料"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idWorkOrderSendMaterial"
+                insertbefore = "idUseMaterial"
+                class        = "FanHai.Hemera.Addins.SAP.WorkOrderReturnCommand"
+                privilegeId  = "5002000"/>
+  </Path>
+</AddIn>

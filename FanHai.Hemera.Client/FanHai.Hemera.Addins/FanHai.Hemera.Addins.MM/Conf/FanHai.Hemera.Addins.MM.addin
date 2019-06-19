@@ -1,0 +1,117 @@
+﻿<AddIn name        = "FanHai.Hemera.MM"
+       author      = "FanHai"
+       copyright   = "Copyright 2011"
+       url         = "http://www.FanHai.com.cn"
+       description = "FanHai Hemera MES System, Material Management"
+       addInManagerHidden = "true">
+  <Manifest>
+    <Identity name = "FanHai.Hemera.MM" version = "@SolarViewerCoreVersion"/>
+  </Manifest>
+  <Runtime>
+    <Import assembly="FanHai.Hemera.Addins.MM.dll">
+    </Import >
+  </Runtime>
+  <!-- Main Menu: 线上仓 -->
+  <Path name = "/FanHaiFramework/Workbench/MainMenu/idMaterial/idMaterialStoreMenu">
+    <!--领料-->
+    <MenuItem id           = "idManualReceiveMaterial"
+                label        = "硅片领用"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = ""
+                insertbefore = "idWorkOrderSendMaterial"
+                class        = "FanHai.Hemera.Addins.MM.ManualReceiveMaterialCommand"
+                privilegeId  = "3005000"/>
+    <!--在线库存查询-->
+    <MenuItem id           = "idOnlineMaterialQuery"
+                label        = "物料区库存"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idManualReceiveMaterial"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.OnlineMaterialQueryCommand"
+                privilegeId  = "3006000"/>
+    <!--批次退料查询-->
+    <MenuItem id           = "idReturnMaterialQuery"
+                label        = "退料查询"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idOnlineMaterialQuery"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.ReturnMaterialQueryCommand"
+                privilegeId  = "3007000"/>
+    <!--领料单-领料(仓库->线上仓)-->
+    <MenuItem id           = "idMaterialRequisition"
+                label        = "原材料领料"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idReturnMaterialQuery"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.MaterialRequisitionCommand"
+                privilegeId  = "3008000"/>
+    <!--退料单-退料(线上仓->仓库)-->
+    <MenuItem id           = "idReturnMaterial"
+                label        = "退回仓库"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idMaterialRequisition"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.ReturnMaterialCtrlCommand"
+                privilegeId  = "3009000"/>
+    <!--原材料发料-->
+    <MenuItem id           = "idSendingMaterial"
+                label        = "物料->设备"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idReturnMaterial"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.SendingMaterialCommand"
+                privilegeId  = "3010000"/>
+    <!--原材料退料-->
+    <MenuItem id           = "idSendingBackMaterial"
+                label        = "产线->物料"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idSendingMaterial"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.SendingBackMaterialCommand"
+                privilegeId  = "3011000"/>
+    <!--原材料清单-->
+    <MenuItem id           = "idMateriallist"
+                label        = "物料发放表"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idSendingBackMaterial"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.MaterialRequisitionAndReturnListCommand"
+                privilegeId  = "3012000"/>
+    <!--领料-退料清单-->
+    <MenuItem id           = "idMaterialRequisitionList"
+                label        = "仓库发料清单"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idMateriallist"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.MaterialRequisitionListCommand"
+                privilegeId  = "3013000"/>
+    <!--设备物料看板-->
+    <MenuItem id           = "idEquMateriallist"
+                label        = "物料需求"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idMaterialRequisitionList"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.EquipmentMatListCommand"
+                privilegeId  = "3014000"/>
+    <!--发料-退料清单-->
+    <MenuItem id           = "idSendMaterialList"
+                label        = "产线物料清单"
+                icon         = ""
+                shortcut     = ""
+                insertafter  = "idEquMateriallist"
+                insertbefore = ""
+                class        = "FanHai.Hemera.Addins.MM.SendMaterialListCommand"
+                privilegeId  = "3015000"/>
+
+  </Path>
+</AddIn>

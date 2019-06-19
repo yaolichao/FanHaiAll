@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{845B22E0-B7CC-487F-8244-8CC25EB6BD2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Addins.SAP</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Addins.SAP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\GetWorkOrderCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\GetWorkOrderCtrl.Designer.cs">
+      <DependentUpon>GetWorkOrderCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReceiveMaterialCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ReceiveMaterialCtrl.Designer.cs">
+      <DependentUpon>ReceiveMaterialCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderInfoListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderInfoListCtrl.Designer.cs">
+      <DependentUpon>WorkOrderInfoListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderInfoListDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderInfoListDialog.Designer.cs">
+      <DependentUpon>WorkOrderInfoListDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderManage.Designer.cs">
+      <DependentUpon>WorkOrderManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderMaterialReturnCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderMaterialReturnCtrl.Designer.cs">
+      <DependentUpon>WorkOrderMaterialReturnCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderMatRetListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderMatRetListCtrl.Designer.cs">
+      <DependentUpon>WorkOrderMatRetListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderMatRetListQueryDialogCtrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderMatRetListQueryDialogCtrl.Designer.cs">
+      <DependentUpon>WorkOrderMatRetListQueryDialogCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderSendQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderSendQuery.Designer.cs">
+      <DependentUpon>WorkOrderSendQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WorkOrderWorkForCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\WorkOrderWorkForCtrl.Designer.cs">
+      <DependentUpon>WorkOrderWorkForCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\GetWorkOrderCommand.cs" />
+    <Compile Include="Menu\ReceiveMaterialCommand.cs" />
+    <Compile Include="Menu\WorkOrderManageCommand.cs" />
+    <Compile Include="Menu\WorkOrderReturnCommand.cs" />
+    <Compile Include="Menu\WorkOrderWorkForCommand.cs" />
+    <Compile Include="Menu\WorkOrderSendQueryCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Src\GetWorkOrderViewContent.cs" />
+    <Compile Include="Src\ReceiveMaterialContent.cs" />
+    <Compile Include="Src\WorkOrderInfoListViewContent.cs" />
+    <Compile Include="Src\WorkOrderManageViewContent.cs" />
+    <Compile Include="Src\WorkOrderMatRetListViewContent.cs" />
+    <Compile Include="Src\WorkOrderReturnViewContent.cs" />
+    <Compile Include="Src\WorkOrderWorkForContent.cs" />
+    <Compile Include="Src\WorkOrderSendQueryViewContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Conf\FanHai.Hemera.Addins.SAP.addin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\arrow_refresh.png" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\document-add.png" />
+    <None Include="Resources\save_accept.png" />
+    <None Include="Resources\document-delete.png" />
+    <None Include="Resources\list_add2.png" />
+    <None Include="Resources\edit-save.png" />
+    <Content Include="Resources\setting.png" />
+    <Content Include="Resources\submit.png" />
+    <Content Include="Resources\system_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\GetWorkOrderCtrl.resx">
+      <DependentUpon>GetWorkOrderCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReceiveMaterialCtrl.resx">
+      <DependentUpon>ReceiveMaterialCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderInfoListCtrl.resx">
+      <DependentUpon>WorkOrderInfoListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderInfoListDialog.resx">
+      <DependentUpon>WorkOrderInfoListDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderManage.resx">
+      <DependentUpon>WorkOrderManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderMaterialReturnCtrl.resx">
+      <DependentUpon>WorkOrderMaterialReturnCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderMatRetListCtrl.resx">
+      <DependentUpon>WorkOrderMatRetListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderMatRetListQueryDialogCtrl.resx">
+      <DependentUpon>WorkOrderMatRetListQueryDialogCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderSendQuery.resx">
+      <DependentUpon>WorkOrderSendQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WorkOrderWorkForCtrl.resx">
+      <DependentUpon>WorkOrderWorkForCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework %28FanHai.Gui.Framework\FanHai.Gui.Framework%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanHai.Hemera.Addins.MM\FanHai.Hemera.Addins.MM.csproj">
+      <Project>{4FDC24AC-E203-4266-9E5C-745635C494E8}</Project>
+      <Name>FanHai.Hemera.Addins.MM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo -------SAP
+
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	       mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"          mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SAP"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SAP"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                        "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SAP" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                     "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SAP" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                            "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\SAP" /R /Y /Q /D</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4FDC24AC-E203-4266-9E5C-745635C494E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanHai.Hemera.Addins.MM</RootNamespace>
+    <AssemblyName>FanHai.Hemera.Addins.MM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraEditors.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FanHai.Gui.Framework\FanHai.Gui.Framework.StartUp\bin\Libs\DevExpress.XtraLayout.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gui\HandOverTheWatchCtrlList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\HandOverTheWatchCtrlList.Designer.cs">
+      <DependentUpon>HandOverTheWatchCtrlList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\OnlineMaterialQueryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\OnlineMaterialQueryCtrl.Designer.cs">
+      <DependentUpon>OnlineMaterialQueryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReceiveMaterialListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ReceiveMaterialListCtrl.Designer.cs">
+      <DependentUpon>ReceiveMaterialListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReceiveMaterialQryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ReceiveMaterialQryDialog.designer.cs">
+      <DependentUpon>ReceiveMaterialQryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReturnMaterialQueryCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ReturnMaterialQueryCtrl.Designer.cs">
+      <DependentUpon>ReturnMaterialQueryCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\UseMaterialCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\UseMaterialCtrl.Designer.cs">
+      <DependentUpon>UseMaterialCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\UseMaterialListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\UseMaterialListCtrl.Designer.cs">
+      <DependentUpon>UseMaterialListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\UseMaterialDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\UseMaterialDialog.designer.cs">
+      <DependentUpon>UseMaterialDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\HandOverTheWatchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\HandOverTheWatchDialog.designer.cs">
+      <DependentUpon>HandOverTheWatchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\HandOverTheWatchCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\HandOverTheWatchCtrl.Designer.cs">
+      <DependentUpon>HandOverTheWatchCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ManualReceiveMaterialCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ManualReceiveMaterialCtrl.Designer.cs">
+      <DependentUpon>ManualReceiveMaterialCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\BomMaterialInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\BomMaterialInputDialog.designer.cs">
+      <DependentUpon>BomMaterialInputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MaterialRequisitionCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MaterialRequisitionCtrl.Designer.cs">
+      <DependentUpon>MaterialRequisitionCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ReturnMaterialCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ReturnMaterialCtrl.Designer.cs">
+      <DependentUpon>ReturnMaterialCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SendingMaterialCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\SendingMaterialCtrl.Designer.cs">
+      <DependentUpon>SendingMaterialCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SendingBackMaterialCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\SendingBackMaterialCtrl.Designer.cs">
+      <DependentUpon>SendingBackMaterialCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MaterialRequisitionAndReturnListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MaterialRequisitionAndReturnListCtrl.Designer.cs">
+      <DependentUpon>MaterialRequisitionAndReturnListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MaterialRequisitionListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MaterialRequisitionListCtrl.Designer.cs">
+      <DependentUpon>MaterialRequisitionListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\EquipmentMatListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\EquipmentMatListCtrl.Designer.cs">
+      <DependentUpon>EquipmentMatListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\SendMaterialListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\SendMaterialListCtrl.Designer.cs">
+      <DependentUpon>SendMaterialListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\HandOverTheWatchCommand.cs" />
+    <Compile Include="Menu\OnlineMaterialQueryCommand.cs" />
+    <Compile Include="Menu\ReturnMaterialQueryCommand.cs" />
+    <Compile Include="Menu\UseMaterialCommand.cs" />
+    <Compile Include="Gui\OnlineMaterialQueryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\OnlineMaterialQueryDialog.Designer.cs">
+      <DependentUpon>OnlineMaterialQueryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\ManualReceiveMaterialCommand.cs" />
+    <Compile Include="Menu\MaterialRequisitionCommand.cs" />
+    <Compile Include="Menu\ReturnMaterialCtrlCommand.cs" />
+    <Compile Include="Menu\SendingMaterialCommand.cs" />
+    <Compile Include="Menu\MaterialRequisitionAndReturnListCommand.cs" />
+    <Compile Include="Menu\MaterialRequisitionListCommand.cs" />
+    <Compile Include="Menu\EquipmentMatListCommand.cs" />
+    <Compile Include="Menu\SendMaterialListCommand.cs" />
+    <Compile Include="Properties\GlobalAssemblyInfo.cs" />
+    <Compile Include="Src\HandOverTheWatchViewContent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Src\OnlineMaterialQueryViewContent.cs" />
+    <Compile Include="Src\ReceiveMaterialListViewContent.cs" />
+    <Compile Include="Src\ReturnMaterialQueryViewContent.cs" />
+    <Compile Include="Src\UseMaterialListCtrlContent.cs" />
+    <Compile Include="Src\UseMaterialViewContent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\HandOverTheWatchListContent.cs" />
+    <Compile Include="Src\ManualReceiveMaterialViewContent.cs" />
+    <Compile Include="Src\MaterialRequisitionViewContent.cs" />
+    <Compile Include="Src\ReturnMaterialCtrlViewContent.cs" />
+    <Compile Include="Src\SendingMaterialContent.cs" />
+    <Compile Include="Src\MaterialRequisitionAndReturnListContent.cs" />
+    <Compile Include="Src\MaterialRequisitionListContent.cs" />
+    <Compile Include="Src\EquipmentMatListContent.cs" />
+    <Compile Include="Src\SendMaterialListContent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\HandOverTheWatchCtrlList.resx">
+      <DependentUpon>HandOverTheWatchCtrlList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OnlineMaterialQueryCtrl.resx">
+      <DependentUpon>OnlineMaterialQueryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReceiveMaterialListCtrl.resx">
+      <DependentUpon>ReceiveMaterialListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReceiveMaterialQryDialog.resx">
+      <DependentUpon>ReceiveMaterialQryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReturnMaterialQueryCtrl.resx">
+      <DependentUpon>ReturnMaterialQueryCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\UseMaterialCtrl.resx">
+      <DependentUpon>UseMaterialCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\UseMaterialListCtrl.resx">
+      <DependentUpon>UseMaterialListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\UseMaterialDialog.resx">
+      <DependentUpon>UseMaterialDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\HandOverTheWatchDialog.resx">
+      <DependentUpon>HandOverTheWatchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\HandOverTheWatchCtrl.resx">
+      <DependentUpon>HandOverTheWatchCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\OnlineMaterialQueryDialog.resx">
+      <DependentUpon>OnlineMaterialQueryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ManualReceiveMaterialCtrl.resx">
+      <DependentUpon>ManualReceiveMaterialCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\BomMaterialInputDialog.resx">
+      <DependentUpon>BomMaterialInputDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MaterialRequisitionCtrl.resx">
+      <DependentUpon>MaterialRequisitionCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ReturnMaterialCtrl.resx">
+      <DependentUpon>ReturnMaterialCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SendingMaterialCtrl.resx">
+      <DependentUpon>SendingMaterialCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SendingBackMaterialCtrl.resx">
+      <DependentUpon>SendingBackMaterialCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MaterialRequisitionAndReturnListCtrl.resx">
+      <DependentUpon>MaterialRequisitionAndReturnListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MaterialRequisitionListCtrl.resx">
+      <DependentUpon>MaterialRequisitionListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\EquipmentMatListCtrl.resx">
+      <DependentUpon>EquipmentMatListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\SendMaterialListCtrl.resx">
+      <DependentUpon>SendMaterialListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Common\FanHai.Hemera.Share.Common.csproj">
+      <Project>{59FF5D3C-261A-490A-83F0-E1C84DB40433}</Project>
+      <Name>FanHai.Hemera.Share.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Constants\FanHai.Hemera.Share.Constants.csproj">
+      <Project>{8205E3EE-074B-4867-AA64-52CC42C4AC01}</Project>
+      <Name>FanHai.Hemera.Share.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FanHai.Hemera.Share\FanHai.Hemera.Share.Interface\FanHai.Hemera.Share.Interface.csproj">
+      <Project>{CF6E0DDF-5C16-4B3E-8A3A-AD018F768254}</Project>
+      <Name>FanHai.Hemera.Share.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Controls\FanHai.Hemera.Utils.Controls.csproj">
+      <Project>{0862190E-7F52-45F2-8D68-DC6484978E67}</Project>
+      <Name>FanHai.Hemera.Utils.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Common\FanHai.Hemera.Utils.Common.csproj">
+      <Project>{F149D1B8-4F04-49D3-85B4-D04669AFC3D4}</Project>
+      <Name>FanHai.Hemera.Utils.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Hemera.Utils\FanHai.Hemera.Utils.Entities\FanHai.Hemera.Utils.Entities.csproj">
+      <Project>{E78AB41B-92D3-4CDF-92B2-FBEB29808E38}</Project>
+      <Name>FanHai.Hemera.Utils.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Core\FanHai.Gui.Core.csproj">
+      <Project>{BF6450B1-6B80-431E-8E93-A45D486E6659}</Project>
+      <Name>FanHai.Gui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FanHai.Gui.Framework\FanHai.Gui.Framework\FanHai.Gui.Framework.csproj">
+      <Project>{76952B53-9112-4A68-A271-94C9EE83AA99}</Project>
+      <Name>FanHai.Gui.Framework %28FanHai.Gui.Framework\FanHai.Gui.Framework%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\FanHai.Hemera.Addins.MM.dll" />
+    <Content Include="bin\Debug\FanHai.Hemera.Addins.MM.pdb" />
+    <Content Include="Conf\FanHai.Hemera.Addins.MM.addin">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\document-add.png" />
+    <Content Include="Resources\document-delete.png" />
+    <Content Include="Resources\document_go.png" />
+    <Content Include="Resources\list_add2.png" />
+    <Content Include="Resources\print.png" />
+    <Content Include="Resources\save_accept.png" />
+    <Content Include="Resources\setting.png" />
+    <Content Include="Resources\toolstrip-bk.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\edit-save.png" />
+    <None Include="Resources\arrow_refresh.png" />
+    <None Include="Properties\GlobalAssemblyInfo.template" />
+    <None Include="Resources\system_search.png" />
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>echo --Create Client Folder Structures like following:
+echo --FanHai.Hemera.Bin.Debug
+echo ----Client
+echo ------Addins
+echo --------MM
+
+
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"   		         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"   	         mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"            mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins"
+if not exist  "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\MM"   mkdir "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\MM"
+
+echo --Copy compiled dll, debug pdb file and addin configuration file
+xcopy "$(TargetDir)$(TargetName).dll"                                                                 "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\MM" /R /Y /Q /D  
+xcopy "$(TargetDir)$(TargetName).pdb"                                                              "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\MM" /R /Y /Q /D
+xcopy "$(ProjectDir)Conf\$(ProjectName).addin"                                                   "$(SolutionDir)\..\FanHai.Hemera.Bin.Debug\Client\Addins\MM" /R /Y /Q /D</PostBuildEvent>
+    <PreBuildEvent>echo *** Execute UpdateAssembly file
+if not "$(ConfigurationName)"=="Release" exit
+if not exist "$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" exit
+"$(SolutionDir)..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.exe" --workdirectory ..\..\..\$(ProjectName) --filename $(ProjectFileName)</PreBuildEvent>
+  </PropertyGroup>
+</Project>
